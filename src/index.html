@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <a-scene>
+            <a-entity>
+                <a-text visible="false" value="Hello, A-Frame!" color="#BBB"
+                    position="-0.9 0.2 -3" scale="1.5 1.5 1.5"></a-text>
+
+                <a-entity position="-1 0 -25" move-test="speed: 4">
+                    <a-box  color="red" position="1 2 " scale="1 1  1"></a-box>
+                    <a-box color="blue" position="0 1 " scale="1 1  1"></a-box>
+                    <a-box color="green" position="2 1 0" scale="1 1  1"></a-box>
+                </a-entity>
+
+                <a-entity position="-1 0 -35" move-test="speed: 4">
+                    <a-box  color="red" position="1 1 0" scale="1 1  1"></a-box>
+                    <a-box color="blue" position="0 2 0" scale="1 1  1"></a-box>
+                    <a-box color="green" position="2 2 0" scale="1 1  1"></a-box>
+                </a-entity>
+
+                <a-entity environment="preset: default"></a-entity>
+
+                <!-- Player -->
+                <a-entity hit aabb-collider="objects: a-box;" hand-controls="left"></a-entity>
+                <a-entity hit aabb-collider="objects: a-box;" hand-controls="right"></a-entity>
+
+                <a-camera>
+                    <a-sphere scale="0.3 0.3 0.3" hit aabb-collider="objects: a-box;"></a-sphere>
+                </a-camera>
+            </a-entity>
+        </a-scene>
+    </body>
+</html>
