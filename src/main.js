@@ -3,6 +3,7 @@ import './hit';
 import './move';
 import './custom-reload';
 import './actions';
+import './components/delete-behind';
 
 import './levels/test-level';
 

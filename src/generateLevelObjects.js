@@ -6,6 +6,7 @@ export const generateBlock = (options) => {
   const entity = document.createElement('a-entity');
 
   entity.setAttribute('move', 'speed', options.speed);
+  entity.setAttribute('delete-behind', true);
 
   for (let i = 0; i < options.size; i++) {
     const element = document.createElement('a-box');
@@ -33,6 +34,7 @@ export const generateRandomLevel = () => {
   const entity = document.createElement('a-entity');
 
   entity.setAttribute('move', 'speed', 20);
+  entity.setAttribute('delete-behind', true);
 
   const objects = randomIntFromInterval(30, 50);
 

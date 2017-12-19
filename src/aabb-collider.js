@@ -45,10 +45,6 @@ AFRAME.registerComponent('aabb-collider', {
         var mesh = el.getObject3D('mesh');
         var self = this;
 
-        // boxes that fly far behind should disappear
-        var boxes = document.querySelectorAll('a-box');
-        // boxes.forEach(deleteIfBehind);
-
         // No mesh, no collisions
         if (!mesh) { return; }
         // Update the bounding box to account for rotations and
@@ -101,15 +97,6 @@ AFRAME.registerComponent('aabb-collider', {
           self.elMin.copy(boundingBox.min);
           self.elMax.copy(boundingBox.max);
         }
-
-        // elements that go behind camera should disappear to free memory
-        // #TODO: Should not delete every box, just the one that are behind Z
-        // function deleteIfBehind (boxElement) {
-        //   var entityBoxContainer = boxElement.parentNode;
-        //   if (entityBoxContainer.getAttribute('position').z > 200) {
-        //     entityBoxContainer.removeChild(boxElement);
-        //   }
-        // }
       };
     })()
   });
