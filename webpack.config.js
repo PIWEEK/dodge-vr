@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const PORT = process.env.PORT || 8080;
 const HOST = process.env.HOST || '0.0.0.0';
@@ -14,7 +15,8 @@ module.exports = {
     vendor: [
       'aframe',
       'aframe-extras',
-      'aframe-environment-component'
+      'aframe-environment-component',
+      'aframe-text-geometry-component'
     ],
     main: './src/main.js'
   },
@@ -48,7 +50,11 @@ module.exports = {
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
       minChunks: Infinity
-    })
+    }),
+    new CopyWebpackPlugin([
+      {from: 'src/assets', to: 'assets'}
+    ]),
+
   ],
   devServer: {
     port: METADATA.port,
