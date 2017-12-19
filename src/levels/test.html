@@ -5,18 +5,23 @@
     <a-entity position="-1 0 -25" move-test="speed: 4">
         <a-box  color="red" position="1 2 " scale="1 1  1"></a-box>
         <a-box color="blue" position="0 1 " scale="1 1  1"></a-box>
-        <a-box color="green" position="2 1 0" scale="1 1  1"></a-box>
+        <a-box class="bonus" color="green" position="2 1 0" scale="1 1  1"></a-box>
     </a-entity>
 
     <a-entity position="-1 0 -35" move-test="speed: 4">
         <a-box color="red" position="1 1 0" scale="1 1  1"></a-box>
         <a-box color="blue" position="0 2 0" scale="1 1  1"></a-box>
-        <a-box color="green" position="2 2 0" scale="1 1  1"></a-box>
+        <a-box class="bonus" color="green" position="2 2 0" scale="1 1  1"></a-box>
     </a-entity>
 
+    <a-text value="Lifes:" position="-11 10 -7" scale="5 5 5"></a-text>
+    <a-text id="lifes" value="3" position="-7.7 10 -7" scale="5 5 5 "></a-text>
+    <a-text value="Score:" position="-11 8.8 -7" scale="5 5 5"></a-text>
+    <a-text id="score" value="0" position="-7.7 8.8 -7" scale="5 5 5 "></a-text>
+
     <a-entity environment="
-    preset: tron; 
-    seed: 5; 
+    preset: tron;
+    seed: 5;
     gridColor: #1fd7d5;
     fog: 0;
     lighting: point;
@@ -27,6 +32,6 @@
     horizonColor: #1fd7d5;
     lightPosition: 0 0 0;
     "></a-entity>
-    <a-light type="ambient" color="#fff"></a-light>          
-    
+    <a-light type="ambient" color="#fff"></a-light>
+
 </a-entity>
