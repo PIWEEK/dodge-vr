@@ -18,7 +18,7 @@ export const generateRandomLevel = () => {
     const d = a + ' ' + b + ' ' + c;
     console.log(d);
     element.setAttribute('scale', d);
-    element.setAttribute('material', 'src: #cubeBlue; repeat: 3 3');
+    element.setAttribute('material', 'src: #cubeBlue; repeat: 2 2');
 
     const w = randomIntFromInterval(-100, 100);
     const h = randomIntFromInterval(0, 200);

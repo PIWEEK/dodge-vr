@@ -4,25 +4,23 @@
 
     <a-entity class="level"></a-entity>
 
-    <a-text value="Lifes:" position="-11 10 -7" scale="5 5 5"></a-text>
-    <a-text id="lifes" value="3" position="-7.7 10 -7" scale="5 5 5 "></a-text>
-    <a-text value="Score:" position="-11 8.8 -7" scale="5 5 5"></a-text>
-    <a-text id="score" value="0" position="-7.7 8.8 -7" scale="5 5 5 "></a-text>
-    <a-box scale="1 7 150" position="2.5 0.72 -0.015" material="src: #grid; repeat: 150 5"></a-box>
-    <a-box scale="1 7 150" position="-2.5 0.72 -0.015" material="src: #grid; repeat: 150 5"></a-box>
-    <a-box scale="4.1 1 150" position="0 4.75 -0.015" material="src: #grid; repeat: 5 150"></a-box>
-    <a-box scale="4.1 1 150" position="0 0 -0.015" material="src: #grid; repeat: 5 150"></a-box>
+    <a-text value="Lifes" position="-1.5 2.2 -2.82" rotation="0 90 0" scale="2 2 2"></a-text>
+    <a-text id="lifes"  position="-1.5 2.2 -4.1" rotation="0 90 0" scale="2 2 2"></a-text>
+    <a-text value="Score" position="-1.5 1.8 -2.82" rotation="0 90 0" scale="2 2 2"></a-text>
+    <a-text id="score" value="0" position="-1.5 1.8 -4.1" rotation="0 90 0" scale="2 2 2"></a-text>
+    <a-box scale="1 4 150" position="2 0.72 -0.015" material="src: #grid; repeat: 150 15"></a-box>
+    <a-box scale="1 4 150" position="-2 0.72 -0.015" material="src: #grid; repeat: 150 15"></a-box>
+    <a-box scale="4.1 1 150" position="0 3 -0.015" material="src: #grid; repeat: 15 150"></a-box>
+    <a-box scale="4.1 1 150" position="0 -1 -0.015" material="src: #grid; repeat: 15 150"></a-box>
+    <a-sphere scale="1 1 1" position="1 1 1" color="red"></a-sphere>
     <a-entity environment="
     preset: tron;
     seed: 5;
-    gridColor: #1fd7d5;
     fog: 0;
-    lighting: point;
-    horizonColor: #033c37;
     lighting: point;
     ground: none;
     dressing: none;
-    horizonColor: #1fd7d5;
+    horizonColor: #000000;
     lightPosition: 0 0 0;
     "></a-entity>
     <a-light type="ambient" color="#fff"></a-light>
