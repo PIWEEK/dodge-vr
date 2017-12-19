@@ -26,7 +26,7 @@ export const createMain = (htmls) => {
 };
 
 export const loadScene = function(scene, player) {
-  const promises = [scene, player]
+  const promises = [scene]
     .map(url => fetch(url).then(y => y.text()));
 
   Promise.all(promises)

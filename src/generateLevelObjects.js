@@ -2,27 +2,31 @@ function randomIntFromInterval(min,max) {
     return Math.floor(Math.random()*(max-min+1)+min);
 }
 
-export const generateBlock = (options) => {
-/*   const entity = document.createElement('a-entity');
+const createEntity = (options) => {
+  const entity = document.createElement('a-entity');
 
   entity.setAttribute('move', 'speed', options.speed);
   entity.setAttribute('delete-behind', true);
-  entity.setAttribute('geometry', 'primitive', 'box');
-  entity.setAttribute('geometry', 'width', '4');
-  entity.setAttribute('geometry', 'height', '2');
 
-  const elements = generateTemplate();
+  return entity;
+}
+
+export const generateTemplateBlock = (options) => {
+  const entity = createEntity(options);
+  const elements = generateTemplate(options);
 
   for (let element of elements) {
     entity.appendChild(element);
   }
 
-  entity.setAttribute('position', `-1 1 -50`); */
+  // position height is geometry height / 2
+  entity.setAttribute('position', `0 ${options.playArea.height / 2} -10`); 
 
-  const entity = document.createElement('a-entity');
+  return entity;
+};
 
-  entity.setAttribute('move', 'speed', options.speed);
-  entity.setAttribute('delete-behind', true);
+export const generateRandomBlock = (options) => {
+  const entity = createEntity(options);
 
   for (let i = 0; i < options.size; i++) {
     const element = document.createElement('a-box');
@@ -30,13 +34,12 @@ export const generateBlock = (options) => {
     const ew = randomIntFromInterval(25, 80) / 100;
     const eh = randomIntFromInterval(25, 80) / 100;
     const ez = randomIntFromInterval(500, 1000) / 100;
-
     element.setAttribute('scale', `${ew} ${eh} ${ez}`);
 
     element.setAttribute('material', 'src: #cubeBlue; repeat: 3 3');
 
     const pw = randomIntFromInterval(-100, 100);
-    const ph = randomIntFromInterval(0, 200);
+    const ph = randomIntFromInterval(eh, 200);
     const pz = options.creationPosition;
     element.setAttribute('position', `${pw / 100} ${ph / 100} ${pz}`); // w, h, z
 
@@ -47,11 +50,7 @@ export const generateBlock = (options) => {
 };
 
 export const generateRandomLevel = () => {
-  const entity = document.createElement('a-entity');
-
-  entity.setAttribute('move', 'speed', 20);
-  entity.setAttribute('delete-behind', true);
-
+  const entity = createEntity({speed: 20});
   const objects = randomIntFromInterval(30, 50);
 
   for (let i = 0; i < objects; i++) {
@@ -76,27 +75,21 @@ export const generateRandomLevel = () => {
   return entity;
 };
 
-export const generateTemplate = () => {
+export const generateTemplate = (options) => {
   const elements = [];
-  const rowSize = 4;
-  const columnSize = 4;
+  const rowSize = options.rowSize;
+  const columnSize = options.columnSize;
 
-  const width = 4;
-  const height = 4;
+  const width = options.playArea.width;
+  const height = options.playArea.height;
 
-  const template = `
-    xxxx
-    x---
-    x---
-    x---
-  `
+  const template = options.template
   .replace(/(\r\n|\n|\r)/gm,'') // remove break lines
   .replace(/ /g,''); // remove white spaces
 
-  console.log('--------------');
   for (let row = 0; row < rowSize; row++) {
     for (let column = 0; column < columnSize; column++) {
-      const char = (row * rowSize) + column;
+      const char = template[(row * rowSize) + column];
 
       if (char !== '-') {
         const element = document.createElement('a-box');
@@ -104,20 +97,23 @@ export const generateTemplate = () => {
         // size
         const ew = width / rowSize;
         const eh = height / columnSize;
-        const ez = randomIntFromInterval(500, 1000) / 100;
-        element.setAttribute('scale', `${ew} ${eh} ${ez}`);
+        const ed = randomIntFromInterval(500, 1000) / 100;
+        
+        element.setAttribute('width', ew);
+        element.setAttribute('height', eh);
+        element.setAttribute('depth', 1);
 
         element.setAttribute('material', 'src: #cubeBlue; repeat: 3 3');
 
+        const gridW = ew + ew / 2;
+        const gridH = eh + eh / 2;
 
-        const pw = (width / columnSize) * column;
-        const ph = (height / rowSize) * row;
+        const pw = -gridW + (column * ew);
+        const ph = gridH - (row * eh);
         const pz = 0;
 
-        console.log(pw, ph);
-        //element.setAttribute('position', `${pw / 100} ${ph / 100} ${pz}`); // w, h, z
-
-        element.setAttribute('position', `0 0 0`);
+        element.setAttribute('position', `${pw} ${ph} 
+        ${options.creationPosition}`);
 
         elements.push(element);
       }

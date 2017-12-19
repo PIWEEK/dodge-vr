@@ -1,21 +1,98 @@
 import { dispatch } from '../utils/state';
 import { systemEmmiter } from '../utils/system';
-import { generateRandomLevel, generateBlock } from '../generateLevelObjects';
+import { generateRandomLevel, generateRandomBlock, generateTemplateBlock } from '../generateLevelObjects';
+
+const templates = [
+  `
+    x--x
+    -x-x
+    ----
+    ---x
+  `,
+  `
+    x--x
+    xxxx
+    ----
+    ---x
+  `,  
+  `
+    xxxx
+    xxxx
+    -x--
+    ---x
+  `, 
+  `
+    xxxx
+    xxxx
+    xx--
+    ---x
+  `, 
+  `
+    x--x
+    x-xx
+    xx-x
+    x--x
+  `,    
+  `
+    -x-x
+    xx-x
+    -x-x
+    -x-x
+  `,   
+  `
+    -xx-
+    xxx-
+    -xxx
+    -xx-
+  `,    
+  `
+    xxxx
+    xxxx
+    ----
+    ----
+  `,    
+  `
+    xxxx
+    xxxx
+    xxxx
+    ----
+  `,  
+  `
+    xxxx
+    xxxx
+    -xxx
+    xxxx
+  `,        
+]
 
 AFRAME.registerComponent('test-level', {
   levelOptions: {
     creationPosition: -50,
-    phases: 6,
+    phases: 10,
     speed: [20, 30],
     size: [2, 10],
     interval: [3000, 300]
   },
   generateLevel: function() {
-    const levelEntity = generateBlock({
+    /*
+    const levelEntity = generateRandomBlock({
       speed: this.currentLevelOptions.speed,
       size: this.currentLevelOptions.size,
       creationPosition: this.levelOptions.creationPosition
     });
+    */
+    const levelEntity = generateTemplateBlock({
+      speed: this.currentLevelOptions.speed,
+      size: this.currentLevelOptions.size,
+      creationPosition: this.levelOptions.creationPosition,
+      rowSize: 4,
+      columnSize: 4,
+      playArea: {
+        width: 4,
+        height: 4
+      },
+      template: templates[this.currentLevelOptions.phase - 1]
+    });    
 
     this.level.appendChild(levelEntity);
 
