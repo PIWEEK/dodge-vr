@@ -3,6 +3,22 @@ function randomIntFromInterval(min,max) {
 }
 
 export const generateBlock = (options) => {
+/*   const entity = document.createElement('a-entity');
+
+  entity.setAttribute('move', 'speed', options.speed);
+  entity.setAttribute('delete-behind', true);
+  entity.setAttribute('geometry', 'primitive', 'box');
+  entity.setAttribute('geometry', 'width', '4');
+  entity.setAttribute('geometry', 'height', '2');
+
+  const elements = generateTemplate();
+
+  for (let element of elements) {
+    entity.appendChild(element);
+  }
+
+  entity.setAttribute('position', `-1 1 -50`); */
+
   const entity = document.createElement('a-entity');
 
   entity.setAttribute('move', 'speed', options.speed);
@@ -54,14 +70,59 @@ export const generateRandomLevel = () => {
     const z = randomIntFromInterval(-110, -400);
     element.setAttribute('position', `${w / 100} ${h / 100} ${z}`); // w, h, z
 
-    // random color
-    const min = {x: 0, y: 0, z: 0};
-    const max = {x: 1, y: 1, z: 1};
-
     entity.appendChild(element);
   }
 
   return entity;
 };
 
+export const generateTemplate = () => {
+  const elements = [];
+  const rowSize = 4;
+  const columnSize = 4;
 
+  const width = 4;
+  const height = 4;
+
+  const template = `
+    xxxx
+    x---
+    x---
+    x---
+  `
+  .replace(/(\r\n|\n|\r)/gm,'') // remove break lines
+  .replace(/ /g,''); // remove white spaces
+
+  console.log('--------------');
+  for (let row = 0; row < rowSize; row++) {
+    for (let column = 0; column < columnSize; column++) {
+      const char = (row * rowSize) + column;
+
+      if (char !== '-') {
+        const element = document.createElement('a-box');
+
+        // size
+        const ew = width / rowSize;
+        const eh = height / columnSize;
+        const ez = randomIntFromInterval(500, 1000) / 100;
+        element.setAttribute('scale', `${ew} ${eh} ${ez}`);
+
+        element.setAttribute('material', 'src: #cubeBlue; repeat: 3 3');
+
+
+        const pw = (width / columnSize) * column;
+        const ph = (height / rowSize) * row;
+        const pz = 0;
+
+        console.log(pw, ph);
+        //element.setAttribute('position', `${pw / 100} ${ph / 100} ${pz}`); // w, h, z
+
+        element.setAttribute('position', `0 0 0`);
+
+        elements.push(element);
+      }
+    }
+  }
+
+  return elements;
+};
