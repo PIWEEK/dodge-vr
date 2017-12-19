@@ -10,8 +10,39 @@
             <img id="textTure2" src="/assets/textture2.jpg">
             <a-mixin id="tronFont" src="/assets/tron_font.json"></a-mixin>
             <a-mixin id="boldFont" text="font: #optimerBoldFont"  material="color: #1fd7d5"></a-mixin>
-<!--             <audio id="song" src="/assets/song.mp3" autoplay loop></audio> -->
+            <!-- <audio id="song" src="/assets/song.mp3" autoplay loop></audio> -->
           </a-assets>
+
+          <a-entity
+            class="controller"
+            oculus-touch-controls="hand: left"
+            custom-reload
+            hit
+            aabb-collider="objects: a-box;">
+          </a-entity>
+
+          <a-entity
+            class="controller"
+            oculus-touch-controls="hand: right"
+            hit
+            aabb-collider="objects: a-box;">
+          </a-entity>
+
+          <a-entity
+            id="camera"
+            camera="userHeight: 1.6"
+            wasd-controls
+            position="0 0 0"
+            data-aframe-default-camera
+            look-controls>
+              <a-sphere
+              id="head"
+              color="red"
+              position="0 0 0"
+              scale="0.12 0.16 0"
+              hit
+              aabb-collider="objects: a-box;"></a-sphere>
+          </a-entity>
         </a-scene>
     </body>
 </html>

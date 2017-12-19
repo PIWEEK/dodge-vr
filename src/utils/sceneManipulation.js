@@ -1,7 +1,8 @@
 import 'whatwg-fetch';
 
 import { generateRandomLevel } from '../generateLevelObjects';
-import { state } from './state';
+import { state, dispatch } from './state';
+import { systemEmmiter } from './system'
 
 export const cleanScene = () => {
   const mainEntity = document.querySelector('.main-entity');
@@ -29,8 +30,7 @@ export const createMain = (htmls) => {
 
   scene.querySelector('.level').appendChild(level);
 
-  var secondCameraEl = document.querySelector('#camera');
-  secondCameraEl.setAttribute('camera', 'active', true);
+  systemEmmiter.emit('sceneLoaded');
 };
 
 export const loadScene = function(scene, player) {

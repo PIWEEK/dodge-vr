@@ -15,6 +15,7 @@
     "aframe-extras": "^3.13.1",
     "aframe-physics-system": "^2.1.0",
     "aframe-text-geometry-component": "^0.5.1",
+    "event-emitter": "^0.3.5",
     "rxjs": "^5.5.5",
     "whatwg-fetch": "^2.0.3"
   },

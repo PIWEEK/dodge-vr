@@ -9,7 +9,10 @@ AFRAME.registerComponent('hit', {
         .distinctUntilChanged()
         .subscribe((score) => {
           var scoreEl = document.querySelector('#score');
-          scoreEl.setAttribute('value', score);
+
+          if (scoreEl) {
+            scoreEl.setAttribute('value', score);
+          }
         });
     },
     play: function () {

@@ -1,23 +1,29 @@
+import { systemEmmiter } from './utils/system';
+
 AFRAME.registerComponent('aabb-collider', {
     schema: {
       objects: {default: ''},
       state: {default: 'collided'}
     },
-  
+
     init: function () {
       this.els = [];
       this.collisions = [];
       this.elMax = new THREE.Vector3();
       this.elMin = new THREE.Vector3();
+
+      systemEmmiter.on('sceneLoaded', () => {
+        this.update();
+      });
     },
-  
+
     /**
      * Update list of entities to test for collision.
      */
     update: function () {
       var data = this.data;
-      var objectEls;
-  
+      var objectEls = [];
+
       // Push entities into list of els to intersect.
       if (data.objects) {
         objectEls = this.el.sceneEl.querySelectorAll(data.objects);
@@ -25,10 +31,11 @@ AFRAME.registerComponent('aabb-collider', {
         // If objects not defined, intersect with everything.
         objectEls = this.el.sceneEl.children;
       }
+
       // Convert from NodeList to Array
       this.els = Array.prototype.slice.call(objectEls);
     },
-  
+
     tick: (function () {
       var boundingBox = new THREE.Box3();
       return function () {
@@ -55,7 +62,7 @@ AFRAME.registerComponent('aabb-collider', {
         });
         // Store new collisions
         this.collisions = collisions;
-  
+
         // AABB collision detection
         function intersect (el) {
           var intersected;
@@ -76,13 +83,13 @@ AFRAME.registerComponent('aabb-collider', {
           if (!intersected) { return; }
           collisions.push(el);
         }
-  
+
         function handleHit (hitEl) {
           hitEl.emit('hit');
           hitEl.addState(self.data.state);
           self.el.emit('hit', {el: hitEl});
         }
-  
+
         function updateBoundingBox () {
           boundingBox.setFromObject(mesh);
           self.elMin.copy(boundingBox.min);
