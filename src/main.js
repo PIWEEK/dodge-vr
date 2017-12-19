@@ -6,6 +6,7 @@ import './actions';
 import './components/delete-behind';
 
 import './levels/test-level';
+import './levels/main-menu';
 
 import { loadScene } from './utils/sceneManipulation';
 
@@ -21,8 +22,8 @@ navigator.getVRDisplays().then((vrdisplay) => {
     }
   });
 
-  loadScene('/levels/test.html', '/players/default.html');
-  // loadScene('/levels/main-menu.html', '/players/default.html');
+  // loadScene('/levels/test.html');
+  loadScene('/levels/main-menu.html');
 });
 
 

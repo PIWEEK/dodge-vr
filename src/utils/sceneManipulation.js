@@ -25,13 +25,13 @@ export const createMain = (htmls) => {
   systemEmmiter.emit('sceneLoaded');
 };
 
-export const loadScene = function(scene, player) {
+export const loadScene = function(scene,) {
   const promises = [scene]
     .map(url => fetch(url).then(y => y.text()));
 
   Promise.all(promises)
-  .then(([sceneHtml, playerHtml]) => {
+  .then(([sceneHtml]) => {
     cleanScene();
-    createMain([sceneHtml, playerHtml]);
+    createMain([sceneHtml]);
   });
 };
