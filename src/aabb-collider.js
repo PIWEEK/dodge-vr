@@ -47,7 +47,7 @@ AFRAME.registerComponent('aabb-collider', {
 
         // boxes that fly far behind should disappear
         var boxes = document.querySelectorAll('a-box');
-        boxes.forEach(deleteIfBehind);
+        // boxes.forEach(deleteIfBehind);
 
         // No mesh, no collisions
         if (!mesh) { return; }
