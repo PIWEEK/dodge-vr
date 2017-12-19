@@ -19,6 +19,9 @@ export const createMain = (htmls) => {
   }
 
   scene.appendChild(entity);
+
+  var secondCameraEl = document.querySelector('#camera');
+  secondCameraEl.setAttribute('camera', 'active', true);
 };
 
 export const loadScene = function(scene, player) {

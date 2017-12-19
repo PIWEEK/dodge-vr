@@ -11,11 +11,11 @@
   aabb-collider="objects: a-box;">
 </a-entity>
 
-<a-camera>
+<a-entity id="camera" camera="active: false" look-controls>
   <a-sphere
-    color="red"
-    position="0 0 0"
-    scale="0.12 0.16 0"
-    hit
-    aabb-collider="objects: a-box;"></a-sphere>
-</a-camera>
+  color="red"
+  position="0 0 0"
+  scale="0.12 0.16 0"
+  hit
+  aabb-collider="objects: a-box;"></a-sphere>
+</a-entity>
