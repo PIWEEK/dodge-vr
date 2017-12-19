@@ -1,7 +1,6 @@
 import { dispatch } from './utils/state';
 import { getState } from './utils/state';
 
-
 AFRAME.registerComponent('hit', {
     init: function() {
       getState()

@@ -1,6 +1,5 @@
 import 'whatwg-fetch';
 
-import { generateRandomLevel } from '../generateLevelObjects';
 import { state, dispatch } from './state';
 import { systemEmmiter } from './system'
 
@@ -23,13 +22,6 @@ export const createMain = (htmls) => {
   }
 
   scene.appendChild(entity);
-
-  const level = generateRandomLevel({
-    playArea: state.vrDisplay.stageParameters
-  });
-
-  scene.querySelector('.level').appendChild(level);
-
   systemEmmiter.emit('sceneLoaded');
 };
 

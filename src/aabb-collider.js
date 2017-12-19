@@ -12,7 +12,7 @@ AFRAME.registerComponent('aabb-collider', {
       this.elMax = new THREE.Vector3();
       this.elMin = new THREE.Vector3();
 
-      systemEmmiter.on('sceneLoaded', () => {
+      systemEmmiter.on('reloadCollisions', () => {
         this.update();
       });
     },

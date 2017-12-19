@@ -2,6 +2,33 @@ function randomIntFromInterval(min,max) {
     return Math.floor(Math.random()*(max-min+1)+min);
 }
 
+export const generateBlock = (options) => {
+  const entity = document.createElement('a-entity');
+
+  entity.setAttribute('move', 'speed', options.speed);
+
+  for (let i = 0; i < options.size; i++) {
+    const element = document.createElement('a-box');
+
+    const ew = randomIntFromInterval(25, 80) / 100;
+    const eh = randomIntFromInterval(25, 80) / 100;
+    const ez = randomIntFromInterval(500, 1000) / 100;
+
+    element.setAttribute('scale', `${ew} ${eh} ${ez}`);
+
+    element.setAttribute('material', 'src: #cubeBlue; repeat: 3 3');
+
+    const pw = randomIntFromInterval(-100, 100);
+    const ph = randomIntFromInterval(0, 200);
+    const pz = options.creationPosition;
+    element.setAttribute('position', `${pw / 100} ${ph / 100} ${pz}`); // w, h, z
+
+    entity.appendChild(element);
+  }
+
+  return entity;
+};
+
 export const generateRandomLevel = () => {
   const entity = document.createElement('a-entity');
 
@@ -11,12 +38,12 @@ export const generateRandomLevel = () => {
 
   for (let i = 0; i < objects; i++) {
     const element = document.createElement('a-box');
-    
+
     const a = randomIntFromInterval(25, 80) / 100;
     const b = randomIntFromInterval(25, 80) / 100;
     const c = randomIntFromInterval(100, 200) / 100;
     const d = a + ' ' + b + ' ' + c;
-    console.log(d);
+
     element.setAttribute('scale', d);
     element.setAttribute('material', 'src: #cubeBlue; repeat: 2 2');
 
@@ -33,7 +60,6 @@ export const generateRandomLevel = () => {
   }
 
   return entity;
-
-  // <a-box color="red" position="1 1 0" scale="1 1  1"></a-box>
-
 };
+
+

@@ -3,6 +3,9 @@ import './hit';
 import './move';
 import './custom-reload';
 import './actions';
+
+import './levels/test-level';
+
 import { loadScene } from './utils/sceneManipulation';
 
 import { createState, dispatch } from './utils/state';
