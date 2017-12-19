@@ -4,15 +4,22 @@
 
     <a-entity class="level"></a-entity>
 
+    <!-- Score and lifes -->
     <a-text value="Lifes" position="-1.5 2.2 -2.82" rotation="0 90 0" scale="2 2 2"></a-text>
     <a-text id="lifes"  position="-1.5 2.2 -4.1" rotation="0 90 0" scale="2 2 2"></a-text>
     <a-text value="Score" position="-1.5 1.8 -2.82" rotation="0 90 0" scale="2 2 2"></a-text>
     <a-text id="score" value="0" position="-1.5 1.8 -4.1" rotation="0 90 0" scale="2 2 2"></a-text>
+    
+    <!-- Tunnel -->
     <a-box scale="1 4 150" position="2 0.72 -0.015" material="src: #grid; repeat: 150 15"></a-box>
     <a-box scale="1 4 150" position="-2 0.72 -0.015" material="src: #grid; repeat: 150 15"></a-box>
     <a-box scale="4.1 1 150" position="0 3 -0.015" material="src: #grid; repeat: 15 150"></a-box>
     <a-box scale="4.1 1 150" position="0 -1 -0.015" material="src: #grid; repeat: 15 150"></a-box>
-    <a-sphere scale="1 1 1" position="1 1 1" color="red"></a-sphere>
+    
+    <!-- ScoreBall -->
+    <a-sphere scale="0.5 0.5 0.5" position="4 4 1" material="src: #ballTexture; repeat: 10 10" radius="1">
+      <a-light type="ambient" color="#13c490"></a-light>
+    </a-sphere>
     <a-entity environment="
     preset: tron;
     seed: 5;
