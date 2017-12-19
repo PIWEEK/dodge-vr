@@ -1,18 +1,8 @@
 <a-entity>
-    <a-text visible="false" value="Hello, A-Frame!" color="#BBB"
+    <a-text visible="false" value="Game Over" color="#BBB"
         position="-0.9 0.2 -3" scale="1.5 1.5 1.5"></a-text>
 
-    <a-entity position="-1 0 -25" move-test="speed: 4">
-        <a-box  color="red" position="1 2 " scale="1 1  1"></a-box>
-        <a-box color="blue" position="0 1 " scale="1 1  1"></a-box>
-        <a-box class="bonus" color="green" position="2 1 0" scale="1 1  1"></a-box>
-    </a-entity>
-
-    <a-entity position="-1 0 -35" move-test="speed: 4">
-        <a-box color="red" position="1 1 0" scale="1 1  1"></a-box>
-        <a-box color="blue" position="0 2 0" scale="1 1  1"></a-box>
-        <a-box class="bonus" color="green" position="2 2 0" scale="1 1  1"></a-box>
-    </a-entity>
+    <a-entity class="level"></a-entity>
 
     <a-text value="Lifes:" position="-11 10 -7" scale="5 5 5"></a-text>
     <a-text id="lifes" value="3" position="-7.7 10 -7" scale="5 5 5 "></a-text>

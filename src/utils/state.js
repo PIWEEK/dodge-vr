@@ -1,10 +1,11 @@
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 let stateSubject = null;
-let state = null;
+export let state = null;
 let actions = {};
 
 const defaultState = {
+  vrDisplay: null,
   score: 0
 };
 

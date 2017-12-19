@@ -1,5 +1,8 @@
 import 'whatwg-fetch';
 
+import { generateRandomLevel } from '../generateLevelObjects';
+import { state } from './state';
+
 export const cleanScene = () => {
   const mainEntity = document.querySelector('.main-entity');
 
@@ -19,6 +22,12 @@ export const createMain = (htmls) => {
   }
 
   scene.appendChild(entity);
+
+  const level = generateRandomLevel({
+    playArea: state.vrDisplay.stageParameters
+  });
+
+  scene.querySelector('.level').appendChild(level);
 
   var secondCameraEl = document.querySelector('#camera');
   secondCameraEl.setAttribute('camera', 'active', true);
