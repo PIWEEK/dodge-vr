@@ -11,7 +11,13 @@
   aabb-collider="objects: a-box;">
 </a-entity>
 
-<a-entity id="camera" camera="active: false" look-controls>
+<a-entity
+  id="camera"
+  camera="active: false"
+  wasd-controls
+  position="0 0 0"
+  data-aframe-default-camera
+  look-controls>
   <a-sphere
   color="red"
   position="0 0 0"
@@ -19,3 +25,4 @@
   hit
   aabb-collider="objects: a-box;"></a-sphere>
 </a-entity>
+
