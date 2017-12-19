@@ -103,12 +103,13 @@ AFRAME.registerComponent('aabb-collider', {
         }
 
         // elements that go behind camera should disappear to free memory
-        function deleteIfBehind (boxElement) {
-          var entityBoxContainer = boxElement.parentNode;
-          if (entityBoxContainer.getAttribute('position').z > 10) {
-            entityBoxContainer.removeChild(boxElement);
-          }
-        }
+        // #TODO: Should not delete every box, just the one that are behind Z
+        // function deleteIfBehind (boxElement) {
+        //   var entityBoxContainer = boxElement.parentNode;
+        //   if (entityBoxContainer.getAttribute('position').z > 200) {
+        //     entityBoxContainer.removeChild(boxElement);
+        //   }
+        // }
       };
     })()
   });
