@@ -60,7 +60,7 @@ const templates = [
   `
     xxxx
     xxxx
-    -xxx
+    xx-x
     xxxx
   `,        
 ]
@@ -83,14 +83,13 @@ AFRAME.registerComponent('test-level', {
     */
     const levelEntity = generateTemplateBlock({
       speed: this.currentLevelOptions.speed,
-      size: this.currentLevelOptions.size,
       creationPosition: this.levelOptions.creationPosition,
       rowSize: 4,
       columnSize: 4,
       playArea: {
         width: 4,
         height: 4
-      },
+      },      
       template: templates[this.currentLevelOptions.phase - 1]
     });    
 
