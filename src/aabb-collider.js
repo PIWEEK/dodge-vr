@@ -22,6 +22,7 @@ AFRAME.registerComponent('aabb-collider', {
      */
     update: function () {
       var data = this.data;
+
       var objectEls = [];
 
       // Push entities into list of els to intersect.
@@ -43,6 +44,11 @@ AFRAME.registerComponent('aabb-collider', {
         var el = this.el;
         var mesh = el.getObject3D('mesh');
         var self = this;
+
+        // boxes that fly far behind should disappear
+        var boxes = document.querySelectorAll('a-box');
+        boxes.forEach(deleteIfBehind);
+
         // No mesh, no collisions
         if (!mesh) { return; }
         // Update the bounding box to account for rotations and
@@ -94,6 +100,14 @@ AFRAME.registerComponent('aabb-collider', {
           boundingBox.setFromObject(mesh);
           self.elMin.copy(boundingBox.min);
           self.elMax.copy(boundingBox.max);
+        }
+
+        // elements that go behind camera should disappear to free memory
+        function deleteIfBehind (boxElement) {
+          var entityBoxContainer = boxElement.parentNode;
+          if (entityBoxContainer.getAttribute('position').z > 10) {
+            entityBoxContainer.removeChild(boxElement);
+          }
         }
       };
     })()
