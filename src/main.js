@@ -5,9 +5,6 @@ import './custom-reload';
 import './actions';
 import './components/delete-behind';
 
-import './levels/test-level';
-import './levels/main-menu';
-
 import { loadScene } from './utils/sceneManipulation';
 
 import { createState, dispatch } from './utils/state';
