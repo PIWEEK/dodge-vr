@@ -19,15 +19,18 @@ export function startLevel(level, phases, options) {
   options.delay = options.delay | 1000;
   options.creationPosition = options.creationPosition | -50;
   options.speed = options.speed | 20;
+  options.depth = options.depth | 1;
 
   const generateLevel = () => {
     const phase = phases[currentPhase];
     const delay = phase.options.delay || options.delay;
+    const depth = phase.options.depth || options.depth;
     const creationPosition = phase.options.creationPosition || options.creationPosition;
     const speed = phase.options.speed || options.speed;
 
     const levelEntity = generateTemplateBlock({
       speed: speed,
+      depth: depth,
       creationPosition: creationPosition,
       rowSize: options.rowSize,
       columnSize: options.columnSize,
@@ -172,7 +175,7 @@ export const generateTemplate = (options) => {
 
         element.setAttribute('width', ew);
         element.setAttribute('height', eh);
-        element.setAttribute('depth', 1);
+        element.setAttribute('depth', options.depth);
 
         const pw = (column * ew) - (width / 2 - (ew / 2));
         const ph = (height / 2 - (eh / 2)) - (row * eh);
