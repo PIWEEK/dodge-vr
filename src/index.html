@@ -1,9 +1,10 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <script src="aframe-physics-system.js"></script>
     </head>
     <body>
-        <a-scene>
+        <a-scene physics="debug: true">
           <a-assets>
             <a-asset-item id="optimerBoldFont" src="/assets/night_font.json"></a-asset-item>
             <img id="textTure" src="/assets/textture.jpg">
@@ -18,7 +19,7 @@
           </a-assets>
 
           <a-entity menu-collider>
-            <a-entity 
+            <a-entity
               class="laser"
               visible="false"
               laser-controls="hand: left">
@@ -26,19 +27,19 @@
           </a-entity>
 
           <a-entity
-            class="controller controller-left"
+            class="controller controller-leftgr"
             hand-controls="left"
             custom-reload
             hit
-            aabb-collider="objects: a-box;"            
+            aabb-collider="objects: a-box;"
           ></a-entity>
           <a-entity
             class="controller"
             hand-controls="right"
             hit
-            aabb-collider="objects: a-box;"            
-          ></a-entity>          
-        
+            aabb-collider="objects: a-box;"
+          ></a-entity>
+
           <a-entity
             id="camera"
             camera="userHeight: 1.6"

@@ -11,6 +11,8 @@ import './levels/main-menu';
 import { loadScene } from './utils/sceneManipulation';
 
 import { createState, dispatch } from './utils/state';
+
+require('aframe-physics-system');
 createState();
 
 navigator.getVRDisplays().then((vrdisplay) => {
@@ -22,8 +24,8 @@ navigator.getVRDisplays().then((vrdisplay) => {
     }
   });
 
-  // loadScene('/levels/test.html');
-  loadScene('/levels/main-menu.html');
+  loadScene('/levels/test2.html');
+  // loadScene('/levels/main-menu.html');
 });
 
 

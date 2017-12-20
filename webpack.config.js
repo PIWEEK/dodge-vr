@@ -17,6 +17,7 @@ module.exports = {
       'aframe-extras',
       'aframe-environment-component',
       'aframe-text-geometry-component',
+      'aframe-physics-system',
       'rxjs'
     ],
     main: './src/main.js'
