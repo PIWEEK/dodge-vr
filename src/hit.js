@@ -17,9 +17,13 @@ AFRAME.registerComponent('hit', {
       var hitEl = evt.detail.el;
       if (!hitEl) return;
 
-      if (hitEl.classList.contains('block') && !hitEl.classList.contains('hit')) {
+      if (
+        hitEl.classList.contains('block') &&
+        !hitEl.parentNode.classList.contains('entityhit') &&
+        !hitEl.classList.contains('hit')) {
         // decrease player's lives when a new collision is detected
         hitEl.classList.add('hit');
+        hitEl.parentNode.classList.add('entityhit')
         dispatch('decreaseLives', 1);
 
       } else if (hitEl.classList.contains('bonus') && !hitEl.classList.contains('hit')) {
