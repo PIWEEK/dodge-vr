@@ -525,6 +525,8 @@ AFRAME.registerComponent('test-level', {
         width: state.vrDisplay.stageParameters.sizeX,
         height: 2
       },
-    });
+    }).then(() => {
+      dispatch('setShowScore', true);
+    })
   }
 });

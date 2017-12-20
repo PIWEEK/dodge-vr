@@ -30,3 +30,11 @@ registerAction('setIsVr', (state, payload) => {
 registerAction('vrDisplay', (state, payload) => {
   state.vrDisplay = payload;
 });
+
+registerAction('setShowScore', (state, payload) => {
+  state.showScore = payload;
+});
+
+registerAction('setSelectionMode', (state, payload) => {
+  state.selectionMode = payload;
+});

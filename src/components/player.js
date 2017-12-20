@@ -31,5 +31,18 @@ AFRAME.registerComponent('player', {
             scoreEl.setAttribute('value', score);
           }
         });
+
+        getState()
+        .map((state) => state.selectionMode)
+        .distinctUntilChanged()
+        .subscribe((selectionMode) => {
+          const laser = this.el.querySelector('.laser');
+          if (selectionMode) {
+            laser.setAttribute('visible', true);
+            laser.setAttribute('raycaster', 'objects', selectionMode);
+          } else {
+            laser.setAttribute('visible', false);
+          }
+        });        
     }
   });

@@ -10,7 +10,9 @@ const defaultState = {
   gameOver: false,
   vrDisplay: null,
   score: 0,
-  lives: 3
+  lives: 3,
+  showScore: false,
+  selectionMode: null
 };
 
 export const createState = () => {

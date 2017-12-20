@@ -15,56 +15,60 @@ const createEntity = (options) => {
 }
 
 export function startLevel(level, phases, options) {
-  let currentPhase = 0;
-
-  options.delay = options.delay || 1000;
-  options.creationPosition = options.creationPosition || -50;
-  /// options.speed = options.speed | 20;
-  options.dur = options.dur || 3000;
-  options.depth = options.depth || 1;
-
-  const depths = phases
-    .filter((o) => o.options && o.options.depth)
-    .map((o) => o.options.depth);
-
-  const maxDepth = Math.max.apply(Math, depths) || options.depth;
-
-  const generateLevel = () => {
-    const phase = phases[currentPhase];
-    const delay = phase.options.delay || options.delay;
-    const depth = phase.options.depth || options.depth;
-    const creationPosition = phase.options.creationPosition || options.creationPosition;
-    const dur = phase.options.dur || options.dur;
-    const animations = phase.options.animations || [];
-    // const speed = phase.options.speed || options.speed;
-
-    const levelEntity = generateTemplateBlock({
-      // speed: speed,
-      dur: dur,
-      depth: depth,
-      creationPosition: creationPosition,
-      rowSize: options.rowSize,
-      columnSize: options.columnSize,
-      playArea: options.playArea,
-      template: phase.template,
-      maxDepth: maxDepth,
-      animations: animations
-    });
-
-    // performance 1
-    // levelEntity.setAttribute('move', 'depth', maxDepth);
-
-    level.appendChild(levelEntity);
-    systemEmmiter.emit('reloadCollisions');
-
-    if (currentPhase + 1 < phases.length) {
-      currentPhase++;
-
-      setTimeout(generateLevel, delay);
+  return new Promise((resolve) => {
+    let currentPhase = 0;
+  
+    options.delay = options.delay || 1000;
+    options.creationPosition = options.creationPosition || -50;
+    /// options.speed = options.speed | 20;
+    options.dur = options.dur || 3000;
+    options.depth = options.depth || 1;
+  
+    const depths = phases
+      .filter((o) => o.options && o.options.depth)
+      .map((o) => o.options.depth);
+  
+    const maxDepth = Math.max.apply(Math, depths) || options.depth;
+  
+    const generateLevel = () => {
+      const phase = phases[currentPhase];
+      const delay = phase.options.delay || options.delay;
+      const depth = phase.options.depth || options.depth;
+      const creationPosition = phase.options.creationPosition || options.creationPosition;
+      const dur = phase.options.dur || options.dur;
+      const animations = phase.options.animations || [];
+      // const speed = phase.options.speed || options.speed;
+  
+      const levelEntity = generateTemplateBlock({
+        // speed: speed,
+        dur: dur,
+        depth: depth,
+        creationPosition: creationPosition,
+        rowSize: options.rowSize,
+        columnSize: options.columnSize,
+        playArea: options.playArea,
+        template: phase.template,
+        maxDepth: maxDepth,
+        animations: animations
+      });
+  
+      // performance 1
+      // levelEntity.setAttribute('move', 'depth', maxDepth);
+  
+      level.appendChild(levelEntity);
+      systemEmmiter.emit('reloadCollisions');
+  
+      if (currentPhase + 1 < phases.length) {
+        currentPhase++;
+  
+        setTimeout(generateLevel, delay);
+      } else {
+        setTimeout(resolve, dur + 1000);
+      }
     }
-  }
-
-  generateLevel();
+  
+    generateLevel();
+  });
 }
 
 export const generateTemplateBlock = (options) => {

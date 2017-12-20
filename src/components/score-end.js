@@ -1,21 +1,19 @@
-import { getState, state } from '../utils/state';
+import { getState, state, dispatch } from '../utils/state';
 import { loadScene } from '../utils/sceneManipulation';
 
-AFRAME.registerComponent('game-over', {
+AFRAME.registerComponent('score-end', {
     init: function() {
       this.el.setAttribute('visible', false);
 
       getState()
-        .map((state) => state.gameOver)
+        .map((state) => state.showScore)
         .distinctUntilChanged()
-        .subscribe((gameOver) => {
-          if (gameOver) {
-            setTimeout(() => {
-              this.el.setAttribute('visible', true);
-            }, 1000);
+        .subscribe((showScore) => {
+          if (showScore) {
+            this.el.querySelector('.score-text').setAttribute('value', `Your score: ${state.score}`)
+            this.el.setAttribute('visible', true);
 
-            dispatch('setSelectionMode', '.game-over-action');
-            loadScene('/levels/game-over.html');
+            dispatch('setSelectionMode', '.score-end-action');
           } else {
             this.el.setAttribute('visible', false);
           }
@@ -36,10 +34,12 @@ AFRAME.registerComponent('game-over', {
 
       retry.addEventListener('click', (e) => {
         loadScene('/levels/test.html');
+        dispatch('setShowScore', false);
       });
 
       quit.addEventListener('click', (e) => {
         loadScene('/levels/main-menu.html');
+        dispatch('setShowScore', false);
       });
     }
   });
