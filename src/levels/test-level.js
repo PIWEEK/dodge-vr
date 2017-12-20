@@ -3,250 +3,239 @@ import { systemEmmiter } from '../utils/system';
 import { startLevel, generateRandomLevel, generateRandomBlock, generateTemplateBlock } from '../generateLevelObjects';
 
 const phases = [
-  {
-    template: `
-      xx--
-      xx--
-      xx--
-      xx--
-    `,
-    options: {
-      delay: 1000
-      // speed
-      // creationPosition
-    }
-  },
-  {
-    template: `
-      --xx
-      --xx
-      --xx
-      --xx
-    `,
-    options: {
-      delay: 1000
-    }
-  },
-  {
-    template: `
-      ----
-      ----
-      xxxx
-      xxxx
-    `,
-    options: {
-      delay: 1000
-    }
-  },
-  {
-    template: `
-      xxxx
-      xxxx
-      ----
-      ----
-    `,
-    options: {
-      delay: 1000
-    }
-  },
-  {
-    template: `
-      ----
-      ---x
-      --xx
-      -xxx
-    `,
-    options: {
-      delay: 1000
-    }
-  },
-  {
-    template: `
-      xxxx
-      ----
-      ----
-      xxxx
-    `,
-    options: {
-      delay: 800
-    }
-  },
-  {
-    template: `
-      xx--
-      xx--
-      xxxx
-      xxxx
-    `,
-    options: {
-      delay: 800
-    }
-  },
-  {
-    template: `
-      xxxx
-      --xx
-      --xx
-      xxxx
-    `,
-    options: {
-      delay: 800
-    }
-  },
-  {
-    template: `
-      ----
-      --p-
-      ----
-      ----
-    `,
-    options: {
-      delay: 400
-    }
-  },
-  {
-    template: `
-      ---p
-      ----
-      ----
-      ----
-    `,
-    options: {
-      delay: 400
-    }
-  },
-  {
-    template: `
-      ----
-      ---p
-      ----
-      ----
-    `,
-    options: {
-      delay: 400
-    }
-  },
-  {
-    template: `
-      ----
-      ----
-      ---p
-      ----
-    `,
-    options: {
-      delay: 400
-    }
-  },
-  {
-    template: `
-      ----
-      ----
-      ----
-      -p--
-    `,
-    options: {
-      delay: 400
-    }
-  },
-  {
-    template: `
-      ----
-      -p--
-      ----
-      ----
-    `,
-    options: {
-      delay: 1000
-    }
-  },
-  {
-    template: `
-      xx-x
-      xx-x
-      xx-x
-      xx-x
-    `,
-    options: {
-      delay: 800
-    }
-  },
-  {
-    template: `
-      x-xx
-      x-xx
-      x-xx
-      x-xx
-    `,
-    options: {
-      delay: 1100
-    }
-  },
-  {
-    template: `
-      -xxx
-      -xxx
-      -xxx
-      -xxx
-    `,
-    options: {
-      delay: 900
-    }
-  },
-  {
-    template: `
-      ----
-      --p-
-      --p-
-      ----
-    `,
-    options: {
-      delay: 600
-    }
-  },
-  {
-    template: `
-      xx-x
-      xx-x
-      xx-x
-      xx-x
-    `,
-    options: {
-      delay: 800
-    }
-  },
-  {
-    template: `
-      x-x-
-      x-x-
-      x-x-
-      x-x-
-    `,
-    options: {
-      delay: 1000
-    }
-  },
-  {
-    template: `
-      -x-x
-      -x-x
-      -x-x
-      -x-x
-    `,
-    options: {
-      delay: 10000
-    }
-  },
-  {
-    template: `
-      xxxx
-      x--x
-      x--x
-      xxxx
-    `,
-    options: {
-      delay: 150
-    }
-  },
+  // {
+  //   template: `
+  //     xx--
+  //     xx--
+  //     xx--
+  //     xx--
+  //   `,
+  //   options: {
+  //     delay: 1000
+  //     // speed
+  //     // creationPosition
+  //   }
+  // },
+  // {
+  //   template: `
+  //     --xx
+  //     --xx
+  //     --xx
+  //     --xx
+  //   `,
+  //   options: {
+  //     delay: 1000
+  //   }
+  // },
+  // {
+  //   template: `
+  //     ----
+  //     ----
+  //     xxxx
+  //     xxxx
+  //   `,
+  //   options: {
+  //     delay: 1000
+  //   }
+  // },
+  // {
+  //   template: `
+  //     xxxx
+  //     xxxx
+  //     ----
+  //     ----
+  //   `,
+  //   options: {
+  //     delay: 1000
+  //   }
+  // },
+  // {
+  //   template: `
+  //     ----
+  //     ---x
+  //     --xx
+  //     -xxx
+  //   `,
+  //   options: {
+  //     delay: 1000
+  //   }
+  // },
+  // {
+  //   template: `
+  //     xxxx
+  //     ----
+  //     ----
+  //     xxxx
+  //   `,
+  //   options: {
+  //     delay: 800
+  //   }
+  // },
+  // {
+  //   template: `
+  //     xx--
+  //     xx--
+  //     xxxx
+  //     xxxx
+  //   `,
+  //   options: {
+  //     delay: 800
+  //   }
+  // },
+  // {
+  //   template: `
+  //     xxxx
+  //     --xx
+  //     --xx
+  //     xxxx
+  //   `,
+  //   options: {
+  //     delay: 800
+  //   }
+  // },
+  // {
+  //   template: `
+  //     ----
+  //     --p-
+  //     ----
+  //     ----
+  //   `,
+  //   options: {
+  //     delay: 400
+  //   }
+  // },
+  // {
+  //   template: `
+  //     ---p
+  //     ----
+  //     ----
+  //     ----
+  //   `,
+  //   options: {
+  //     delay: 400
+  //   }
+  // },
+  // {
+  //   template: `
+  //     ----
+  //     ---p
+  //     ----
+  //     ----
+  //   `,
+  //   options: {
+  //     delay: 400
+  //   }
+  // },
+  // {
+  //   template: `
+  //     ----
+  //     ----
+  //     ---p
+  //     ----
+  //   `,
+  //   options: {
+  //     delay: 400
+  //   }
+  // },
+  // {
+  //   template: `
+  //     ----
+  //     ----
+  //     ----
+  //     -p--
+  //   `,
+  //   options: {
+  //     delay: 400
+  //   }
+  // },
+  // {
+  //   template: `
+  //     ----
+  //     -p--
+  //     ----
+  //     ----
+  //   `,
+  //   options: {
+  //     delay: 1000
+  //   }
+  // },
+  // {
+  //   template: `
+  //     xx-x
+  //     xx-x
+  //     xx-x
+  //     xx-x
+  //   `,
+  //   options: {
+  //     delay: 800
+  //   }
+  // },
+  // {
+  //   template: `
+  //     x-xx
+  //     x-xx
+  //     x-xx
+  //     x-xx
+  //   `,
+  //   options: {
+  //     delay: 1100
+  //   }
+  // },
+  // {
+  //   template: `
+  //     -xxx
+  //     -xxx
+  //     -xxx
+  //     -xxx
+  //   `,
+  //   options: {
+  //     delay: 900
+  //   }
+  // },
+  // {
+  //   template: `
+  //     ----
+  //     --p-
+  //     --p-
+  //     ----
+  //   `,
+  //   options: {
+  //     delay: 500
+  //   }
+  // },
+  // {
+  //   template: `
+  //     xx-x
+  //     xx-x
+  //     xx-x
+  //     xx-x
+  //   `,
+  //   options: {
+  //     delay: 800
+  //   }
+  // },
+  // {
+  //   template: `
+  //     x-x-
+  //     x-x-
+  //     x-x-
+  //     x-x-
+  //   `,
+  //   options: {
+  //     delay: 1000
+  //   }
+  // },
+  // {
+  //   template: `
+  //     -x-x
+  //     -x-x
+  //     -x-x
+  //     -x-x
+  //   `,
+  //   options: {
+  //     delay: 10000
+  //   }
+  // },
   {
     template: `
       xxxx
@@ -255,29 +244,8 @@ const phases = [
       xxxx
     `,
     options: {
-      delay: 100
-    }
-  },
-  {
-    template: `
-      xxxx
-      x--x
-      x--x
-      xxxx
-    `,
-    options: {
-      delay: 100
-    }
-  },
-  {
-    template: `
-      xxxx
-      x--x
-      x--x
-      xxxx
-    `,
-    options: {
-      delay: 300
+      delay: 500,
+      depth: 17
     }
   },
   {
@@ -288,29 +256,8 @@ const phases = [
       xxxx
     `,
     options: {
-      delay: 100
-    }
-  },
-  {
-    template: `
-      x--x
-      x--x
-      xxxx
-      xxxx
-    `,
-    options: {
-      delay: 100
-    }
-  },
-  {
-    template: `
-      x--x
-      x--x
-      xxxx
-      xxxx
-    `,
-    options: {
-      delay: 300
+      delay: 500,
+      depth: 15      
     }
   },
   {
@@ -321,29 +268,8 @@ const phases = [
       xxxx
     `,
     options: {
-      delay: 100
-    }
-  },
-  {
-    template: `
-      xx--
-      xx--
-      xxxx
-      xxxx
-    `,
-    options: {
-      delay: 100
-    }
-  },
-  {
-    template: `
-      xx--
-      xx--
-      xxxx
-      xxxx
-    `,
-    options: {
-      delay: 300
+      delay: 500,
+      depth: 17      
     }
   },
   {
@@ -354,40 +280,8 @@ const phases = [
       xxxx
     `,
     options: {
-      delay: 100
-    }
-  },
-  {
-    template: `
-      xxxx
-      xx--
-      xx--
-      xxxx
-    `,
-    options: {
-      delay: 300
-    }
-  },
-  {
-    template: `
-      xxxx
-      xx--
-      xx--
-      xxxx
-    `,
-    options: {
-      delay: 100
-    }
-  },
-  {
-    template: `
-      xxxx
-      xx--
-      xx--
-      xxxx
-    `,
-    options: {
-      delay: 300
+      delay: 700,
+      depth: 17      
     }
   },
   {
@@ -398,40 +292,8 @@ const phases = [
       xxxx
     `,
     options: {
-      delay: 100
-    }
-  },
-  {
-    template: `
-      xxxx
-      x--x
-      x--x
-      xxxx
-    `,
-    options: {
-      delay: 150
-    }
-  },
-  {
-    template: `
-      xxxx
-      x--x
-      x--x
-      xxxx
-    `,
-    options: {
-      delay: 300
-    }
-  },
-  {
-    template: `
-      xxxx
-      x--x
-      x--x
-      xxxx
-    `,
-    options: {
-      delay: 300
+      delay: 700,
+      depth: 17     
     }
   },
   {
@@ -442,40 +304,8 @@ const phases = [
       xxxx
     `,
     options: {
-      delay: 100
-    }
-  },
-  {
-    template: `
-      xxxx
-      --xx
-      --xx
-      xxxx
-    `,
-    options: {
-      delay: 100
-    }
-  },
-  {
-    template: `
-      xxxx
-      --xx
-      --xx
-      xxxx
-    `,
-    options: {
-      delay: 100
-    }
-  },
-  {
-    template: `
-      xxxx
-      --xx
-      --xx
-      xxxx
-    `,
-    options: {
-      delay: 300
+      delay: 500,
+      depth: 17            
     }
   },
   {
@@ -486,40 +316,8 @@ const phases = [
       xxxx
     `,
     options: {
-      delay: 100
-    }
-  },
-  {
-    template: `
-      xxxx
-      x--x
-      x--x
-      xxxx
-    `,
-    options: {
-      delay: 150
-    }
-  },
-  {
-    template: `
-      xxxx
-      x--x
-      x--x
-      xxxx
-    `,
-    options: {
-      delay: 300
-    }
-  },
-  {
-    template: `
-      xxxx
-      x--x
-      x--x
-      xxxx
-    `,
-    options: {
-      delay: 300
+      delay: 500,
+      depth: 17     
     }
   },
   {
@@ -530,40 +328,8 @@ const phases = [
       xxxx
     `,
     options: {
-      delay: 100
-    }
-  },
-  {
-    template: `
-      x--x
-      x--x
-      xxxx
-      xxxx
-    `,
-    options: {
-      delay: 150
-    }
-  },
-  {
-    template: `
-      x--x
-      x--x
-      xxxx
-      xxxx
-    `,
-    options: {
-      delay: 300
-    }
-  },
-  {
-    template: `
-      x--x
-      x--x
-      xxxx
-      xxxx
-    `,
-    options: {
-      delay: 300
+      delay: 500,
+      depth: 15            
     }
   },
   {
@@ -574,40 +340,8 @@ const phases = [
       xxxx
     `,
     options: {
-      delay: 100
-    }
-  },
-  {
-    template: `
-      xxxx
-      x--x
-      x--x
-      xxxx
-    `,
-    options: {
-      delay: 150
-    }
-  },
-  {
-    template: `
-      xxxx
-      x--x
-      x--x
-      xxxx
-    `,
-    options: {
-      delay: 500
-    }
-  },
-  {
-    template: `
-      xxxx
-      x--x
-      x--x
-      xxxx
-    `,
-    options: {
-      delay: 100
+      delay: 100,
+      depth: 5            
     }
   },
   {
@@ -618,7 +352,7 @@ const phases = [
       x--x
     `,
     options: {
-      delay: 100
+      delay: 200
     }
   },
   {
@@ -629,7 +363,7 @@ const phases = [
       x--x
     `,
     options: {
-      delay: 100
+      delay: 200
     }
   },
   {
@@ -640,7 +374,7 @@ const phases = [
       x--x
     `,
     options: {
-      delay: 100
+      delay: 200
     }
   },
   {
@@ -651,7 +385,7 @@ const phases = [
       x--x
     `,
     options: {
-      delay: 100
+      delay: 200
     }
   },
   {
@@ -662,7 +396,7 @@ const phases = [
       x--x
     `,
     options: {
-      delay: 100
+      delay: 200
     }
   },
   {
@@ -673,7 +407,7 @@ const phases = [
       x--x
     `,
     options: {
-      delay: 100
+      delay: 200
     }
   },
   {
@@ -684,7 +418,7 @@ const phases = [
       x--x
     `,
     options: {
-      delay: 100
+      delay: 200
     }
   },
   {
@@ -695,7 +429,7 @@ const phases = [
       x--x
     `,
     options: {
-      delay: 100
+      delay: 200
     }
   },
   {
@@ -706,7 +440,7 @@ const phases = [
       x--x
     `,
     options: {
-      delay: 100
+      delay: 200
     }
   },
   {
@@ -717,7 +451,7 @@ const phases = [
       x--x
     `,
     options: {
-      delay: 100
+      delay: 200
     }
   },
   {
@@ -728,7 +462,7 @@ const phases = [
       x--x
     `,
     options: {
-      delay: 100
+      delay: 200
     }
   },
   {
@@ -739,7 +473,7 @@ const phases = [
       x--x
     `,
     options: {
-      delay: 100
+      delay: 200
     }
   },
   {
@@ -750,9 +484,9 @@ const phases = [
       x--x
     `,
     options: {
-      delay: 100
+      delay: 200
     }
-  },
+  }, 
 ]
 
 AFRAME.registerComponent('test-level', {
@@ -764,7 +498,7 @@ AFRAME.registerComponent('test-level', {
     interval: [1400, 1900]
   },
   init: function() {
-    dispatch('setLives', 3);
+    dispatch('setLives', 300);
 
     document.querySelector('#ground')
     .setAttribute('width', state.vrDisplay.stageParameters.sizeX);
