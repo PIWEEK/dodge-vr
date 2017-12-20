@@ -94,6 +94,10 @@ export const generateTemplate = (options) => {
       if (char !== '-') {
         const element = document.createElement('a-box');
 
+
+        // TODO: Delete it. For test purpose only
+        element.className = "block";
+        // element.className = "bonus";
         // size
         const ew = width / columnSize;
         const eh = height / rowSize;

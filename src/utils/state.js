@@ -2,11 +2,13 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 let stateSubject = null;
 export let state = null;
+
 let actions = {};
 
 const defaultState = {
   vrDisplay: null,
-  score: 0
+  score: 0,
+  lives: 30
 };
 
 export const createState = () => {

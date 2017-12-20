@@ -4,6 +4,17 @@ import { getState } from './utils/state';
 AFRAME.registerComponent('hit', {
     init: function() {
       getState()
+        .map((state) => state.lives)
+        .distinctUntilChanged()
+        .subscribe((lives) => {
+          var livesEl = document.querySelector('#lives');
+
+          if (livesEl) {
+            livesEl.setAttribute('value', lives);
+          }
+        });
+
+      getState()
         .map((state) => state.score)
         .distinctUntilChanged()
         .subscribe((score) => {
@@ -28,22 +39,17 @@ AFRAME.registerComponent('hit', {
 
     onHit: function (evt) {
       var hitEl = evt.detail.el;
-
       if (!hitEl) return;
 
-      if (!hitEl.classList.contains('hit') && !hitEl.classList.contains('bonus') ) {
-        // decrease player's life when a new collision is detected
-        document.querySelector('a-text').setAttribute('visible', true);
-
+      if (hitEl.classList.contains('block') && !hitEl.classList.contains('hit')) {
+        // decrease player's lives when a new collision is detected
         hitEl.classList.add('hit');
-        var lifes = document.querySelector('#lifes');
-        var oneLessLife = parseInt(lifes.getAttribute('value'))-1;
-        lifes.setAttribute('value',(oneLessLife));
+        dispatch('decreaseLives', 1);
 
       } else if (hitEl.classList.contains('bonus') && !hitEl.classList.contains('hit')) {
-        // the collision is a bonus, so, increase the score accordingly
+        // the collision is with a bonus block, so, increase the score accordingly
         hitEl.classList.add('hit');
         dispatch('increaseScore', 100);
-        }
       }
+    }
   });
