@@ -106,6 +106,8 @@ AFRAME.registerComponent('test-level', {
     }
   },
   init: function() {
+    dispatch('setLives', 3);
+
     this.scene = document.querySelector('a-scene');
     this.level = this.scene.querySelector('.level');
 

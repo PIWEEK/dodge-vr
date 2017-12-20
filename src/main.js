@@ -5,6 +5,7 @@ import './custom-reload';
 import './actions';
 import './components/delete-behind';
 import './components/score-lives';
+import './components/game-over';
 
 import './levels/test-level';
 import './levels/main-menu';
@@ -23,8 +24,9 @@ navigator.getVRDisplays().then((vrdisplay) => {
     }
   });
 
-  loadScene('/levels/test.html');
-  // loadScene('/levels/main-menu.html');
+  // loadScene('/levels/test.html');
+  loadScene('/levels/main-menu.html');
+  // loadScene('/levels/game-over.html');
 });
 
 

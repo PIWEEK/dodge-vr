@@ -1,7 +1,10 @@
 import { loadScene } from '../utils/sceneManipulation';
+import { dispatch } from '../utils/state';
 
 AFRAME.registerComponent('main-menu-level', {
     init: function() {
+        dispatch('setGameover', false);
+
         const laser = document.querySelector('.laser');
         laser.setAttribute('visible', true);
 

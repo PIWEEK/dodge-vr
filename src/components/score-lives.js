@@ -8,7 +8,12 @@ AFRAME.registerComponent('score-lives', {
         .subscribe((lives) => {
           var livesEl = document.querySelector('#lives');
 
+
           if (livesEl) {
+            if (lives === 0) {
+
+            }
+
             livesEl.setAttribute('value', lives);
           }
         });

@@ -6,9 +6,10 @@ export let state = null;
 let actions = {};
 
 const defaultState = {
+  gameOver: false,
   vrDisplay: null,
   score: 0,
-  lives: 30
+  lives: 3
 };
 
 export const createState = () => {
