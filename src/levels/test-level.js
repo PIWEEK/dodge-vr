@@ -222,7 +222,7 @@ const phases = [
       x-x-
     `,
     options: {
-      delay: 800
+      delay: 1000
     }
   },
   {
@@ -233,7 +233,524 @@ const phases = [
       -x-x
     `,
     options: {
-      delay: 800
+      delay: 10000
+    }
+  },
+  {
+    template: `
+      xxxx
+      x--x
+      x--x
+      xxxx
+    `,
+    options: {
+      delay: 150
+    }
+  },
+  {
+    template: `
+      xxxx
+      x--x
+      x--x
+      xxxx
+    `,
+    options: {
+      delay: 100
+    }
+  },
+  {
+    template: `
+      xxxx
+      x--x
+      x--x
+      xxxx
+    `,
+    options: {
+      delay: 100
+    }
+  },
+  {
+    template: `
+      xxxx
+      x--x
+      x--x
+      xxxx
+    `,
+    options: {
+      delay: 300
+    }
+  },
+  {
+    template: `
+      x--x
+      x--x
+      xxxx
+      xxxx
+    `,
+    options: {
+      delay: 100
+    }
+  },
+  {
+    template: `
+      x--x
+      x--x
+      xxxx
+      xxxx
+    `,
+    options: {
+      delay: 100
+    }
+  },
+  {
+    template: `
+      x--x
+      x--x
+      xxxx
+      xxxx
+    `,
+    options: {
+      delay: 300
+    }
+  },
+  {
+    template: `
+      xx--
+      xx--
+      xxxx
+      xxxx
+    `,
+    options: {
+      delay: 100
+    }
+  },
+  {
+    template: `
+      xx--
+      xx--
+      xxxx
+      xxxx
+    `,
+    options: {
+      delay: 100
+    }
+  },
+  {
+    template: `
+      xx--
+      xx--
+      xxxx
+      xxxx
+    `,
+    options: {
+      delay: 300
+    }
+  },
+  {
+    template: `
+      xxxx
+      xx--
+      xx--
+      xxxx
+    `,
+    options: {
+      delay: 100
+    }
+  },
+  {
+    template: `
+      xxxx
+      xx--
+      xx--
+      xxxx
+    `,
+    options: {
+      delay: 300
+    }
+  },
+  {
+    template: `
+      xxxx
+      xx--
+      xx--
+      xxxx
+    `,
+    options: {
+      delay: 100
+    }
+  },
+  {
+    template: `
+      xxxx
+      xx--
+      xx--
+      xxxx
+    `,
+    options: {
+      delay: 300
+    }
+  },
+  {
+    template: `
+      xxxx
+      x--x
+      x--x
+      xxxx
+    `,
+    options: {
+      delay: 100
+    }
+  },
+  {
+    template: `
+      xxxx
+      x--x
+      x--x
+      xxxx
+    `,
+    options: {
+      delay: 150
+    }
+  },
+  {
+    template: `
+      xxxx
+      x--x
+      x--x
+      xxxx
+    `,
+    options: {
+      delay: 300
+    }
+  },
+  {
+    template: `
+      xxxx
+      x--x
+      x--x
+      xxxx
+    `,
+    options: {
+      delay: 300
+    }
+  },
+  {
+    template: `
+      xxxx
+      --xx
+      --xx
+      xxxx
+    `,
+    options: {
+      delay: 100
+    }
+  },
+  {
+    template: `
+      xxxx
+      --xx
+      --xx
+      xxxx
+    `,
+    options: {
+      delay: 100
+    }
+  },
+  {
+    template: `
+      xxxx
+      --xx
+      --xx
+      xxxx
+    `,
+    options: {
+      delay: 100
+    }
+  },
+  {
+    template: `
+      xxxx
+      --xx
+      --xx
+      xxxx
+    `,
+    options: {
+      delay: 300
+    }
+  },
+  {
+    template: `
+      xxxx
+      x--x
+      x--x
+      xxxx
+    `,
+    options: {
+      delay: 100
+    }
+  },
+  {
+    template: `
+      xxxx
+      x--x
+      x--x
+      xxxx
+    `,
+    options: {
+      delay: 150
+    }
+  },
+  {
+    template: `
+      xxxx
+      x--x
+      x--x
+      xxxx
+    `,
+    options: {
+      delay: 300
+    }
+  },
+  {
+    template: `
+      xxxx
+      x--x
+      x--x
+      xxxx
+    `,
+    options: {
+      delay: 300
+    }
+  },
+  {
+    template: `
+      x--x
+      x--x
+      xxxx
+      xxxx
+    `,
+    options: {
+      delay: 100
+    }
+  },
+  {
+    template: `
+      x--x
+      x--x
+      xxxx
+      xxxx
+    `,
+    options: {
+      delay: 150
+    }
+  },
+  {
+    template: `
+      x--x
+      x--x
+      xxxx
+      xxxx
+    `,
+    options: {
+      delay: 300
+    }
+  },
+  {
+    template: `
+      x--x
+      x--x
+      xxxx
+      xxxx
+    `,
+    options: {
+      delay: 300
+    }
+  },
+  {
+    template: `
+      xxxx
+      x--x
+      x--x
+      xxxx
+    `,
+    options: {
+      delay: 100
+    }
+  },
+  {
+    template: `
+      xxxx
+      x--x
+      x--x
+      xxxx
+    `,
+    options: {
+      delay: 150
+    }
+  },
+  {
+    template: `
+      xxxx
+      x--x
+      x--x
+      xxxx
+    `,
+    options: {
+      delay: 500
+    }
+  },
+  {
+    template: `
+      xxxx
+      x--x
+      x--x
+      xxxx
+    `,
+    options: {
+      delay: 100
+    }
+  },
+  {
+    template: `
+      x--x
+      ----
+      ----
+      x--x
+    `,
+    options: {
+      delay: 100
+    }
+  },
+  {
+    template: `
+      x--x
+      ----
+      ----
+      x--x
+    `,
+    options: {
+      delay: 100
+    }
+  },
+  {
+    template: `
+      x--x
+      ----
+      ----
+      x--x
+    `,
+    options: {
+      delay: 100
+    }
+  },
+  {
+    template: `
+      x--x
+      ----
+      ----
+      x--x
+    `,
+    options: {
+      delay: 100
+    }
+  },
+  {
+    template: `
+      x--x
+      ----
+      ----
+      x--x
+    `,
+    options: {
+      delay: 100
+    }
+  },
+  {
+    template: `
+      x--x
+      ----
+      ----
+      x--x
+    `,
+    options: {
+      delay: 100
+    }
+  },
+  {
+    template: `
+      x--x
+      ----
+      ----
+      x--x
+    `,
+    options: {
+      delay: 100
+    }
+  },
+  {
+    template: `
+      x--x
+      ----
+      ----
+      x--x
+    `,
+    options: {
+      delay: 100
+    }
+  },
+  {
+    template: `
+      x--x
+      ----
+      ----
+      x--x
+    `,
+    options: {
+      delay: 100
+    }
+  },
+  {
+    template: `
+      x--x
+      ----
+      ----
+      x--x
+    `,
+    options: {
+      delay: 100
+    }
+  },
+  {
+    template: `
+      x--x
+      ----
+      ----
+      x--x
+    `,
+    options: {
+      delay: 100
+    }
+  },
+  {
+    template: `
+      x--x
+      ----
+      ----
+      x--x
+    `,
+    options: {
+      delay: 100
+    }
+  },
+  {
+    template: `
+      x--x
+      ----
+      ----
+      x--x
+    `,
+    options: {
+      delay: 100
     }
   },
 ]
