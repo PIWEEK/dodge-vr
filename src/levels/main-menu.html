@@ -33,14 +33,32 @@
       <a-animation attribute="position" from="6 2 0" to="0.15 1.35 -0.6" direction="alternate" dur="1000"></a-animation>
       <a-animation attribute="rotation" from="0 -90 0" to="-30 0 0" direction="alternate" dur="1100"></a-animation>
     </a-box>
-  </a-entity>
 
-  <a-entity mixin="boldFont" text-geometry="value: Dodge; font: #tronFont"
+    <a-entity mixin="boldFont" text-geometry="value: Dodge; font: #tronFont"
     material="src :#textTure; repeat: 2 2"
     position="-1 1.8 -1"
-    scale="0.5 0.5 0.5"
-  ></a-entity>
+    scale="0.5 0.5 0.5">
+    </a-entity>
+  </a-entity>
 
+  <a-entity
+    id="menu2"
+    position="0 0 -3"
+    visible="false">
+
+      <a-box
+        class="level-action"
+        position="0 1 0"
+        material="opacity: 0"
+        height="0.5"
+        depth="0.25">
+          <a-text
+          position="-1 0 0"
+          value="Now Interactable">
+        </a-text>
+      </a-box>
+
+  </a-entity>
 
   <a-entity environment="
     preset: tron;
