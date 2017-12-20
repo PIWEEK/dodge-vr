@@ -6,6 +6,7 @@ export let state = null;
 let actions = {};
 
 const defaultState = {
+  isVr: true,
   gameOver: false,
   vrDisplay: null,
   score: 0,

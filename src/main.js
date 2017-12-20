@@ -6,6 +6,7 @@ import './actions';
 import './components/delete-behind';
 import './components/score-lives';
 import './components/game-over';
+import './components/player';
 
 import './levels/test-level';
 import './levels/main-menu';
@@ -24,13 +25,7 @@ navigator.getVRDisplays().then((vrdisplay) => {
     }
   });
 
-  // hide hands if no vr
-
-  if (!vrdisplay[0]) {
-    for (let hand of document.querySelectorAll('[hand-controls]')) {
-      hand.parentNode.removeChild(hand);
-    }
-  }
+  dispatch('setIsVr', !!vrdisplay[0]);
 
   loadScene('/levels/main-menu.html');
   // loadScene('/levels/test.html');

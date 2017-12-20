@@ -23,6 +23,10 @@ registerAction('setGameover', (state, gameover) => {
   state.gameOver = gameover;
 });
 
+registerAction('setIsVr', (state, payload) => {
+  state.isVr = payload;
+});
+
 registerAction('vrDisplay', (state, payload) => {
   state.vrDisplay = payload;
 });
