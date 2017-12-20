@@ -1,4 +1,4 @@
-import { dispatch } from '../utils/state';
+import { dispatch, state } from '../utils/state';
 import { systemEmmiter } from '../utils/system';
 import { generateRandomLevel, generateRandomBlock, generateTemplateBlock } from '../generateLevelObjects';
 
@@ -87,8 +87,8 @@ AFRAME.registerComponent('test-level', {
       rowSize: 4,
       columnSize: 4,
       playArea: {
-        width: 4,
-        height: 4
+        width: state.vrDisplay.stageParameters.sizeX,
+        height: 2
       },
       template: templates[this.currentLevelOptions.phase - 1]
     });
@@ -107,6 +107,9 @@ AFRAME.registerComponent('test-level', {
   },
   init: function() {
     dispatch('setLives', 3);
+
+    document.querySelector('#ground')
+    .setAttribute('width', state.vrDisplay.stageParameters.sizeX);
 
     this.scene = document.querySelector('a-scene');
     this.level = this.scene.querySelector('.level');

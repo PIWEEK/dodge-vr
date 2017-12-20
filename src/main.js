@@ -24,8 +24,8 @@ navigator.getVRDisplays().then((vrdisplay) => {
     }
   });
 
-  // loadScene('/levels/test.html');
   loadScene('/levels/main-menu.html');
+  //loadScene('/levels/test.html');
   // loadScene('/levels/game-over.html');
 });
 
