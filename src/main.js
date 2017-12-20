@@ -3,7 +3,6 @@ import './hit';
 import './move';
 import './custom-reload';
 import './actions';
-import './components/delete-behind';
 import './components/score-lives';
 import './components/game-over';
 import './components/player';
@@ -27,9 +26,11 @@ navigator.getVRDisplays().then((vrdisplay) => {
 
   dispatch('setIsVr', !!vrdisplay[0]);
 
-  loadScene('/levels/main-menu.html');
-  // loadScene('/levels/test.html');
+  // loadScene('/levels/main-menu.html');
+  loadScene('/levels/test.html');
   // loadScene('/levels/game-over.html');
 });
 
-
+setTimeout(() => {
+  document.querySelector('.rs-base.a-hidden').classList.remove('a-hidden');
+}, 2000);

@@ -3,239 +3,239 @@ import { systemEmmiter } from '../utils/system';
 import { startLevel, generateRandomLevel, generateRandomBlock, generateTemplateBlock } from '../generateLevelObjects';
 
 const phases = [
-  // {
-  //   template: `
-  //     xx--
-  //     xx--
-  //     xx--
-  //     xx--
-  //   `,
-  //   options: {
-  //     delay: 1000
-  //     // speed
-  //     // creationPosition
-  //   }
-  // },
-  // {
-  //   template: `
-  //     --xx
-  //     --xx
-  //     --xx
-  //     --xx
-  //   `,
-  //   options: {
-  //     delay: 1000
-  //   }
-  // },
-  // {
-  //   template: `
-  //     ----
-  //     ----
-  //     xxxx
-  //     xxxx
-  //   `,
-  //   options: {
-  //     delay: 1000
-  //   }
-  // },
-  // {
-  //   template: `
-  //     xxxx
-  //     xxxx
-  //     ----
-  //     ----
-  //   `,
-  //   options: {
-  //     delay: 1000
-  //   }
-  // },
-  // {
-  //   template: `
-  //     ----
-  //     ---x
-  //     --xx
-  //     -xxx
-  //   `,
-  //   options: {
-  //     delay: 1000
-  //   }
-  // },
-  // {
-  //   template: `
-  //     xxxx
-  //     ----
-  //     ----
-  //     xxxx
-  //   `,
-  //   options: {
-  //     delay: 800
-  //   }
-  // },
-  // {
-  //   template: `
-  //     xx--
-  //     xx--
-  //     xxxx
-  //     xxxx
-  //   `,
-  //   options: {
-  //     delay: 800
-  //   }
-  // },
-  // {
-  //   template: `
-  //     xxxx
-  //     --xx
-  //     --xx
-  //     xxxx
-  //   `,
-  //   options: {
-  //     delay: 800
-  //   }
-  // },
-  // {
-  //   template: `
-  //     ----
-  //     --p-
-  //     ----
-  //     ----
-  //   `,
-  //   options: {
-  //     delay: 400
-  //   }
-  // },
-  // {
-  //   template: `
-  //     ---p
-  //     ----
-  //     ----
-  //     ----
-  //   `,
-  //   options: {
-  //     delay: 400
-  //   }
-  // },
-  // {
-  //   template: `
-  //     ----
-  //     ---p
-  //     ----
-  //     ----
-  //   `,
-  //   options: {
-  //     delay: 400
-  //   }
-  // },
-  // {
-  //   template: `
-  //     ----
-  //     ----
-  //     ---p
-  //     ----
-  //   `,
-  //   options: {
-  //     delay: 400
-  //   }
-  // },
-  // {
-  //   template: `
-  //     ----
-  //     ----
-  //     ----
-  //     -p--
-  //   `,
-  //   options: {
-  //     delay: 400
-  //   }
-  // },
-  // {
-  //   template: `
-  //     ----
-  //     -p--
-  //     ----
-  //     ----
-  //   `,
-  //   options: {
-  //     delay: 1000
-  //   }
-  // },
-  // {
-  //   template: `
-  //     xx-x
-  //     xx-x
-  //     xx-x
-  //     xx-x
-  //   `,
-  //   options: {
-  //     delay: 800
-  //   }
-  // },
-  // {
-  //   template: `
-  //     x-xx
-  //     x-xx
-  //     x-xx
-  //     x-xx
-  //   `,
-  //   options: {
-  //     delay: 1100
-  //   }
-  // },
-  // {
-  //   template: `
-  //     -xxx
-  //     -xxx
-  //     -xxx
-  //     -xxx
-  //   `,
-  //   options: {
-  //     delay: 900
-  //   }
-  // },
-  // {
-  //   template: `
-  //     ----
-  //     --p-
-  //     --p-
-  //     ----
-  //   `,
-  //   options: {
-  //     delay: 500
-  //   }
-  // },
-  // {
-  //   template: `
-  //     xx-x
-  //     xx-x
-  //     xx-x
-  //     xx-x
-  //   `,
-  //   options: {
-  //     delay: 800
-  //   }
-  // },
-  // {
-  //   template: `
-  //     x-x-
-  //     x-x-
-  //     x-x-
-  //     x-x-
-  //   `,
-  //   options: {
-  //     delay: 1000
-  //   }
-  // },
-  // {
-  //   template: `
-  //     -x-x
-  //     -x-x
-  //     -x-x
-  //     -x-x
-  //   `,
-  //   options: {
-  //     delay: 10000
-  //   }
-  // },
+  {
+    template: `
+      xx--
+      xx--
+      xx--
+      xx--
+    `,
+    options: {
+      delay: 1000
+      // speed
+      // creationPosition
+    }
+  },
+  {
+    template: `
+      --xx
+      --xx
+      --xx
+      --xx
+    `,
+    options: {
+      delay: 1000
+    }
+  },
+  {
+    template: `
+      ----
+      ----
+      xxxx
+      xxxx
+    `,
+    options: {
+      delay: 1000
+    }
+  },
+  {
+    template: `
+      xxxx
+      xxxx
+      ----
+      ----
+    `,
+    options: {
+      delay: 1000
+    }
+  },
+  {
+    template: `
+      ----
+      ---x
+      --xx
+      -xxx
+    `,
+    options: {
+      delay: 1000
+    }
+  },
+  {
+    template: `
+      xxxx
+      ----
+      ----
+      xxxx
+    `,
+    options: {
+      delay: 800
+    }
+  },
+  {
+    template: `
+      xx--
+      xx--
+      xxxx
+      xxxx
+    `,
+    options: {
+      delay: 800
+    }
+  },
+  {
+    template: `
+      xxxx
+      --xx
+      --xx
+      xxxx
+    `,
+    options: {
+      delay: 800
+    }
+  },
+  {
+    template: `
+      ----
+      --p-
+      ----
+      ----
+    `,
+    options: {
+      delay: 400
+    }
+  },
+  {
+    template: `
+      ---p
+      ----
+      ----
+      ----
+    `,
+    options: {
+      delay: 400
+    }
+  },
+  {
+    template: `
+      ----
+      ---p
+      ----
+      ----
+    `,
+    options: {
+      delay: 400
+    }
+  },
+  {
+    template: `
+      ----
+      ----
+      ---p
+      ----
+    `,
+    options: {
+      delay: 400
+    }
+  },
+  {
+    template: `
+      ----
+      ----
+      ----
+      -p--
+    `,
+    options: {
+      delay: 400
+    }
+  },
+  {
+    template: `
+      ----
+      -p--
+      ----
+      ----
+    `,
+    options: {
+      delay: 1000
+    }
+  },
+  {
+    template: `
+      xx-x
+      xx-x
+      xx-x
+      xx-x
+    `,
+    options: {
+      delay: 800
+    }
+  },
+  {
+    template: `
+      x-xx
+      x-xx
+      x-xx
+      x-xx
+    `,
+    options: {
+      delay: 1100
+    }
+  },
+  {
+    template: `
+      -xxx
+      -xxx
+      -xxx
+      -xxx
+    `,
+    options: {
+      delay: 900
+    }
+  },
+  {
+    template: `
+      ----
+      --p-
+      --p-
+      ----
+    `,
+    options: {
+      delay: 500
+    }
+  },
+  {
+    template: `
+      xx-x
+      xx-x
+      xx-x
+      xx-x
+    `,
+    options: {
+      delay: 800
+    }
+  },
+  {
+    template: `
+      x-x-
+      x-x-
+      x-x-
+      x-x-
+    `,
+    options: {
+      delay: 1000
+    }
+  },
+  {
+    template: `
+      -x-x
+      -x-x
+      -x-x
+      -x-x
+    `,
+    options: {
+      delay: 10000
+    }
+  },
   {
     template: `
       xxxx

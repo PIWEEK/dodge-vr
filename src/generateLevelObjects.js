@@ -8,7 +8,7 @@ const createEntity = (options) => {
   const entity = document.createElement('a-entity');
 
   entity.setAttribute('move', 'speed', options.speed);
-  entity.setAttribute('delete-behind', true);
+  entity.setAttribute('move', 'active', true);
 
   return entity;
 }
@@ -20,6 +20,12 @@ export function startLevel(level, phases, options) {
   options.creationPosition = options.creationPosition | -50;
   options.speed = options.speed | 20;
   options.depth = options.depth | 1;
+
+  const depths = phases
+    .filter((o) => o.options && o.options.depth)
+    .map((o) => o.options.depth);
+
+  const maxDepth = Math.max.apply(Math, depths) || options.depth;
 
   const generateLevel = () => {
     const phase = phases[currentPhase];
@@ -38,6 +44,8 @@ export function startLevel(level, phases, options) {
       template: phase.template
     });
 
+    levelEntity.setAttribute('move', 'depth', maxDepth);
+
     level.appendChild(levelEntity);
     systemEmmiter.emit('reloadCollisions');
 
@@ -54,7 +62,6 @@ export function startLevel(level, phases, options) {
 export const generateTemplateBlock = (options) => {
   const entity = createEntity(options);
   const elements = generateTemplate(options);
-
   for (let element of elements) {
     entity.appendChild(element);
   }
@@ -78,7 +85,7 @@ export const getObj = (type) => {
     element.setAttribute('material', 'src: #ballTexture; repeat: 10 10');
     element.setAttribute('scale', '0.2 0.2 0.2');
     element.className = 'bonus';
-
+    
     const light = document.createElement('a-light');
 
     light.setAttribute('type', 'ambient');
@@ -190,3 +197,60 @@ export const generateTemplate = (options) => {
 
   return elements;
 };
+
+
+/*
+export function startLevel(level, phases, options) {
+  let currentPhase = 0;
+
+  options.delay = options.delay | 1000;
+  options.creationPosition = options.creationPosition | -50;
+  options.speed = options.speed | 20;
+  options.depth = options.depth | 1;
+
+  const depths = phases
+    .filter((o) => o.options && o.options.depth)
+    .map((o) => o.options.depth);
+
+  const maxDepth = Math.max.apply(Math, depths) || options.depth;
+
+  const generateLevel = (phase) => {
+    const depth = phase.options.depth || options.depth;
+    const creationPosition = phase.options.creationPosition || options.creationPosition;
+    const speed = phase.options.speed || options.speed;
+
+    const levelEntity = generateTemplateBlock({
+      speed: speed,
+      depth: depth,
+      creationPosition: creationPosition,
+      rowSize: options.rowSize,
+      columnSize: options.columnSize,
+      playArea: options.playArea,
+      template: phase.template
+    });
+
+    levelEntity.setAttribute('move', 'depth', maxDepth);
+    levelEntity.setAttribute('visible', false);
+
+    return levelEntity;
+  }
+
+  let timeout = 0;
+
+  phases.forEach((phase, index) => {
+    const delay = phase.options.delay || options.delay;  
+    const levelEntity = generateLevel(phase);
+
+    level.appendChild(levelEntity);
+
+    timeout += delay;
+
+    setTimeout(() => {
+      levelEntity.setAttribute('visible', true);
+      levelEntity.setAttribute('move', 'active', true);
+    }, timeout);
+  });
+
+  systemEmmiter.emit('reloadCollisions');
+}
+*/
