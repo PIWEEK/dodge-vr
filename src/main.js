@@ -4,6 +4,7 @@ import './move';
 import './custom-reload';
 import './actions';
 import './components/delete-behind';
+import './components/score-lives';
 
 import './levels/test-level';
 import './levels/main-menu';
