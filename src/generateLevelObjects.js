@@ -1,3 +1,5 @@
+import { systemEmmiter } from './utils/system';
+
 function randomIntFromInterval(min,max) {
     return Math.floor(Math.random()*(max-min+1)+min);
 }
@@ -9,6 +11,41 @@ const createEntity = (options) => {
   entity.setAttribute('delete-behind', true);
 
   return entity;
+}
+
+export function startLevel(level, phases, options) {
+  let currentPhase = 0;
+
+  options.delay = options.delay | 1000;
+  options.creationPosition = options.creationPosition | -50;
+  options.speed = options.speed | 20;
+
+  const generateLevel = () => {
+    const phase = phases[currentPhase];
+    const delay = phase.options.delay || options.delay;
+    const creationPosition = phase.options.creationPosition || options.creationPosition;
+    const speed = phase.options.speed || options.speed;
+
+    const levelEntity = generateTemplateBlock({
+      speed: speed,
+      creationPosition: creationPosition,
+      rowSize: options.rowSize,
+      columnSize: options.columnSize,
+      playArea: options.playArea,
+      template: phase.template
+    });
+
+    level.appendChild(levelEntity);
+    systemEmmiter.emit('reloadCollisions');
+
+    if (currentPhase + 1 < phases.length) {
+      currentPhase++;
+
+      setTimeout(generateLevel, delay);
+    }
+  }
+
+  generateLevel();
 }
 
 export const generateTemplateBlock = (options) => {

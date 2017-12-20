@@ -24,8 +24,16 @@ navigator.getVRDisplays().then((vrdisplay) => {
     }
   });
 
+  // hide hands if no vr
+
+  if (!vrdisplay[0]) {
+    for (let hand of document.querySelectorAll('[hand-controls]')) {
+      hand.parentNode.removeChild(hand);
+    }
+  }
+
   loadScene('/levels/main-menu.html');
-  //loadScene('/levels/test.html');
+  // loadScene('/levels/test.html');
   // loadScene('/levels/game-over.html');
 });
 
