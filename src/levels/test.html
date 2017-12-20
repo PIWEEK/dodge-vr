@@ -2,7 +2,7 @@
     <a-text visible="false" value="Game Over" color="#BBB"
         position="-0.9 0.2 -3" scale="1.5 1.5 1.5"></a-text>
 
-    <a-entity 
+    <a-entity
       class="level"
       position="0 0.1 0"
     ></a-entity>
@@ -12,25 +12,25 @@
     <a-text id="lifes"  position="-1.5 2.2 -4.1" rotation="0 90 0" scale="2 2 2"></a-text>
     <a-text value="Score" position="-1.5 1.8 -2.82" rotation="0 90 0" scale="2 2 2"></a-text>
     <a-text id="score" value="0" position="-1.5 1.8 -4.1" rotation="0 90 0" scale="2 2 2"></a-text>
-    
+
     <!-- Tunnel -->
     <!-- <a-box scale="1 4 150" position="2 0.72 -0.015" material="src: #grid; repeat: 150 15"></a-box>
     <a-box scale="1 4 150" position="-2 0.72 -0.015" material="src: #grid; repeat: 150 15"></a-box>
     <a-box scale="4.1 1 150" position="0 3 -0.015" material="src: #grid; repeat: 15 150"></a-box> -->
 
-    <a-box 
+    <a-box
       id="ground"
       material="src: #grid; repeat: 15 150"
-      depth="200" 
-      width="4.1"
+      depth="200"
+      width="4"
       height="0.1"
-      position: "0 0 0">      
-    </a-box>    
+      position: "0 0 0">
+    </a-box>
 
     <a-torus scale="10 10 300" material="src: #grid; repeat: 15 150"radius="1.5">
       <a-animation attribute="rotation" from="0 0 0" to="0 0 360" dur="12000" repeat="indefinite" easing="linear"></a-animation>
     </a-torus>
-    
+
     <!-- ScoreBall -->
     <a-sphere scale="0.5 0.5 0.5" position="4 4 1" material="src: #ballTexture; repeat: 10 10" radius="1">
       <a-light type="ambient" color="#13c490"></a-light>

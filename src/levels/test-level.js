@@ -5,64 +5,64 @@ import { generateRandomLevel, generateRandomBlock, generateTemplateBlock } from 
 const templates = [
   `
     x--x
-    -x-x
     ----
-    ---x
+    --x-
+    -x--
   `,
   `
     x--x
     xxxx
     ----
     ---x
-  `,  
+  `,
   `
     xxxx
     xxxx
     -x--
     ---x
-  `, 
+  `,
   `
     xxxx
     xxxx
     xx--
     ---x
-  `, 
+  `,
   `
     x--x
     x-xx
     xx-x
     x--x
-  `,    
+  `,
   `
     -x-x
     xx-x
     -x-x
     -x-x
-  `,   
+  `,
   `
     -xx-
     xxx-
     -xxx
     -xx-
-  `,    
+  `,
   `
     xxxx
     xxxx
     ----
     ----
-  `,    
+  `,
   `
     xxxx
     xxxx
     xxxx
     ----
-  `,  
+  `,
   `
     xxxx
     xxxx
     xx-x
     xxxx
-  `,        
+  `,
 ]
 
 AFRAME.registerComponent('test-level', {
@@ -89,9 +89,9 @@ AFRAME.registerComponent('test-level', {
       playArea: {
         width: 4,
         height: 4
-      },      
+      },
       template: templates[this.currentLevelOptions.phase - 1]
-    });    
+    });
 
     this.level.appendChild(levelEntity);
 

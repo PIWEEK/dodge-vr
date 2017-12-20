@@ -20,7 +20,7 @@ export const generateTemplateBlock = (options) => {
   }
 
   // position height is geometry height / 2
-  entity.setAttribute('position', `0 ${options.playArea.height / 2} -10`); 
+  entity.setAttribute('position', `0 ${options.playArea.height / 2} ${options.creationPosition}`);
 
   return entity;
 };
@@ -89,32 +89,28 @@ export const generateTemplate = (options) => {
 
   for (let row = 0; row < rowSize; row++) {
     for (let column = 0; column < columnSize; column++) {
-      const char = template[(row * rowSize) + column];
+      const char = template[(row * columnSize)  + column];
 
       if (char !== '-') {
         const element = document.createElement('a-box');
 
         // size
-        const ew = width / rowSize;
-        const eh = height / columnSize;
+        const ew = width / columnSize;
+        const eh = height / rowSize;
+
         const ed = randomIntFromInterval(500, 1000) / 100;
-        
+
         element.setAttribute('width', ew);
         element.setAttribute('height', eh);
         element.setAttribute('depth', 1);
 
         element.setAttribute('material', 'src: #cubeBlue; repeat: 3 3');
 
-        const gridW = ew + ew / 2;
-        const gridH = eh + eh / 2;
-
-        const pw = -gridW + (column * ew);
-        const ph = gridH - (row * eh);
+        const pw = (column * ew) - (width / 2 - (ew / 2));
+        const ph = (height / 2 - (eh / 2)) - (row * eh);
         const pz = 0;
 
-        element.setAttribute('position', `${pw} ${ph} 
-        ${options.creationPosition}`);
-
+        element.setAttribute('position', `${pw} ${ph} 0`);
         elements.push(element);
       }
     }
