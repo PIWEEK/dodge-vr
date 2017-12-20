@@ -11,9 +11,18 @@ const phases = [
       xx--
     `,
     options: {
-      delay: 1000
+      delay: 1000,
       // dur
       // creationPosition
+      // animations: [
+      //   {
+      //     attribute: 'rotation',
+      //     dur: 1000,
+      //     fill: 'forwards',
+      //     to: "0 360 0",
+      //     repeat: "indefinite"
+      //   }
+      // ]
     }
   },
   {

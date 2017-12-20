@@ -35,6 +35,7 @@ export function startLevel(level, phases, options) {
     const depth = phase.options.depth || options.depth;
     const creationPosition = phase.options.creationPosition || options.creationPosition;
     const dur = phase.options.dur || options.dur;
+    const animations = phase.options.animations || [];
     // const speed = phase.options.speed || options.speed;
 
     const levelEntity = generateTemplateBlock({
@@ -47,6 +48,7 @@ export function startLevel(level, phases, options) {
       playArea: options.playArea,
       template: phase.template,
       maxDepth: maxDepth,
+      animations: animations
     });
 
     // performance 1
@@ -89,6 +91,16 @@ export const generateTemplateBlock = (options) => {
   });
 
   entity.appendChild(animation);
+
+  for (let animation of options.animations) {
+    const aanimation = document.createElement('a-animation');
+
+    for (let key of Object.keys(animation)) {
+      aanimation.setAttribute(key, animation[key]);
+    }
+
+    entity.appendChild(aanimation);
+  }
 
   return entity;
 };
