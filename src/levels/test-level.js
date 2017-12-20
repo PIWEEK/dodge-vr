@@ -120,10 +120,10 @@ const phases = [
 AFRAME.registerComponent('test-level', {
   levelOptions: {
     creationPosition: -50,
-    phases: 10,
+    phases: 14,
     speed: [20, 30],
     size: [2, 10],
-    interval: [3000, 300]
+    interval: [2500, 1100]
   },
   init: function() {
     dispatch('setLives', 3);
