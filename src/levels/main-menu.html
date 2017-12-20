@@ -1,5 +1,5 @@
 <a-entity main-menu-level>
-  <a-entity id="menu1">
+  <a-entity id="menu1" position="0 0 -0.4">
     <a-box
       width="0.4"
       height="0.1"
@@ -39,25 +39,121 @@
     position="-1 1.8 -1"
     scale="0.5 0.5 0.5">
     </a-entity>
-  </a-entity>
+  </a-entity> 
 
   <a-entity
     id="menu2"
-    position="0 0 -3"
+    position="0 0 -0.25"
     visible="false">
-
-      <a-box
-        class="level-action"
-        position="0 1 0"
+    <!-- Level select -->
+    <a-entity>
+        <a-box
+        width="0.6"
+        height="0.1"
+        depth="0.25"
+        opacity="0"
+        class="level-action">
+        <a-entity
+          class="text"
+          mixin="boldFont"
+          text-geometry="value: Select level; font: #optimerBoldFont"
+          scale="0.25 0.25 0.25"
+          position="-0.6 1.8 -0.6"
+          material="src: #textTure3; repeat: 2 2; color: #fff">
+        </a-entity>
+      </a-box>
+    </a-entity>
+    <a-entity>
+        <a-box
+        width="0.2"
+        height="0.2"
+        depth="0.2"  
+        opacity="0"
+        position="-0.5 1.55 -0.55"      
+        class="level-action">
+        <a-entity
+          class="text"      
+          mixin="boldFont"
+          text-geometry="value: 1; font: #optimerBoldFont"
+          scale="0.2 0.2 0.2"
+          rotation="0 45 0"        
+          material="src :#textTure3; repeat: 2 2; color: #fff">        
+        </a-entity>
+      </a-box>
+    </a-entity>
+    <a-entity>
+        <a-box
+        width="0.2"
+        height="0.2"
+        depth="0.2"  
         material="opacity: 0"
-        height="0.5"
-        depth="0.25">
-          <a-text
-          position="-1 0 0"
-          value="Now Interactable">
-        </a-text>
+        position="-0.2 1.55 -0.6"      
+        class="level-action">
+        <a-entity
+          class="text"
+          mixin="boldFont"
+          text-geometry="value: 2; font: #optimerBoldFont"
+          scale="0.2 0.2 0.2"
+          material="src :#textTure3; repeat: 2 2; color: #fff">        
+        </a-entity>
+      </a-box>
+    </a-entity>
+    <a-entity>
+        <a-box
+        width="0.2"
+        height="0.2"
+        depth="0.2"      
+        position="0.1 1.55 -0.6"      
+        opacity="0"
+        class="level-action">
+        <a-entity
+          class="text"
+          mixin="boldFont"
+          text-geometry="value: 3; font: #optimerBoldFont"
+          scale="0.2 0.2 0.2"
+          material="src :#textTure3; repeat: 2 2; color: #fff">        
+        </a-entity>
+      </a-box>
+    </a-entity>
+    <a-entity>
+        <a-box
+        width="0.2"
+        height="0.2"
+        depth="0.2"
+        position="0.4 1.55 -0.55"
+        opacity="0"
+        class="level-action">
+        <a-entity
+          class="text"      
+          mixin="boldFont"
+          text-geometry="value: 4; font: #optimerBoldFont"
+          scale="0.2 0.2 0.2"
+          position="0 0 0"
+          rotation="0 -25 0"
+          material="src :#textTure3; repeat: 2 2; color: #fff">        
+        </a-entity>
+      </a-box>
+    </a-entity>
+    <a-entity>
+        <a-box
+        width="0.8"
+        height="0.15"
+        depth="0.15"
+        opacity="0"
+        position="0 1.35 -0.6"
+        class="level-action">
+        <a-entity
+          class="text"    
+          mixin="boldFont"
+          text-geometry="value: Randomize; font: #optimerBoldFont"
+          position="-0.3 0 0"
+          scale="0.15 0.15 0.15"
+          material="src :#textTure3; repeat: 2 2; color: #fff"
+          >
+        </a-entity>
       </a-box>
 
+    </a-entity>  
   </a-entity>
 
   <a-entity environment="
@@ -74,5 +170,5 @@
     lightPosition: 0 0 0;
   "></a-entity>
 
-  <a-light type="ambient" color="#fff"></a-light>
+  <a-light type="ambient" color="#fff" position="0 0 0"></a-light>
 </a-entity>

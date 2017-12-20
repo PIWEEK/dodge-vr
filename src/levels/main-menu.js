@@ -34,20 +34,19 @@ AFRAME.registerComponent('main-menu-level', {
             const levelsButton = document.querySelectorAll('.level-action');
 
             for (let level of levelsButton) {
-              let button = level.querySelector('a-text');
-
-              button.setAttribute('color', 'red');
+              let button = level.querySelector('.text');
 
               level.addEventListener('mouseenter', (e) => {
-                button.setAttribute('color', 'red');
+                button.setAttribute('material', 'color', 'red');
               });
 
               level.addEventListener('mouseleave', (e) => {
-                button.setAttribute('color', 'white');
+                button.setAttribute('material', 'color', 'white');
               });
 
               level.addEventListener('click', (e) => {
                 loadScene('/levels/test.html');
+                
               });
             }
 

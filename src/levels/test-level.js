@@ -4,64 +4,64 @@ import { generateRandomLevel, generateRandomBlock, generateTemplateBlock } from 
 
 const templates = [
   `
-    x--x
-    ----
-    -px-
-    -x--
-  `,
-  `
-    x--x
-    xxxx
-    ----
-    p--x
-  `,
-  `
-    xxxx
-    xxxx
-    px--
-    ---x
-  `,
-  `
-    xxxx
-    xxxx
     xx--
-    --px
+    xx--
+    xx--
+    xx--
   `,
   `
-    x--x
-    x-xx
-    xx-x
-    x--x
+    --xx
+    --xx
+    --xx
+    --xx
   `,
   `
-    -x-x
-    xx-x
-    -x-x
-    -x-x
+    ----
+    ----
+    xxxx
+    xxxx
   `,
   `
-    -xx-
-    xxx-
+    xxxx
+    xxxx
+    ----
+    ----
+  `,
+  `
+    ---x
+    --xx
     -xxx
-    -xx-
+    xxxx
   `,
   `
     xxxx
-    xxxx
-    ----
-    ----
+    xxx-
+    xx--
+    x---
   `,
   `
     xxxx
-    xxxx
-    xxxx
     ----
+    ----
+    xxxx
   `,
   `
     xxxx
+    --xx
+    --xx
     xxxx
+  `,
+  `
+    xx--
+    xx--
+    xxxx
+    xxxx
+  `,
+  `
     xx-x
-    xxxx
+    xx-x
+    xx-x
+    xx-x
   `,
 ]
 
