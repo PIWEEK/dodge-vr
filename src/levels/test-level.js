@@ -121,9 +121,9 @@ AFRAME.registerComponent('test-level', {
   levelOptions: {
     creationPosition: -50,
     phases: 14,
-    speed: [20, 30],
+    speed: [40, 40],
     size: [2, 10],
-    interval: [2500, 1100]
+    interval: [1400, 1900]
   },
   init: function() {
     dispatch('setLives', 3);
