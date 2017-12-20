@@ -6,6 +6,7 @@ AFRAME.registerComponent('move', {
     },
     init: function () {
       this.directionVec3 = new THREE.Vector3();
+      console.log('moveee');
     },
     tick: function (time, timeDelta) {
       if (this.data.active) {

@@ -7,8 +7,9 @@ function randomIntFromInterval(min,max) {
 const createEntity = (options) => {
   const entity = document.createElement('a-entity');
 
-  entity.setAttribute('move', 'speed', options.speed);
-  entity.setAttribute('move', 'active', true);
+  // performance 1
+  // entity.setAttribute('move', 'speed', options.speed);
+  // entity.setAttribute('move', 'active', true);
 
   return entity;
 }
@@ -16,10 +17,11 @@ const createEntity = (options) => {
 export function startLevel(level, phases, options) {
   let currentPhase = 0;
 
-  options.delay = options.delay | 1000;
-  options.creationPosition = options.creationPosition | -50;
-  options.speed = options.speed | 20;
-  options.depth = options.depth | 1;
+  options.delay = options.delay || 1000;
+  options.creationPosition = options.creationPosition || -50;
+  /// options.speed = options.speed | 20;
+  options.dur = options.dur || 3000;
+  options.depth = options.depth || 1;
 
   const depths = phases
     .filter((o) => o.options && o.options.depth)
@@ -32,19 +34,23 @@ export function startLevel(level, phases, options) {
     const delay = phase.options.delay || options.delay;
     const depth = phase.options.depth || options.depth;
     const creationPosition = phase.options.creationPosition || options.creationPosition;
-    const speed = phase.options.speed || options.speed;
+    const dur = phase.options.dur || options.dur;
+    // const speed = phase.options.speed || options.speed;
 
     const levelEntity = generateTemplateBlock({
-      speed: speed,
+      // speed: speed,
+      dur: dur,
       depth: depth,
       creationPosition: creationPosition,
       rowSize: options.rowSize,
       columnSize: options.columnSize,
       playArea: options.playArea,
-      template: phase.template
+      template: phase.template,
+      maxDepth: maxDepth,
     });
 
-    levelEntity.setAttribute('move', 'depth', maxDepth);
+    // performance 1
+    // levelEntity.setAttribute('move', 'depth', maxDepth);
 
     level.appendChild(levelEntity);
     systemEmmiter.emit('reloadCollisions');
@@ -66,8 +72,23 @@ export const generateTemplateBlock = (options) => {
     entity.appendChild(element);
   }
 
+  // performance 1
   // position height is geometry height / 2
-  entity.setAttribute('position', `0 ${options.playArea.height / 2} ${options.creationPosition}`);
+  // entity.setAttribute('position', `0 ${options.playArea.height / 2} ${options.creationPosition}`);
+
+  const animation = document.createElement('a-animation');
+
+  animation.setAttribute('attribute', 'position');
+  animation.setAttribute('from', `0 ${options.playArea.height / 2} ${options.creationPosition}`);
+  animation.setAttribute('to', `0 ${options.playArea.height / 2} ${options.maxDepth + 1}`);
+  animation.setAttribute('dur', options.dur);
+  animation.setAttribute('easing', 'linear');
+
+  entity.addEventListener('animationend', () => {
+    entity.parentNode.removeChild(entity);
+  });
+
+  entity.appendChild(animation);
 
   return entity;
 };

@@ -12,7 +12,7 @@ const phases = [
     `,
     options: {
       delay: 1000
-      // speed
+      // dur
       // creationPosition
     }
   },
@@ -509,7 +509,7 @@ AFRAME.registerComponent('test-level', {
     startLevel(this.level, phases, {
       delay: 1000,
       creationPosition: -50,
-      speed: 10,
+      dur: 3000,
       rowSize: 4,
       columnSize: 4,
       playArea: {
