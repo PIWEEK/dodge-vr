@@ -6,26 +6,26 @@ const templates = [
   `
     x--x
     ----
-    --x-
+    -px-
     -x--
   `,
   `
     x--x
     xxxx
     ----
-    ---x
+    p--x
   `,
   `
     xxxx
     xxxx
-    -x--
+    px--
     ---x
   `,
   `
     xxxx
     xxxx
     xx--
-    ---x
+    --px
   `,
   `
     x--x

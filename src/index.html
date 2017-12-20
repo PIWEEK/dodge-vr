@@ -18,7 +18,7 @@
           </a-assets>
 
           <a-entity menu-collider>
-            <a-entity 
+            <a-entity
               class="laser"
               visible="false"
               laser-controls="hand: left">
@@ -30,15 +30,15 @@
             hand-controls="left"
             custom-reload
             hit
-            aabb-collider="objects: a-box;"            
+            aabb-collider="objects: .gamecollision;"
           ></a-entity>
           <a-entity
             class="controller"
             hand-controls="right"
             hit
-            aabb-collider="objects: a-box;"            
-          ></a-entity>          
-        
+            aabb-collider="objects: .gamecollision;"
+          ></a-entity>
+
           <a-entity
             id="camera"
             camera="userHeight: 1.6"
@@ -51,7 +51,7 @@
               position="0 0 0"
               scale="0.12 0.16 0"
               hit
-              aabb-collider="objects: a-box;"></a-sphere>
+              aabb-collider="objects: .gamecollision;"></a-sphere>
           </a-entity>
         </a-scene>
     </body>

@@ -25,6 +25,34 @@ export const generateTemplateBlock = (options) => {
   return entity;
 };
 
+export const getObj = (type) => {
+  let element;
+
+  if (type === 'box') {
+    element = document.createElement('a-box');
+    element.setAttribute('material', 'src: #cubeBlue; repeat: 3 3');
+    element.className = 'block';
+  } else if (type === 'sphere') {
+    element = document.createElement('a-sphere');
+    element.setAttribute('material', 'src: #ballTexture; repeat: 10 10');
+    element.setAttribute('scale', '0.2 0.2 0.2');
+    element.className = 'bonus';
+
+    const light = document.createElement('a-light');
+
+    light.setAttribute('type', 'ambient');
+    light.setAttribute('color', '#13c490');
+    light.setAttribute('intensity', '0.25');
+    light.setAttribute('distance', '0.05');
+
+    element.appendChild(light);
+  }
+
+  element.classList.add('gamecollision');
+
+  return element;
+}
+
 export const generateRandomBlock = (options) => {
   const entity = createEntity(options);
 
@@ -79,6 +107,10 @@ export const generateTemplate = (options) => {
   const elements = [];
   const rowSize = options.rowSize;
   const columnSize = options.columnSize;
+  const types = {
+    'x': 'box',
+    'p': 'sphere'
+  };
 
   const width = options.playArea.width;
   const height = options.playArea.height;
@@ -92,12 +124,8 @@ export const generateTemplate = (options) => {
       const char = template[(row * columnSize)  + column];
 
       if (char !== '-') {
-        const element = document.createElement('a-box');
+        const element = getObj(types[char]);
 
-
-        // TODO: Delete it. For test purpose only
-        element.className = "block";
-        // element.className = "bonus";
         // size
         const ew = width / columnSize;
         const eh = height / rowSize;
@@ -108,13 +136,12 @@ export const generateTemplate = (options) => {
         element.setAttribute('height', eh);
         element.setAttribute('depth', 1);
 
-        element.setAttribute('material', 'src: #cubeBlue; repeat: 3 3');
-
         const pw = (column * ew) - (width / 2 - (ew / 2));
         const ph = (height / 2 - (eh / 2)) - (row * eh);
         const pz = 0;
 
         element.setAttribute('position', `${pw} ${ph} 0`);
+
         elements.push(element);
       }
     }
