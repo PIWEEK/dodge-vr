@@ -44,7 +44,6 @@ AFRAME.registerComponent('main-menu-level', {
             level.addEventListener('click', (e) => {
               dispatch('setSelectionMode', null);
               loadScene('/levels/test.html');
-              
             });
           }
 

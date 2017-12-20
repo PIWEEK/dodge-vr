@@ -20,115 +20,116 @@
             <!-- <audio id="song" src="/assets/song.mp3" autoplay loop></audio> -->
           </a-assets>
 
-          <!-- Score -->
-          <a-entity 
-            score-end
-            position="0 2 -1">
-            <a-text
-              class="score-text"
-              color="blue"
-              position="-0.75 0 -2"
-              value="Your score: 0000">
-            </a-text>
+          <a-entity class="scene-orientation" rotation="0 0 0"> 
+              <!-- Player -->
+              <a-entity player>
+                <a-entity
+                  class="laser"
+                  visible="false"
+                  laser-controls="hand: left">
+                </a-entity>            
+                <a-entity
+                  class="controller controller-left"
+                  hand-controls="left"
+                  custom-reload
+                  hit
+                  aabb-collider="objects: .gamecollision;"></a-entity>
 
-            <a-box
-              class="retry score-end-action"
-              position="-0.2 -0.5 -2"
-              material="opacity: 0"
-              width="0.5"
-              height="0.3"
-              depth="0.25">
-                <a-text
-                  position="-0.27 0 0"
-                  value="Retry">
-                </a-text>
-            </a-box>
+                <a-entity
+                  class="controller"
+                  hand-controls="right"
+                  hit
+                  aabb-collider="objects: .gamecollision;"></a-entity>
 
-            <a-box
-              class="quit score-end-action"
-              position="0.5 -0.5 -2"
-              material="opacity: 0"
-              width="0.5"
-              height="0.3"
-              depth="0.25">
-                <a-text
-                  position="-0.27 0 0"
-                  value="Quit">
-                </a-text>
-              </a-box>
-          </a-entity>
+                <a-entity
+                  id="camera"
+                  camera="userHeight: 1.6"
+                  wasd-controls
+                  position="0 0 0"
+                  data-aframe-default-camera
+                  look-controls>
+                    <a-cursor></a-cursor>
+                    <a-sphere
+                    id="head"
+                    position="0 0 0"
+                    scale="0.12 0.16 0"
+                    hit
+                    aabb-collider="objects: .gamecollision;"></a-sphere>
 
-          <!-- Player -->
-          <a-entity player>
-            <a-entity
-              class="laser"
-              visible="false"
-              laser-controls="hand: left">
-            </a-entity>            
-            <a-entity
-              class="controller controller-left"
-              hand-controls="left"
-              custom-reload
-              hit
-              aabb-collider="objects: .gamecollision;"></a-entity>
-
-            <a-entity
-              class="controller"
-              hand-controls="right"
-              hit
-              aabb-collider="objects: .gamecollision;"></a-entity>
-
-            <a-entity
-              id="camera"
-              camera="userHeight: 1.6"
-              wasd-controls
-              position="0 0 0"
-              data-aframe-default-camera
-              look-controls>
-                <a-cursor></a-cursor>
-                <a-sphere
-                id="head"
-                position="0 0 0"
-                scale="0.12 0.16 0"
-                hit
-                aabb-collider="objects: .gamecollision;"></a-sphere>
-
-                <!-- Game over -->
-                <a-entity game-over>
-                  <a-text
-                    color="red"
-                    position="-0.5 0 -2"
-                    value="Game over">
-                  </a-text>
-
-                  <a-box
-                    class="retry game-over-action"
-                    position="-0.2 -0.5 -2"
-                    material="opacity: 0"
-                    width="0.5"
-                    height="0.3"
-                    depth="0.25">
+                    <!-- Game over -->
+                    <a-entity game-over>
                       <a-text
-                        position="-0.27 0 0"
-                        value="Retry">
+                        color="red"
+                        position="-0.5 0 -2"
+                        value="Game over">
                       </a-text>
-                  </a-box>
 
-                  <a-box
-                    class="quit game-over-action"
-                    position="0.5 -0.5 -2"
-                    material="opacity: 0"
-                    width="0.5"
-                    height="0.3"
-                    depth="0.25">
+                      <a-box
+                        class="retry game-over-action"
+                        position="-0.2 -0.5 -2"
+                        material="opacity: 0"
+                        width="0.5"
+                        height="0.3"
+                        depth="0.25">
+                          <a-text
+                            position="-0.27 0 0"
+                            value="Retry">
+                          </a-text>
+                      </a-box>
+
+                      <a-box
+                        class="quit game-over-action"
+                        position="0.5 -0.5 -2"
+                        material="opacity: 0"
+                        width="0.5"
+                        height="0.3"
+                        depth="0.25">
+                          <a-text
+                            position="-0.27 0 0"
+                            value="Quit">
+                          </a-text>
+                        </a-box>
+                    </a-entity>
+                    <!-- Score -->
+                    <a-entity 
+                      score-end
+                      position="0 0.5-1">
                       <a-text
-                        position="-0.27 0 0"
-                        value="Quit">
+                        class="score-text"
+                        color="blue"
+                        position="-0.75 0 -2"
+                        value="Your score: 0000">
                       </a-text>
-                    </a-box>
-                </a-entity>
+
+                      <a-box
+                        class="retry score-end-action"
+                        position="-0.2 -0.5 -2"
+                        material="opacity: 0"
+                        width="0.5"
+                        height="0.3"
+                        depth="0.25">
+                          <a-text
+                            position="-0.27 0 0"
+                            value="Retry">
+                          </a-text>
+                      </a-box>
+
+                      <a-box
+                        class="quit score-end-action"
+                        position="0.5 -0.5 -2"
+                        material="opacity: 0"
+                        width="0.5"
+                        height="0.3"
+                        depth="0.25">
+                          <a-text
+                            position="-0.27 0 0"
+                            value="Quit">
+                          </a-text>
+                        </a-box>
+                      </a-entity>                    
+                  </a-entity>
               </a-entity>
-            </a-entity>
+          </a-entity>
         </a-scene>        
     </body>
 </html>

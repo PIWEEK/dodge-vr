@@ -13,7 +13,7 @@ import './levels/main-menu';
 
 import { loadScene } from './utils/sceneManipulation';
 
-import { createState, dispatch } from './utils/state';
+import { createState, dispatch, getState } from './utils/state';
 createState();
 
 navigator.getVRDisplays().then((vrdisplay) => {

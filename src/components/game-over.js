@@ -1,4 +1,4 @@
-import { getState, state } from '../utils/state';
+import { getState, state, dispatch } from '../utils/state';
 import { loadScene } from '../utils/sceneManipulation';
 
 AFRAME.registerComponent('game-over', {

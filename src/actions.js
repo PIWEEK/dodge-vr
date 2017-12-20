@@ -38,3 +38,7 @@ registerAction('setShowScore', (state, payload) => {
 registerAction('setSelectionMode', (state, payload) => {
   state.selectionMode = payload;
 });
+
+registerAction('setOrientation', (state, payload) => {
+  state.orientation = payload;
+});

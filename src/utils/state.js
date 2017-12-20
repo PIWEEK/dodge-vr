@@ -12,7 +12,8 @@ const defaultState = {
   score: 0,
   lives: 3,
   showScore: false,
-  selectionMode: null
+  selectionMode: null,
+  orientation: 0
 };
 
 export const createState = () => {
