@@ -51,10 +51,10 @@ const phases = [
   },
   {
     template: `
+      ----
       ---x
       --xx
       -xxx
-      xxxx
     `,
     options: {
       delay: 1000
@@ -63,23 +63,23 @@ const phases = [
   {
     template: `
       xxxx
-      xxx-
-      xx--
-      x---
+      ----
+      ----
+      xxxx
     `,
     options: {
-      delay: 600
+      delay: 800
     }
   },
   {
     template: `
+      xx--
+      xx--
       xxxx
-      ----
-      ----
       xxxx
     `,
     options: {
-      delay: 600
+      delay: 800
     }
   },
   {
@@ -90,31 +90,152 @@ const phases = [
       xxxx
     `,
     options: {
-      delay: 600
+      delay: 800
     }
   },
   {
     template: `
-      xx--
-      xx--
-      xxxx
-      xxxx
-    `,
-    options: {
-      delay: 500
-    }
-  },
-  {
-    template: `
-      xx-x
-      xx-x
-      xx-x
-      xx-x
+      ----
+      --p-
+      ----
+      ----
     `,
     options: {
       delay: 400
     }
-  }
+  },
+  {
+    template: `
+      ---p
+      ----
+      ----
+      ----
+    `,
+    options: {
+      delay: 400
+    }
+  },
+  {
+    template: `
+      ----
+      ---p
+      ----
+      ----
+    `,
+    options: {
+      delay: 400
+    }
+  },
+  {
+    template: `
+      ----
+      ----
+      ---p
+      ----
+    `,
+    options: {
+      delay: 400
+    }
+  },
+  {
+    template: `
+      ----
+      ----
+      ----
+      -p--
+    `,
+    options: {
+      delay: 400
+    }
+  },
+  {
+    template: `
+      ----
+      -p--
+      ----
+      ----
+    `,
+    options: {
+      delay: 1000
+    }
+  },
+  {
+    template: `
+      xx-x
+      xx-x
+      xx-x
+      xx-x
+    `,
+    options: {
+      delay: 800
+    }
+  },
+  {
+    template: `
+      x-xx
+      x-xx
+      x-xx
+      x-xx
+    `,
+    options: {
+      delay: 1100
+    }
+  },
+  {
+    template: `
+      -xxx
+      -xxx
+      -xxx
+      -xxx
+    `,
+    options: {
+      delay: 900
+    }
+  },
+  {
+    template: `
+      ----
+      --p-
+      --p-
+      ----
+    `,
+    options: {
+      delay: 600
+    }
+  },
+  {
+    template: `
+      xx-x
+      xx-x
+      xx-x
+      xx-x
+    `,
+    options: {
+      delay: 800
+    }
+  },
+  {
+    template: `
+      x-x-
+      x-x-
+      x-x-
+      x-x-
+    `,
+    options: {
+      delay: 800
+    }
+  },
+  {
+    template: `
+      -x-x
+      -x-x
+      -x-x
+      -x-x
+    `,
+    options: {
+      delay: 800
+    }
+  },
 ]
 
 AFRAME.registerComponent('test-level', {
@@ -137,7 +258,7 @@ AFRAME.registerComponent('test-level', {
     startLevel(this.level, phases, {
       delay: 1000,
       creationPosition: -50,
-      speed: 20,
+      speed: 10,
       rowSize: 4,
       columnSize: 4,
       playArea: {

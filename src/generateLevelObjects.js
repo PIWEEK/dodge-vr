@@ -67,7 +67,8 @@ export const getObj = (type) => {
 
   if (type === 'box') {
     element = document.createElement('a-box');
-    element.setAttribute('material', 'src: #cubeBlue; repeat: 3 3');
+    element.setAttribute('material', 'src: #cubeBlue; repeat: 1 1');
+    element.setAttribute('opacity', '0.5');
     element.className = 'block';
   } else if (type === 'sphere') {
     element = document.createElement('a-sphere');
