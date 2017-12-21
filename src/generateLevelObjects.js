@@ -28,7 +28,11 @@ export function startLevel(level, phases, options) {
       .filter((o) => o.options && o.options.depth)
       .map((o) => o.options.depth);
 
-    const maxDepth = Math.max.apply(Math, depths) || options.depth;
+    let maxDepth = options.depth;
+
+    if (depths.length) {
+      maxDepth = Math.max(...depths);
+    }
 
     const generateLevel = () => {
       const phase = phases[currentPhase];
