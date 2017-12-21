@@ -18,7 +18,7 @@ AFRAME.registerComponent('entity-phase', {
 
       if (this.discardFirstTick) {
         this.discardFirstTick = false;
-        return;
+        // return;
       }      
 
       var collisions = [];

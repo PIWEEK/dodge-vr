@@ -6,7 +6,7 @@ function randomIntFromInterval(min,max) {
 
 const createEntity = (options) => {
   const entity = document.createElement('a-box');
-  entity.setAttribute('entity-phase', true);
+  // entity.setAttribute('entity-phase', true);
   entity.classList.add('entity-phase');
   entity.setAttribute('depth', options.depth);
   // entity.setAttribute('color', 'yellow')
@@ -23,7 +23,6 @@ export function startLevel(level, phases, options) {
 
     options.delay = options.delay || 1000;
     options.creationPosition = options.creationPosition || -50;
-    /// options.speed = options.speed | 20;
     options.dur = options.dur || 3000;
     options.depth = options.depth || 1;
     options.opacity = options.opacity || 1;
@@ -38,16 +37,16 @@ export function startLevel(level, phases, options) {
       maxDepth = Math.max(...depths);
     }
 
-    const bornBox = document.createElement('a-box');
-    bornBox.classList.add('born-box')
-    bornBox.setAttribute('position', `0 0 ${options.creationPosition - 0.05}`);
-    bornBox.setAttribute('material', 'opacity', '0');
-    bornBox.setAttribute('height', 100);
-    bornBox.setAttribute('width', 10);
-    bornBox.setAttribute('depth', 0.1);
-    bornBox.setAttribute('color', 'red');
+    // const bornBox = document.createElement('a-box');
+    // bornBox.classList.add('born-box')
+    // bornBox.setAttribute('position', `0 0 ${options.creationPosition - 0.05}`);
+    // bornBox.setAttribute('material', 'opacity', '0');
+    // bornBox.setAttribute('height', 100);
+    // bornBox.setAttribute('width', 10);
+    // bornBox.setAttribute('depth', 0.1);
+    // bornBox.setAttribute('color', 'red');
 
-    level.appendChild(bornBox);
+    // level.appendChild(bornBox);
 
     const generateLevel = () => {
       const phase = phases[currentPhase];
@@ -74,8 +73,6 @@ export function startLevel(level, phases, options) {
       });
 
       const exit = () => {
-        levelEntity.removeEventListener('exitborn', exit);
-
         if (currentPhase + 1 < phases.length) {
           currentPhase++;
 
@@ -85,9 +82,17 @@ export function startLevel(level, phases, options) {
         }
       }
 
-      levelEntity.addEventListener('exitborn', exit);
+      const to = maxDepth + options.playArea.width - (depth / 2);
+      const from = creationPosition - (depth / 2);
+      const distance = to - from;
+      const speed = dur * depth / distance;
 
-      level.appendChild(levelEntity);
+      setTimeout(exit, speed)
+
+      requestAnimationFrame(() => {
+        level.appendChild(levelEntity);
+        systemEmmiter.emit('reloadCollisions');
+      });
 
       // const debugEnd = document.createElement('a-box');
       // debugEnd.setAttribute('width', 20)
@@ -96,9 +101,7 @@ export function startLevel(level, phases, options) {
       // debugEnd.setAttribute('color', 'blue')
       // debugEnd.setAttribute('position', '0 0 20')
       // debugEnd.setAttribute('material', 'opacity: 0.2');
-      // level.appendChild(debugEnd);
-
-      systemEmmiter.emit('reloadCollisions');
+      // level.appendChild(debugEnd); 
     }
 
     generateLevel();
