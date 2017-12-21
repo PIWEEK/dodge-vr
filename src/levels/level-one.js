@@ -5,13 +5,24 @@ import { startLevel, generateRandomLevel, generateRandomBlock, generateTemplateB
 const phases = [
   {
     template: `
+      ----
+      ----
+      ----
+      ----
+    `,
+    options: {
+      delay: 2000
+    }
+  },
+  {
+    template: `
       --xx
       --xx
       --xx
       --xx
     `,
     options: {
-      delay: 1000
+      delay: 800
     }
   },
   {
@@ -22,7 +33,7 @@ const phases = [
       xxxx
     `,
     options: {
-      delay: 1000
+      delay: 800
     }
   },
   {
@@ -33,7 +44,7 @@ const phases = [
       ----
     `,
     options: {
-      delay: 1000
+      delay: 800
     }
   },
   {
@@ -44,7 +55,7 @@ const phases = [
       -xxx
     `,
     options: {
-      delay: 1000
+      delay: 800
     }
   },
   {
@@ -77,7 +88,7 @@ const phases = [
       xxxx
     `,
     options: {
-      delay: 800
+      delay: 400
     }
   },
   {
@@ -88,7 +99,7 @@ const phases = [
       ----
     `,
     options: {
-      delay: 400
+      delay: 300
     }
   },
   {
@@ -99,7 +110,7 @@ const phases = [
       ----
     `,
     options: {
-      delay: 400
+      delay: 300
     }
   },
   {
@@ -110,7 +121,7 @@ const phases = [
       ----
     `,
     options: {
-      delay: 400
+      delay: 300
     }
   },
   {
@@ -121,7 +132,7 @@ const phases = [
       ----
     `,
     options: {
-      delay: 400
+      delay: 300
     }
   },
   {
@@ -132,7 +143,7 @@ const phases = [
       -p--
     `,
     options: {
-      delay: 400
+      delay: 300
     }
   },
   {
@@ -143,7 +154,7 @@ const phases = [
       ----
     `,
     options: {
-      delay: 1000
+      delay: 500
     }
   },
   {
@@ -220,7 +231,29 @@ const phases = [
       -x-x
     `,
     options: {
-      delay: 1500
+      delay: 1000
+    }
+  },
+  {
+    template: `
+      xxxx
+      ----
+      xxxx
+      ----
+    `,
+    options: {
+      delay: 1000
+    }
+  },
+  {
+    template: `
+      ----  
+      xxxx
+      ----
+      xxxx
+    `,
+    options: {
+      delay: 1000
     }
   },
   {
@@ -233,9 +266,25 @@ const phases = [
       xxxxx
     `,
     options: {
-      delay: 500,
-      depth: 17,
+      delay: 25,
+      depth: 40,
       opacity: 1
+    }
+  },
+  {
+    template: `
+      x---x
+      x---x
+      x---x
+      x---x
+      xxxxx
+      xxxxx
+    `,
+    options: {
+      delay: 25,
+      depth: 40,
+      opacity: 1,
+      
     }
   },
   {
@@ -248,9 +297,9 @@ const phases = [
       xxxxx
     `,
     options: {
-      delay: 500,
-      depth: 15,
-      opacity: 1
+      delay: 25,
+      depth: 40,
+      opacity: 1,
       
     }
   },
@@ -264,8 +313,9 @@ const phases = [
       xxxxx
     `,
     options: {
-      delay: 500,
-      depth: 17
+      delay: 25,
+      depth: 40,
+      opacity: 1
     }
   },
   {
@@ -278,8 +328,9 @@ const phases = [
       xxxxx
     `,
     options: {
-      delay: 700,
-      depth: 17
+      delay: 200,
+      depth: 40,
+      opacity: 1
     }
   },
   {
@@ -293,8 +344,9 @@ const phases = [
       xxxxx
     `,
     options: {
-      delay: 700,
-      depth: 17
+      delay: 200,
+      depth: 40,
+      opacity: 1
     }
   },
   {
@@ -307,8 +359,9 @@ const phases = [
       xxxxx
     `,
     options: {
-      delay: 500,
-      depth: 17
+      delay: 50,
+      depth: 40,
+      opacity: 1
     }
   },
   {
@@ -321,8 +374,9 @@ const phases = [
       xxxxx
     `,
     options: {
-      delay: 500,
-      depth: 17
+      delay: 50,
+      depth: 40,
+      opacity: 1
     }
   },
   {
@@ -335,8 +389,9 @@ const phases = [
       xxxxx
     `,
     options: {
-      delay: 500,
-      depth: 15
+      delay: 50,
+      depth: 15,
+      opacity: 1
     }
   },
   {
@@ -350,24 +405,26 @@ const phases = [
     `,
     options: {
       delay: 100,
-      depth: 5
+      depth: 5,
+      opacity: 1
     }
   },
   {
     template: `
-      xxxxx
-      xxxxx
-      x---x
-      x---x
-      x---x
-      x---x
-      x---x
-      x---x
-      xxxxx
+      xxxxxx
+      xxxxxx
+      xx--xx
+      xx--xx
+      xx--xx
+      xx--xx
+      xx--xx
+      xxxxxx
+      xxxxxx
     `,
     options: {
       delay: 100,
-      depth: 5
+      depth: 50,
+      opacity: 1
     }
   },
   {
@@ -378,7 +435,8 @@ const phases = [
       x--x
     `,
     options: {
-      delay: 200
+      delay: 25,
+      deep: 2
     }
   },
   {
@@ -389,7 +447,8 @@ const phases = [
       x--x
     `,
     options: {
-      delay: 200
+      delay: 25,
+      deep: 2      
     }
   },
   {
@@ -400,7 +459,8 @@ const phases = [
       x--x
     `,
     options: {
-      delay: 200
+      delay: 25,
+      deep: 2      
     }
   },
   {
@@ -411,7 +471,8 @@ const phases = [
       x--x
     `,
     options: {
-      delay: 200
+      delay: 25,
+      deep: 2      
     }
   },
   {
@@ -422,7 +483,8 @@ const phases = [
       x--x
     `,
     options: {
-      delay: 200
+      delay: 25,
+      deep: 2      
     }
   },
   {
@@ -433,7 +495,8 @@ const phases = [
       x--x
     `,
     options: {
-      delay: 200
+      delay: 25,
+      deep: 2      
     }
   },
   {
@@ -444,7 +507,8 @@ const phases = [
       x--x
     `,
     options: {
-      delay: 200
+      delay: 25,
+      deep: 2      
     }
   },
   {
@@ -455,7 +519,8 @@ const phases = [
       x--x
     `,
     options: {
-      delay: 200
+      delay: 25,
+      deep: 2      
     }
   },
   {
@@ -466,7 +531,8 @@ const phases = [
       x--x
     `,
     options: {
-      delay: 200
+      delay: 25, 
+      deep: 2      
     }
   },
   {
@@ -477,7 +543,8 @@ const phases = [
       x--x
     `,
     options: {
-      delay: 200
+      delay: 25,
+      deep: 2      
     }
   },
   {
@@ -488,7 +555,8 @@ const phases = [
       x--x
     `,
     options: {
-      delay: 200
+      delay: 25,
+      deep: 2      
     }
   },
   {
@@ -499,7 +567,8 @@ const phases = [
       x--x
     `,
     options: {
-      delay: 200
+      delay: 25,
+      deep: 2      
     }
   },
   {
@@ -510,7 +579,115 @@ const phases = [
       x--x
     `,
     options: {
-      delay: 200
+      delay: 50,
+      deep: 2      
+    }
+  },{
+    template: `
+      x--x
+      ----
+      ----
+      x--x
+    `,
+    options: {
+      delay: 50,
+      deep: 2      
+    }
+  },
+  {
+    template: `
+      x--x
+      ----
+      ----
+      x--x
+    `,
+    options: {
+      delay: 50,
+      deep: 2      
+    }
+  },
+  {
+    template: `
+      x--x
+      ----
+      ----
+      x--x
+    `,
+    options: {
+      delay: 50,
+      deep: 2      
+    }
+  },
+  {
+    template: `
+      x--x
+      ----
+      ----
+      x--x
+    `,
+    options: {
+      delay: 50,
+      deep: 2      
+    }
+  },
+  {
+    template: `
+      x--x
+      ----
+      ----
+      x--x
+    `,
+    options: {
+      delay: 50,
+      deep: 2      
+    }
+  },
+  {
+    template: `
+      x--x
+      ----
+      ----
+      x--x
+    `,
+    options: {
+      delay: 50,
+      deep: 2      
+    }
+  },
+  {
+    template: `
+      x--x
+      ----
+      ----
+      x--x
+    `,
+    options: {
+      delay: 75,
+      deep: 2      
+    }
+  },
+  {
+    template: `
+      x--x
+      ----
+      ----
+      x--x
+    `,
+    options: {
+      delay: 75,
+      deep: 2      
+    }
+  },
+  {
+    template: `
+      x--x
+      ----
+      ----
+      x--x
+    `,
+    options: {
+      delay: 75,
+      deep: 2      
     }
   },
 ]
@@ -531,9 +708,9 @@ AFRAME.registerComponent('level-one', {
 
     startLevel(this.level, phases, {
       delay: 1000,
-      creationPosition: -50,
-      dur: 3000,
-      depth: 2,
+      creationPosition: -100,
+      dur: 1500,
+      depth: 3,
       playArea: {
         width: state.vrDisplay.stageParameters.sizeX,
         height: 2
