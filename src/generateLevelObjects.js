@@ -97,10 +97,6 @@ export const generateTemplateBlock = (options) => {
   animation.setAttribute('dur', options.dur);
   animation.setAttribute('easing', 'linear');
 
-  entity.addEventListener('animationend', () => {
-    entity.parentNode.removeChild(entity);
-  });
-
   entity.appendChild(animation);
 
   for (let animation of options.animations) {
@@ -111,7 +107,17 @@ export const generateTemplateBlock = (options) => {
     }
 
     entity.appendChild(aanimation);
+
+    setTimeout(() => {
+      aanimation.stop();
+    }, options.dur);
   }
+
+  entity.addEventListener('animationend', () => {
+    requestAnimationFrame(() => {
+      entity.parentNode.removeChild(entity);
+    });
+  });
 
   return entity;
 };
