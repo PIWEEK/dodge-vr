@@ -5,17 +5,40 @@ import { startLevel, generateRandomLevel, generateRandomBlock, generateTemplateB
 const phases = [
   {
     template: `
-      xx--
-      xx--
-      xx--
-      xx--
-      xx--
-      xx--
-      xx--
-      xx--
-      xx--
-      xx--
-      xx--
+      --
+      --
+    `,
+    options: {
+      delay: 950,
+      depth: 20
+    }
+  },
+  {
+    template: `
+      --xx
+      --xx
+      --xx
+      --xx
+    `,
+    options: {
+      delay: 900,
+      depth: 10
+    }
+  },
+  {
+    template: `
+      x--x
+      x--x
+      x--x
+      x--x
+    `,
+    options: {
+      delay: 1000,
+      depth: 20
+    }
+  },
+  {
+    template: `
       xx--
       xx--
       xx--
@@ -23,19 +46,7 @@ const phases = [
     `,
     options: {
       delay: 1000,
-      height: 10
-      // height NEW!!
-      // dur NEW!!
-      // creationPosition
-      // animations: [ NEW!!
-      //   {
-      //     attribute: 'rotation',
-      //     dur: 1000,
-      //     fill: 'forwards',
-      //     to: "0 360 0",
-      //     repeat: "indefinite"
-      //   }
-      // ]
+      depth: 15
     }
   },
   {
@@ -46,474 +57,395 @@ const phases = [
       --xx
     `,
     options: {
-      delay: 1000
+      delay: 1000,
+      depth: 20
     }
   },
   {
     template: `
-      ----
-      ----
-      xxxx
-      xxxx
+      x---
+      x---
+      x---
+      x---
     `,
     options: {
-      delay: 1000
+      delay: 1000,
+      depth: 30
     }
   },
   {
     template: `
-      xxxx
-      xxxx
+      x---
+      x---
+      x---
+      x---
+    `,
+    options: {
+      delay: 3100,
+      depth: 35
+    }
+  },
+  {
+    template: `
+      x---
+      x---
+      x---
+      x---
+    `,
+    options: {
+      delay: 850,
+      depth: 35
+    }
+  },
+  {
+    template: `
+    --x-
+    ----
+    ----
+    ----
+    `,
+    options: {
+      delay: 1250,
+      depth: 10
+    }
+  },
+  {
+    template: `
+      x---
+      ----
       ----
       ----
     `,
     options: {
-      delay: 1000
+      delay: 1000,
+      depth: 20
     }
   },
   {
     template: `
-      ----
       ---x
-      --xx
-      -xxx
-    `,
-    options: {
-      delay: 1000
-    }
-  },
-  {
-    template: `
-      xxxx
-      ----
-      ----
-      xxxx
-    `,
-    options: {
-      delay: 800
-    }
-  },
-  {
-    template: `
-      xx--
-      xx--
-      xxxx
-      xxxx
-    `,
-    options: {
-      delay: 800
-    }
-  },
-  {
-    template: `
-      xxxx
-      --xx
-      --xx
-      xxxx
-    `,
-    options: {
-      delay: 800
-    }
-  },
-  {
-    template: `
-      ----
-      --p-
-      ----
-      ----
-    `,
-    options: {
-      delay: 400
-    }
-  },
-  {
-    template: `
-      ---p
       ----
       ----
       ----
     `,
     options: {
-      delay: 400
-    }
-  },
-  {
-    template: `
-      ----
-      ---p
-      ----
-      ----
-    `,
-    options: {
-      delay: 400
-    }
-  },
-  {
-    template: `
-      ----
-      ----
-      ---p
-      ----
-    `,
-    options: {
-      delay: 400
-    }
-  },
-  {
-    template: `
-      ----
-      ----
-      ----
-      -p--
-    `,
-    options: {
-      delay: 400
-    }
-  },
-  {
-    template: `
-      ----
-      -p--
-      ----
-      ----
-    `,
-    options: {
-      delay: 1000
-    }
-  },
-  {
-    template: `
-      xx-x
-      xx-x
-      xx-x
-      xx-x
-    `,
-    options: {
-      delay: 800
-    }
-  },
-  {
-    template: `
-      x-xx
-      x-xx
-      x-xx
-      x-xx
-    `,
-    options: {
-      delay: 1100
-    }
-  },
-  {
-    template: `
-      -xxx
-      -xxx
-      -xxx
-      -xxx
-    `,
-    options: {
-      delay: 900
-    }
-  },
-  {
-    template: `
-      ----
-      --p-
-      --p-
-      ----
-    `,
-    options: {
-      delay: 500
-    }
-  },
-  {
-    template: `
-      xx-x
-      xx-x
-      xx-x
-      xx-x
-    `,
-    options: {
-      delay: 800
-    }
-  },
-  {
-    template: `
-      x-x-
-      x-x-
-      x-x-
-      x-x-
-    `,
-    options: {
-      delay: 1000
-    }
-  },
-  {
-    template: `
-      -x-x
-      -x-x
-      -x-x
-      -x-x
-    `,
-    options: {
-      delay: 10000
-    }
-  },
-  {
-    template: `
-      xxxx
-      x--x
-      x--x
-      xxxx
-    `,
-    options: {
-      delay: 500,
-      depth: 17
-    }
-  },
-  {
-    template: `
-      x--x
-      x--x
-      xxxx
-      xxxx
-    `,
-    options: {
-      delay: 500,
+      delay: 1000,
       depth: 15
     }
   },
   {
     template: `
-      xx--
-      xx--
-      xxxx
-      xxxx
+      x---
+      ----
+      ----
+      ----
+    `,
+    options: {
+      delay: 1000,
+      depth: 20
+    }
+  },
+  {
+    template: `
+      ---x
+      ----
+      ----
+      ----
+    `,
+    options: {
+      delay: 1000,
+      depth: 15
+    }
+  },
+  // 2000 desde aqui
+  {
+    template: `
+      ------
+      ------
+      ------
+      ------
     `,
     options: {
       delay: 500,
-      depth: 17
+      depth: 10
     }
   },
   {
     template: `
-      xxxx
-      xx--
-      xx--
-      xxxx
-    `,
-    options: {
-      delay: 700,
-      depth: 17
-    }
-  },
-  {
-    template: `
-      xxxx
-      x--x
-      x--x
-      xxxx
-    `,
-    options: {
-      delay: 700,
-      depth: 17
-    }
-  },
-  {
-    template: `
-      xxxx
-      --xx
-      --xx
-      xxxx
+      -x---x
+      ----x-
+      --x---
+      x---x-
     `,
     options: {
       delay: 500,
-      depth: 17
+      depth: 10
     }
   },
   {
     template: `
-      xxxx
-      x--x
-      x--x
-      xxxx
+      ----x-
+      x----x
+      -x---x
+      -x----
     `,
     options: {
       delay: 500,
-      depth: 17
+      depth: 10
     }
   },
   {
     template: `
-      x--x
-      x--x
-      xxxx
-      xxxx
+      x--x-
+      ----x-
+      -x----
+      --x---
     `,
     options: {
-      delay: 500,
+      delay: 600,
+      depth: 10
+    }
+  },
+  // crazy end
+  {
+    template: `
+    --x-
+    ----
+    ----
+    ----
+    `,
+    options: {
+      delay: 1250,
+      depth: 10
+    }
+  },
+  {
+    template: `
+      x---
+      ----
+      ----
+      ----
+    `,
+    options: {
+      delay: 1000,
+      depth: 20
+    }
+  },
+  {
+    template: `
+      ---x
+      ----
+      ----
+      ----
+    `,
+    options: {
+      delay: 1000,
       depth: 15
     }
   },
   {
     template: `
-      xxxx
-      x--x
-      x--x
-      xxxx
+      x---
+      ----
+      ----
+      ----
     `,
     options: {
-      delay: 100,
-      depth: 5
+      delay: 1000,
+      depth: 20
     }
   },
   {
     template: `
-      x--x
+      ---x
       ----
       ----
-      x--x
+      ----
     `,
     options: {
-      delay: 200
+      delay: 1000,
+      depth: 15
     }
   },
   {
     template: `
-      x--x
-      ----
-      ----
-      x--x
+    --x-
+    ----
+    ----
+    ----
     `,
     options: {
-      delay: 200
+      delay: 1250,
+      depth: 10
     }
   },
   {
     template: `
-      x--x
+      x---
       ----
       ----
-      x--x
+      ----
     `,
     options: {
-      delay: 200
+      delay: 1000,
+      depth: 20
     }
   },
   {
     template: `
-      x--x
+      ---x
       ----
       ----
-      x--x
+      ----
     `,
     options: {
-      delay: 200
+      delay: 1000,
+      depth: 15
     }
   },
   {
     template: `
-      x--x
+      x---
       ----
       ----
-      x--x
+      ----
     `,
     options: {
-      delay: 200
+      delay: 1000,
+      depth: 20
     }
   },
   {
     template: `
-      x--x
+      ---x
       ----
       ----
-      x--x
+      ----
     `,
     options: {
-      delay: 200
+      delay: 1000,
+      depth: 15
     }
   },
   {
     template: `
-      x--x
-      ----
-      ----
-      x--x
+    --x-
+    ----
+    ----
+    ----
     `,
     options: {
-      delay: 200
+      delay: 1250,
+      depth: 10
     }
   },
   {
     template: `
-      x--x
+      x---
       ----
       ----
-      x--x
+      ----
     `,
     options: {
-      delay: 200
+      delay: 1000,
+      depth: 20
     }
   },
   {
     template: `
-      x--x
+      ---x
       ----
       ----
-      x--x
+      ----
     `,
     options: {
-      delay: 200
+      delay: 1000,
+      depth: 15
     }
   },
   {
     template: `
-      x--x
+      x---
       ----
       ----
-      x--x
+      ----
     `,
     options: {
-      delay: 200
+      delay: 1000,
+      depth: 20
+    }
+  },
+  // Crazyness de aqui en adelante
+  {
+    template: `
+      x--x-
+      ----x-
+      -x----
+      --x---
+    `,
+    options: {
+      delay: 500,
+      depth: 10
     }
   },
   {
     template: `
-      x--x
-      ----
-      ----
-      x--x
+      x--x-
+      ----x-
+      -x----
+      --x---
     `,
     options: {
-      delay: 200
+      delay: 500,
+      depth: 10
     }
   },
   {
     template: `
-      x--x
-      ----
-      ----
-      x--x
+      x--x-
+      ----x-
+      -x----
+      --x---
     `,
     options: {
-      delay: 200
+      delay: 500,
+      depth: 10
     }
   },
   {
     template: `
-      x--x
-      ----
-      ----
-      x--x
+      x--x-
+      ----x-
+      -x----
+      --x---
     `,
     options: {
-      delay: 200
+      delay: 500,
+      depth: 10
     }
   },
+  {
+    template: `
+      x--x-
+      ----x-
+      -x----
+      --x---
+    `,
+    options: {
+      delay: 500,
+      depth: 10
+    }
+  },
+
 ]
 
-AFRAME.registerComponent('level-one', {
+AFRAME.registerComponent('level-four', {
   init: function() {
     dispatch('setLives', 300);
+    dispatch('setSound', {
+      src: '#song_last',
+      autoplay: true
+  });
 
     document.querySelector('#ground')
     .setAttribute('width', state.vrDisplay.stageParameters.sizeX);

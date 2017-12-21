@@ -215,10 +215,10 @@ const phases = [
   },
   {
     template: `
-    xxxxx
-    x---x
-    x---x
-    xxxxx
+    xxxx
+    x--x
+    x--x
+    xxxx
     `,
     options: {
       delay: 2400,
@@ -237,8 +237,11 @@ const phases = [
   {
     template: `
     xxxxxxx
+    xxxxxxx
     xxx---x
     xxx---x
+    xxx---x
+    xxxxxxx
     xxxxxxx
     `,
     options: {
@@ -250,8 +253,11 @@ const phases = [
   {
     template: `
     xxxxxxx
+    xxxxxxx
     x---xxx
     x---xxx
+    x---xxx
+    xxxxxxx
     xxxxxxx
     `,
     options: {
@@ -289,7 +295,7 @@ const phases = [
     x-----p
     `,
     options: {
-      delay: 600,
+      delay: 900,
       depth: 2,
       animations: [
         {
@@ -310,7 +316,7 @@ const phases = [
     xx----p
     `,
     options: {
-      delay: 600,
+      delay: 900,
       depth: 2,
       animations: [
         {
@@ -331,7 +337,7 @@ const phases = [
     xxx----
     `,
     options: {
-      delay: 600,
+      delay: 900,
       depth: 2,
       opacity: 0.5,
       animations: [
@@ -353,7 +359,7 @@ const phases = [
     xxx--p--
     `,
     options: {
-      delay: 600,
+      delay: 900,
       depth: 2,
       opacity: 0.5,
       animations: [
@@ -375,7 +381,7 @@ const phases = [
     xxxxx---
     `,
     options: {
-      delay: 600,
+      delay: 900,
       depth: 2,
       opacity: 0.5,
       animations: [
@@ -397,7 +403,7 @@ const phases = [
     xxxxx---
     `,
     options: {
-      delay: 600,
+      delay: 900,
       depth: 2,
       opacity: 0.5,
       animations: [
@@ -420,13 +426,13 @@ const phases = [
     xxxxxxx--
     `,
     options: {
-      delay: 600,
+      delay: 900,
       depth: 2,
       opacity: 0.5,
       animations: [
         {
           attribute: 'rotation',
-          dur: 55000,
+          dur: 5500,
           fill: 'forwards',
           to: "0 0 360",
           repeat: "indefinite"
@@ -441,11 +447,11 @@ const phases = [
     ---
     `,
     options: {
-      delay: 600,
+      delay: 900,
       depth: 2,
       opacity: 0.5
     }
-  },
+  }, 
   {
     template: `
     --xxxxxx
@@ -455,7 +461,7 @@ const phases = [
     --xxxxxx
     `,
     options: {
-      delay: 600,
+      delay: 900,
       depth: 20,
       opacity: 0.5,
       animations: [
