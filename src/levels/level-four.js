@@ -9,7 +9,7 @@ const phases = [
       --
     `,
     options: {
-      delay: 950,
+      delay: 2500,
       depth: 20
     }
   },
