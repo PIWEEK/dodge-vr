@@ -8,6 +8,7 @@ import './components/game-over';
 import './components/player';
 import './components/score-end';
 import './components/sound-manager';
+import './components/entity-phase';
 
 import './levels/test-level';
 import './levels/level-one';

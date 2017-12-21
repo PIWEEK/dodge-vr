@@ -5,11 +5,12 @@ function randomIntFromInterval(min,max) {
 }
 
 const createEntity = (options) => {
-  const entity = document.createElement('a-entity');
-
-  // performance 1
-  // entity.setAttribute('move', 'speed', options.speed);
-  // entity.setAttribute('move', 'active', true);
+  const entity = document.createElement('a-box');
+  entity.setAttribute('entity-phase', true);
+  entity.classList.add('entity-phase');
+  entity.setAttribute('depth', options.depth);
+  // entity.setAttribute('color', 'yellow')
+  entity.setAttribute('material', 'opacity: 0');
 
   return entity;
 }
@@ -35,15 +36,26 @@ export function startLevel(level, phases, options) {
       maxDepth = Math.max(...depths);
     }
 
+    const bornBox = document.createElement('a-box');
+    bornBox.classList.add('born-box')
+    bornBox.setAttribute('position', `0 0 ${options.creationPosition - 0.05}`);
+    bornBox.setAttribute('material', 'opacity', '0');
+    bornBox.setAttribute('height', 100);
+    bornBox.setAttribute('width', 10);
+    bornBox.setAttribute('depth', 0.1);
+    bornBox.setAttribute('color', 'red');
+
+    level.appendChild(bornBox);
+
     const generateLevel = () => {
       const phase = phases[currentPhase];
-      const delay = phase.options.delay || options.delay;
+      const delay = phase.options.delay !== undefined ? phase.options.delay : options.delay;
       const depth = phase.options.depth || options.depth;
       const creationPosition = options.creationPosition;
       const dur = phase.options.dur || options.dur;
       const animations = phase.options.animations || [];
       const height = phase.options.height || options.playArea.height;
-      const opacity = phase.options.opacity || options.opacity;
+      const opacity = phase.options.opacity !== undefined ? phase.options.opacity : options.opacity;
       // const speed = phase.options.speed || options.speed;
 
       const levelEntity = generateTemplateBlock({
@@ -59,19 +71,32 @@ export function startLevel(level, phases, options) {
         opacity: opacity
       });
 
-      // performance 1
-      // levelEntity.setAttribute('move', 'depth', maxDepth);
+      const exit = () => {
+        levelEntity.removeEventListener('exitborn', exit);
+
+        if (currentPhase + 1 < phases.length) {
+          currentPhase++;
+
+          setTimeout(generateLevel, delay);
+        } else {
+          setTimeout(resolve, dur);
+        }
+      }
+
+      levelEntity.addEventListener('exitborn', exit);
 
       level.appendChild(levelEntity);
+
+      // const debugEnd = document.createElement('a-box');
+      // debugEnd.setAttribute('width', 20)
+      // debugEnd.setAttribute('height', 20)
+      // debugEnd.setAttribute('depth', 20)
+      // debugEnd.setAttribute('color', 'blue')
+      // debugEnd.setAttribute('position', '0 0 20')
+      // debugEnd.setAttribute('material', 'opacity: 0.2');
+      // level.appendChild(debugEnd);
+
       systemEmmiter.emit('reloadCollisions');
-
-      if (currentPhase + 1 < phases.length) {
-        currentPhase++;
-
-        setTimeout(generateLevel, delay);
-      } else {
-        setTimeout(resolve, dur + 1000);
-      }
     }
 
     generateLevel();
@@ -85,15 +110,11 @@ export const generateTemplateBlock = (options) => {
     entity.appendChild(element);
   }
 
-  // performance 1
-  // position height is geometry height / 2
-  // entity.setAttribute('position', `0 ${options.playArea.height / 2} ${options.creationPosition}`);
-
   const animation = document.createElement('a-animation');
 
   animation.setAttribute('attribute', 'position');
-  animation.setAttribute('from', `0 ${options.playArea.height / 2} ${options.creationPosition}`);
-  animation.setAttribute('to', `0 ${options.playArea.height / 2} ${options.depth + 1}`);
+  animation.setAttribute('from', `0 ${options.playArea.height / 2} ${options.creationPosition - (options.depth / 2)}`);
+  animation.setAttribute('to', `0 ${options.playArea.height / 2} ${options.maxDepth + options.playArea.width - (options.depth / 2)}`);
   animation.setAttribute('dur', options.dur);
   animation.setAttribute('easing', 'linear');
 
@@ -161,56 +182,6 @@ export const getObj = (type, options) => {
   return element;
 }
 
-export const generateRandomBlock = (options) => {
-  const entity = createEntity(options);
-
-  for (let i = 0; i < options.size; i++) {
-    const element = document.createElement('a-box');
-
-    const ew = randomIntFromInterval(25, 80) / 100;
-    const eh = randomIntFromInterval(25, 80) / 100;
-    const ez = randomIntFromInterval(500, 1000) / 100;
-    element.setAttribute('scale', `${ew} ${eh} ${ez}`);
-
-    element.setAttribute('material', 'src: #cubeBlue; repeat: 3 3');
-
-    const pw = randomIntFromInterval(-100, 100);
-    const ph = randomIntFromInterval(eh, 200);
-    const pz = options.creationPosition;
-    element.setAttribute('position', `${pw / 100} ${ph / 100} ${pz}`); // w, h, z
-
-    entity.appendChild(element);
-  }
-
-  return entity;
-};
-
-export const generateRandomLevel = () => {
-  const entity = createEntity({speed: 20});
-  const objects = randomIntFromInterval(30, 50);
-
-  for (let i = 0; i < objects; i++) {
-    const element = document.createElement('a-box');
-
-    const a = randomIntFromInterval(25, 80) / 100;
-    const b = randomIntFromInterval(25, 80) / 100;
-    const c = randomIntFromInterval(100, 200) / 100;
-    const d = a + ' ' + b + ' ' + c;
-
-    element.setAttribute('scale', d);
-    element.setAttribute('material', 'src: #cubeBlue; repeat: 2 2');
-
-    const w = randomIntFromInterval(-100, 100);
-    const h = randomIntFromInterval(0, 200);
-    const z = randomIntFromInterval(-110, -400);
-    element.setAttribute('position', `${w / 100} ${h / 100} ${z}`); // w, h, z
-
-    entity.appendChild(element);
-  }
-
-  return entity;
-};
-
 export const generateTemplate = (options) => {
   const elements = [];
   const types = {
@@ -259,59 +230,3 @@ export const generateTemplate = (options) => {
 
   return elements;
 };
-
-/*
-export function startLevel(level, phases, options) {
-  let currentPhase = 0;
-
-  options.delay = options.delay | 1000;
-  options.creationPosition = options.creationPosition | -50;
-  options.speed = options.speed | 20;
-  options.depth = options.depth | 1;
-
-  const depths = phases
-    .filter((o) => o.options && o.options.depth)
-    .map((o) => o.options.depth);
-
-  const maxDepth = Math.max.apply(Math, depths) || options.depth;
-
-  const generateLevel = (phase) => {
-    const depth = phase.options.depth || options.depth;
-    const creationPosition = phase.options.creationPosition || options.creationPosition;
-    const speed = phase.options.speed || options.speed;
-
-    const levelEntity = generateTemplateBlock({
-      speed: speed,
-      depth: depth,
-      creationPosition: creationPosition,
-      rowSize: options.rowSize,
-      columnSize: options.columnSize,
-      playArea: options.playArea,
-      template: phase.template
-    });
-
-    levelEntity.setAttribute('move', 'depth', maxDepth);
-    levelEntity.setAttribute('visible', false);
-
-    return levelEntity;
-  }
-
-  let timeout = 0;
-
-  phases.forEach((phase, index) => {
-    const delay = phase.options.delay || options.delay;
-    const levelEntity = generateLevel(phase);
-
-    level.appendChild(levelEntity);
-
-    timeout += delay;
-
-    setTimeout(() => {
-      levelEntity.setAttribute('visible', true);
-      levelEntity.setAttribute('move', 'active', true);
-    }, timeout);
-  });
-
-  systemEmmiter.emit('reloadCollisions');
-}
-*/
