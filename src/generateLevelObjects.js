@@ -39,7 +39,7 @@ export function startLevel(level, phases, options) {
       const phase = phases[currentPhase];
       const delay = phase.options.delay || options.delay;
       const depth = phase.options.depth || options.depth;
-      const creationPosition = phase.options.creationPosition || options.creationPosition;
+      const creationPosition = options.creationPosition;
       const dur = phase.options.dur || options.dur;
       const animations = phase.options.animations || [];
       const height = phase.options.height || options.playArea.height;
@@ -93,7 +93,7 @@ export const generateTemplateBlock = (options) => {
 
   animation.setAttribute('attribute', 'position');
   animation.setAttribute('from', `0 ${options.playArea.height / 2} ${options.creationPosition}`);
-  animation.setAttribute('to', `0 ${options.playArea.height / 2} ${options.maxDepth + 1}`);
+  animation.setAttribute('to', `0 ${options.playArea.height / 2} ${options.depth + 1}`);
   animation.setAttribute('dur', options.dur);
   animation.setAttribute('easing', 'linear');
 
@@ -113,11 +113,21 @@ export const generateTemplateBlock = (options) => {
     }, options.dur);
   }
 
+
+  setTimeout(() => {
+    animation.stop();
+    requestAnimationFrame(() => {
+      entity.parentNode.removeChild(entity);
+    });
+  }, options.dur);
+
+  /*
   entity.addEventListener('animationend', () => {
     requestAnimationFrame(() => {
       entity.parentNode.removeChild(entity);
     });
   });
+  */
 
   return entity;
 };

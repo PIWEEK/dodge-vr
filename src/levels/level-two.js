@@ -197,7 +197,7 @@ const phases = [
     options: {
       delay: 900,
       depth: 10
-      
+
     }
   },
   {
@@ -210,7 +210,7 @@ const phases = [
     options: {
       delay: 1350,
       depth: 10
-      
+
     }
   },
   {
@@ -223,7 +223,7 @@ const phases = [
     options: {
       delay: 2400,
       depth: 40,
-      animations: [ 
+      animations: [
         {
           attribute: 'rotation',
           dur: 7000,
@@ -244,7 +244,7 @@ const phases = [
     options: {
       delay: 2400,
       depth: 40
-      
+
     }
   },
   {
@@ -270,7 +270,7 @@ const phases = [
     options: {
       delay: 2400,
       depth: 20,
-      animations: [ 
+      animations: [
         {
           attribute: 'rotation',
           dur: 10000,
@@ -291,7 +291,7 @@ const phases = [
     options: {
       delay: 600,
       depth: 2,
-      animations: [ 
+      animations: [
         {
           attribute: 'rotation',
           dur: 6000,
@@ -312,7 +312,7 @@ const phases = [
     options: {
       delay: 600,
       depth: 2,
-      animations: [ 
+      animations: [
         {
           attribute: 'rotation',
           dur: 6000,
@@ -334,7 +334,7 @@ const phases = [
       delay: 600,
       depth: 2,
       opacity: 0.5,
-      animations: [ 
+      animations: [
         {
           attribute: 'rotation',
           dur: 6000,
@@ -356,7 +356,7 @@ const phases = [
       delay: 600,
       depth: 2,
       opacity: 0.5,
-      animations: [ 
+      animations: [
         {
           attribute: 'rotation',
           dur: 6000,
@@ -378,7 +378,7 @@ const phases = [
       delay: 600,
       depth: 2,
       opacity: 0.5,
-      animations: [ 
+      animations: [
         {
           attribute: 'rotation',
           dur: 6000,
@@ -386,7 +386,7 @@ const phases = [
           to: "0 0 360",
           repeat: "indefinite"
         }
-      ]   
+      ]
     }
   },
   {
@@ -400,7 +400,7 @@ const phases = [
       delay: 600,
       depth: 2,
       opacity: 0.5,
-      animations: [ 
+      animations: [
         {
           attribute: 'rotation',
           dur: 6000,
@@ -408,7 +408,7 @@ const phases = [
           to: "0 0 360",
           repeat: "indefinite"
         }
-      ]      
+      ]
     }
   },
   {
@@ -423,7 +423,7 @@ const phases = [
       delay: 600,
       depth: 2,
       opacity: 0.5,
-      animations: [ 
+      animations: [
         {
           attribute: 'rotation',
           dur: 55000,
@@ -431,7 +431,7 @@ const phases = [
           to: "0 0 360",
           repeat: "indefinite"
         }
-      ]      
+      ]
     }
   },
   {
@@ -443,7 +443,7 @@ const phases = [
     options: {
       delay: 600,
       depth: 2,
-      opacity: 0.5      
+      opacity: 0.5
     }
   },
   {
@@ -458,7 +458,7 @@ const phases = [
       delay: 600,
       depth: 20,
       opacity: 0.5,
-      animations: [ 
+      animations: [
         {
           attribute: 'rotation',
           dur: 3000,
@@ -467,7 +467,7 @@ const phases = [
           to: "0 0 90",
           repeat: "0"
         }
-      ] 
+      ]
     }
   }
 ]
@@ -475,13 +475,13 @@ const phases = [
 AFRAME.registerComponent('level-two', {
   init: function() {
     dispatch('setLives', 300);
-    
+
     document.querySelector('#ground')
     .setAttribute('width', state.vrDisplay.stageParameters.sizeX);
-    
+
     this.scene = document.querySelector('a-scene');
     this.level = this.scene.querySelector('.level');
-    
+
     startLevel(this.level, phases, {
       delay: 1000,
       creationPosition: -50,
