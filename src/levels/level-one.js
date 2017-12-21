@@ -23,9 +23,11 @@ const phases = [
     `,
     options: {
       delay: 1000,
-      height: 10
+      height: 10,
+      opacity: 1,
       // height NEW!!
       // dur NEW!!
+      // opactiy NEW!!
       // creationPosition
       // animations: [ NEW!!
       //   {

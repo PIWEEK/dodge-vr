@@ -23,6 +23,7 @@ export function startLevel(level, phases, options) {
     /// options.speed = options.speed | 20;
     options.dur = options.dur || 3000;
     options.depth = options.depth || 1;
+    options.opacity = options.opacity || 0.5;
 
     const depths = phases
       .filter((o) => o.options && o.options.depth)
@@ -42,6 +43,7 @@ export function startLevel(level, phases, options) {
       const dur = phase.options.dur || options.dur;
       const animations = phase.options.animations || [];
       const height = phase.options.height || options.playArea.height;
+      const opacity = phase.options.opacity || options.opacity;
       // const speed = phase.options.speed || options.speed;
 
       const levelEntity = generateTemplateBlock({
@@ -53,7 +55,8 @@ export function startLevel(level, phases, options) {
         height: height,
         template: phase.template,
         maxDepth: maxDepth,
-        animations: animations
+        animations: animations,
+        opacity: opacity
       });
 
       // performance 1
@@ -113,13 +116,13 @@ export const generateTemplateBlock = (options) => {
   return entity;
 };
 
-export const getObj = (type) => {
+export const getObj = (type, options) => {
   let element;
 
   if (type === 'box') {
     element = document.createElement('a-box');
     element.setAttribute('material', 'src: #cubeBlue; repeat: 1 1');
-    element.setAttribute('opacity', '0.5');
+    element.setAttribute('opacity', options.opacity);
     element.className = 'block';
   } else if (type === 'sphere') {
     element = document.createElement('a-sphere');
@@ -215,7 +218,7 @@ export const generateTemplate = (options) => {
       const char = template[row][column];
 
       if (char !== '-') {
-        const element = getObj(types[char]);
+        const element = getObj(types[char], options);
 
         // size
         const ew = width / template[row].length;
