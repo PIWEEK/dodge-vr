@@ -5,13 +5,13 @@ AFRAME.registerComponent('hit', {
     play: function () {
       var el = this.el;
       setTimeout(() => {
-          el.addEventListener('hit', this.onHit);
+          el.addEventListener('hit', this.onHit.bind(this));
       }, 500);
     },
 
     pause: function () {
       var el = this.el;
-      el.removeEventListener('hit', this.onHit);
+      el.removeEventListener('hit', this.onHit.bind(this));
     },
 
     onHit: function (evt) {
@@ -20,9 +20,19 @@ AFRAME.registerComponent('hit', {
       this.hitInProgress = !!hitEl;
 
       if (this.hitInProgress) {
-        this.setAttribute('material', 'color: red')
+        this.el.setAttribute('material', 'color: red')
       } else {
-        this.setAttribute('material', 'color: white')
+        this.el.setAttribute('material', 'color: white')
+      }
+
+      if (this.el.getAttribute('id') === 'head') {
+        const blood = document.querySelector('.player-blood');
+        
+        if (this.hitInProgress) {
+          blood.setAttribute('visible', true);
+        } else {
+          blood.setAttribute('visible', false);
+        }
       }
 
       if (!hitEl) return;

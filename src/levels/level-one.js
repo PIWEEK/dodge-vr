@@ -709,7 +709,7 @@ AFRAME.registerComponent('level-one', {
     startLevel(this.level, phases, {
       delay: 1000,
       creationPosition: -100,
-      dur: 1500,
+      dur: 10000,
       depth: 3,
       playArea: {
         width: state.vrDisplay.stageParameters.sizeX,
