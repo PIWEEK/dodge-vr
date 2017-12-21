@@ -81,7 +81,7 @@ const phases = [
       x---
     `,
     options: {
-      delay: 3100,
+      delay: 3400,
       depth: 35
     }
   },
