@@ -30,10 +30,9 @@ navigator.getVRDisplays().then((vrdisplay) => {
 
   dispatch('setIsVr', !!vrdisplay[0]);
 
-  loadScene('/levels/main-menu.html');
-  // loadScene('/levels/level-one.html');
-  // loadScene('/levels/level-two.html');
   //loadScene('/levels/main-menu.html');
+  // loadScene('/levels/level-one.html');
+  loadScene('/levels/level-two.html');
   // loadScene('/levels/test.html');
   // loadScene('/levels/game-over.html');
 });
