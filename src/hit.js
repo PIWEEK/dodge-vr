@@ -1,6 +1,7 @@
 import { dispatch } from './utils/state';
 
 AFRAME.registerComponent('hit', {
+    hitInProgress: false,
     play: function () {
       var el = this.el;
       setTimeout(() => {
@@ -15,6 +16,15 @@ AFRAME.registerComponent('hit', {
 
     onHit: function (evt) {
       var hitEl = evt.detail.el;
+
+      this.hitInProgress = !!hitEl;
+
+      if (this.hitInProgress) {
+        this.setAttribute('material', 'color: red')
+      } else {
+        this.setAttribute('material', 'color: white')
+      }
+
       if (!hitEl) return;
 
       if (
