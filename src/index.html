@@ -3,7 +3,7 @@
         <meta charset="UTF-8">
     </head>
     <body>
-        <a-scene stats="true">
+        <a-scene>
           <a-assets>
             <a-asset-item id="optimerBoldFont" src="/assets/night_font.json"></a-asset-item>
             <img id="textTure" src="/assets/textture.jpg">
@@ -20,21 +20,20 @@
             <!-- <audio id="song" src="/assets/song.mp3" autoplay loop></audio> -->
           </a-assets>
 
-          <a-entity class="scene-orientation" rotation="0 0 0"> 
+          <a-entity class="scene-orientation" rotation="0 0 0">
               <!-- Player -->
               <a-entity player>
                 <a-entity
                   class="laser"
                   visible="false"
                   laser-controls="hand: left">
-                </a-entity>            
+                </a-entity>
                 <a-entity
                   class="controller controller-left"
                   hand-controls="left"
                   custom-reload
                   hit
                   aabb-collider="objects: .gamecollision;"></a-entity>
-
                 <a-entity
                   class="controller"
                   hand-controls="right"
@@ -91,7 +90,7 @@
                         </a-box>
                     </a-entity>
                     <!-- Score -->
-                    <a-entity 
+                    <a-entity
                       score-end
                       position="0 0.5-1">
                       <a-text
@@ -126,10 +125,10 @@
                             value="Quit">
                           </a-text>
                         </a-box>
-                      </a-entity>                    
+                      </a-entity>
                   </a-entity>
               </a-entity>
           </a-entity>
-        </a-scene>        
+        </a-scene>
     </body>
 </html>

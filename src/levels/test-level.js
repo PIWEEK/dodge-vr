@@ -9,12 +9,25 @@ const phases = [
       xx--
       xx--
       xx--
+      xx--
+      xx--
+      xx--
+      xx--
+      xx--
+      xx--
+      xx--
+      xx--
+      xx--
+      xx--
+      xx--
     `,
     options: {
       delay: 1000,
-      // dur
+      height: 10
+      // height NEW!!
+      // dur NEW!!
       // creationPosition
-      // animations: [
+      // animations: [ NEW!!
       //   {
       //     attribute: 'rotation',
       //     dur: 1000,
@@ -266,7 +279,7 @@ const phases = [
     `,
     options: {
       delay: 500,
-      depth: 15      
+      depth: 15
     }
   },
   {
@@ -278,7 +291,7 @@ const phases = [
     `,
     options: {
       delay: 500,
-      depth: 17      
+      depth: 17
     }
   },
   {
@@ -290,7 +303,7 @@ const phases = [
     `,
     options: {
       delay: 700,
-      depth: 17      
+      depth: 17
     }
   },
   {
@@ -302,7 +315,7 @@ const phases = [
     `,
     options: {
       delay: 700,
-      depth: 17     
+      depth: 17
     }
   },
   {
@@ -314,7 +327,7 @@ const phases = [
     `,
     options: {
       delay: 500,
-      depth: 17            
+      depth: 17
     }
   },
   {
@@ -326,7 +339,7 @@ const phases = [
     `,
     options: {
       delay: 500,
-      depth: 17     
+      depth: 17
     }
   },
   {
@@ -338,7 +351,7 @@ const phases = [
     `,
     options: {
       delay: 500,
-      depth: 15            
+      depth: 15
     }
   },
   {
@@ -350,7 +363,7 @@ const phases = [
     `,
     options: {
       delay: 100,
-      depth: 5            
+      depth: 5
     }
   },
   {
@@ -495,7 +508,7 @@ const phases = [
     options: {
       delay: 200
     }
-  }, 
+  },
 ]
 
 AFRAME.registerComponent('test-level', {
@@ -519,8 +532,6 @@ AFRAME.registerComponent('test-level', {
       delay: 1000,
       creationPosition: -50,
       dur: 3000,
-      rowSize: 4,
-      columnSize: 4,
       playArea: {
         width: state.vrDisplay.stageParameters.sizeX,
         height: 2

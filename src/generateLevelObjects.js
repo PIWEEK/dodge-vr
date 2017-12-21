@@ -17,19 +17,19 @@ const createEntity = (options) => {
 export function startLevel(level, phases, options) {
   return new Promise((resolve) => {
     let currentPhase = 0;
-  
+
     options.delay = options.delay || 1000;
     options.creationPosition = options.creationPosition || -50;
     /// options.speed = options.speed | 20;
     options.dur = options.dur || 3000;
     options.depth = options.depth || 1;
-  
+
     const depths = phases
       .filter((o) => o.options && o.options.depth)
       .map((o) => o.options.depth);
-  
+
     const maxDepth = Math.max.apply(Math, depths) || options.depth;
-  
+
     const generateLevel = () => {
       const phase = phases[currentPhase];
       const delay = phase.options.delay || options.delay;
@@ -37,36 +37,36 @@ export function startLevel(level, phases, options) {
       const creationPosition = phase.options.creationPosition || options.creationPosition;
       const dur = phase.options.dur || options.dur;
       const animations = phase.options.animations || [];
+      const height = phase.options.height || options.playArea.height;
       // const speed = phase.options.speed || options.speed;
-  
+
       const levelEntity = generateTemplateBlock({
         // speed: speed,
         dur: dur,
         depth: depth,
         creationPosition: creationPosition,
-        rowSize: options.rowSize,
-        columnSize: options.columnSize,
         playArea: options.playArea,
+        height: height,
         template: phase.template,
         maxDepth: maxDepth,
         animations: animations
       });
-  
+
       // performance 1
       // levelEntity.setAttribute('move', 'depth', maxDepth);
-  
+
       level.appendChild(levelEntity);
       systemEmmiter.emit('reloadCollisions');
-  
+
       if (currentPhase + 1 < phases.length) {
         currentPhase++;
-  
+
         setTimeout(generateLevel, delay);
       } else {
         setTimeout(resolve, dur + 1000);
       }
     }
-  
+
     generateLevel();
   });
 }
@@ -122,7 +122,7 @@ export const getObj = (type) => {
     element.setAttribute('material', 'src: #ballTexture; repeat: 10 10');
     element.setAttribute('scale', '0.2 0.2 0.2');
     element.className = 'bonus';
-    
+
     const light = document.createElement('a-light');
 
     light.setAttribute('type', 'ambient');
@@ -190,30 +190,32 @@ export const generateRandomLevel = () => {
 
 export const generateTemplate = (options) => {
   const elements = [];
-  const rowSize = options.rowSize;
-  const columnSize = options.columnSize;
   const types = {
     'x': 'box',
     'p': 'sphere'
   };
 
   const width = options.playArea.width;
-  const height = options.playArea.height;
+  const height = options.height;
+  const breakLine = /(\r\n|\n|\r)/gm;
 
   const template = options.template
-  .replace(/(\r\n|\n|\r)/gm,'') // remove break lines
-  .replace(/ /g,''); // remove white spaces
+    .split(breakLine)
+    .map((it) => it.replace(/(\r\n|\n|\r)/gm, ''))
+    .map((it) => it.replace(/ /g,''))
+    .filter((it) => it.length)
+    .map((it) => it.split(''));
 
-  for (let row = 0; row < rowSize; row++) {
-    for (let column = 0; column < columnSize; column++) {
-      const char = template[(row * columnSize)  + column];
+  for (let row = 0; row < template.length; row++) {
+    for (let column = 0; column < template[row].length; column++) {
+      const char = template[row][column];
 
       if (char !== '-') {
         const element = getObj(types[char]);
 
         // size
-        const ew = width / columnSize;
-        const eh = height / rowSize;
+        const ew = width / template[row].length;
+        const eh = height / template.length;
 
         const ed = randomIntFromInterval(500, 1000) / 100;
 
@@ -234,7 +236,6 @@ export const generateTemplate = (options) => {
 
   return elements;
 };
-
 
 /*
 export function startLevel(level, phases, options) {
@@ -275,7 +276,7 @@ export function startLevel(level, phases, options) {
   let timeout = 0;
 
   phases.forEach((phase, index) => {
-    const delay = phase.options.delay || options.delay;  
+    const delay = phase.options.delay || options.delay;
     const levelEntity = generateLevel(phase);
 
     level.appendChild(levelEntity);
