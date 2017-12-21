@@ -19,7 +19,7 @@ const createEntity = (options) => {
 
 export function startLevel(level, phases, options) {
   return new Promise((resolve) => {
-    let currentPhase = 0;
+    let currentLevel = 0;
 
     options.delay = options.delay || 1000;
     options.creationPosition = options.creationPosition || -50;
@@ -48,8 +48,9 @@ export function startLevel(level, phases, options) {
 
     // level.appendChild(bornBox);
 
-    const generateLevel = () => {
-      const phase = phases[currentPhase];
+    const levels = [];
+
+    for (let phase of phases) {
       const delay = phase.options.delay !== undefined ? phase.options.delay : options.delay;
       const depth = phase.options.depth || options.depth;
       const creationPosition = options.creationPosition;
@@ -57,10 +58,8 @@ export function startLevel(level, phases, options) {
       const animations = phase.options.animations || [];
       const height = phase.options.height || options.playArea.height;
       const opacity = phase.options.opacity !== undefined ? phase.options.opacity : options.opacity;
-      // const speed = phase.options.speed || options.speed;
 
-      const levelEntity = generateTemplateBlock({
-        // speed: speed,
+      const levelOptions = {
         dur: dur,
         depth: depth,
         creationPosition: creationPosition,
@@ -70,28 +69,52 @@ export function startLevel(level, phases, options) {
         maxDepth: maxDepth,
         animations: animations,
         opacity: opacity
+      };
+
+      const levelEntity = generateTemplateBlock(levelOptions);
+
+      levels.push({
+        phase: levelEntity,
+        options: levelOptions,
+        animations: levelEntity.querySelectorAll('a-animation')
       });
+    }
+
+
+    const generateLevel = () => {
+      const levelEntity = levels[currentLevel].phase;
+      const options = levels[currentLevel].options;
+      const animations = levels[currentLevel].animations;
 
       const exit = () => {
-        if (currentPhase + 1 < phases.length) {
-          currentPhase++;
+        console.log('exit');
+        if (currentLevel + 1 < phases.length) {
+          currentLevel++;
 
-          setTimeout(generateLevel, delay);
+          setTimeout(generateLevel, options.delay);
         } else {
-          setTimeout(resolve, dur);
+          setTimeout(resolve, options.dur);
         }
       }
 
-      const to = maxDepth + options.playArea.width - (depth / 2);
-      const from = creationPosition - (depth / 2);
+      const to = options.maxDepth + options.playArea.width - (options.depth / 2);
+      const from = options.creationPosition - (options.depth / 2);
       const distance = to - from;
-      const speed = dur * depth / distance;
+      const speed = options.dur * options.depth / distance;
 
       setTimeout(exit, speed)
 
       requestAnimationFrame(() => {
         level.appendChild(levelEntity);
         systemEmmiter.emit('reloadCollisions');
+
+        setTimeout(() => {
+          for (let animation of animations) {
+            animation.stop();
+          }
+
+          level.removeChild(levelEntity);
+        }, options.dur);
       });
 
       // const debugEnd = document.createElement('a-box');
@@ -133,27 +156,7 @@ export const generateTemplateBlock = (options) => {
     }
 
     entity.appendChild(aanimation);
-
-    setTimeout(() => {
-      aanimation.stop();
-    }, options.dur);
   }
-
-
-  setTimeout(() => {
-    animation.stop();
-    requestAnimationFrame(() => {
-      entity.parentNode.removeChild(entity);
-    });
-  }, options.dur);
-
-  /*
-  entity.addEventListener('animationend', () => {
-    requestAnimationFrame(() => {
-      entity.parentNode.removeChild(entity);
-    });
-  });
-  */
 
   return entity;
 };
