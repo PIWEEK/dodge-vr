@@ -1,38 +1,17 @@
 import { getState, state, dispatch } from '../utils/state';
 
 AFRAME.registerComponent('player', {
-  dependencies: ['hand-controls'],
   init: function() {
     getState()
-      .map((state) => state.isVr)
-      .distinctUntilChanged()
-      .subscribe((isVr) => {
-        const cursor = document.querySelector('a-cursor');
+    .map((state) => state.score)
+    .distinctUntilChanged()
+    .subscribe((score) => {
+      var scoreEl = document.querySelector('#score');
 
-        if (!isVr) {
-          const hands = document.querySelectorAll('[hand-controls]');
-
-          for (let hand of hands) {
-            hand.parentNode.removeChild(hand);
-          }
-
-          cursor.setAttribute('visible', true);
-        } else {
-          cursor.setAttribute('visible', false);
-          this.orientationEvent();
-        }
-      });
-
-    getState()
-      .map((state) => state.score)
-      .distinctUntilChanged()
-      .subscribe((score) => {
-        var scoreEl = document.querySelector('#score');
-
-        if (scoreEl) {
-          scoreEl.setAttribute('value', score);
-        }
-      });
+      if (scoreEl) {
+        scoreEl.setAttribute('value', score);
+      }
+    });
 
     getState()
     .map((state) => state.selectionMode)
@@ -47,23 +26,25 @@ AFRAME.registerComponent('player', {
       }
     });
 
-      // rotacion del escenario
+    // rotacion del escenario
     getState()
-      .map((state) => state.orientation)
-      .distinctUntilChanged()
-      .subscribe((orientation) => {
-        document.querySelector('.scene-orientation').setAttribute('rotation', `0 ${orientation} 0`);
-      });
-    },
-    orientationEvent: function() {
-      this.el.querySelector('.controller-left').addEventListener('ybuttondown', (evt) => {
-        let orientation = state.orientation + 90;
+    .map((state) => state.orientation)
+    .distinctUntilChanged()
+    .subscribe((orientation) => {
+      document.querySelector('.scene-orientation').setAttribute('rotation', `0 ${orientation} 0`);
+    });
 
-        if (orientation === 360) {
-          orientation = 0;
-        }
+    this.orientationEvent();
+  },
+  orientationEvent: function() {
+    this.el.querySelector('.controller-left').addEventListener('ybuttondown', (evt) => {
+      let orientation = state.orientation + 90;
 
-        dispatch('setOrientation', orientation);
-      });
-    }
-  });
+      if (orientation === 360) {
+        orientation = 0;
+      }
+
+      dispatch('setOrientation', orientation);
+    });
+  }
+});
