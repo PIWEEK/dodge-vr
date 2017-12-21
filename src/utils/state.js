@@ -14,7 +14,8 @@ const defaultState = {
   showScore: false,
   selectionMode: null,
   orientation: 0,
-  sound: null,
+  gamePaused: false,
+  sound: null
 };
 
 export const createState = () => {

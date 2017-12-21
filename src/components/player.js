@@ -39,6 +39,16 @@ AFRAME.registerComponent('player', {
       }
     });
 
+    getState()
+      .map((state) => state.gamePaused)
+      .distinctUntilChanged()
+      .subscribe((gamePaused) => {
+        var entityLevel = document.querySelector('.level');
+        if (entityLevel) {
+          gamePaused ? entityLevel.pause() : entityLevel.play();
+        }
+      });
+
     // rotacion del escenario
     getState()
     .map((state) => state.orientation)
@@ -48,6 +58,7 @@ AFRAME.registerComponent('player', {
     });
 
     this.orientationEvent();
+    this.pauseEvent();
   },
   orientationEvent: function() {
     this.el.querySelector('.controller-left').addEventListener('ybuttondown', (evt) => {
@@ -58,6 +69,12 @@ AFRAME.registerComponent('player', {
       }
 
       dispatch('setOrientation', orientation);
+    });
+  },
+  pauseEvent: function() {
+    this.el.querySelector('.controller-right').addEventListener('abuttondown', (evt) => {
+      let gamePaused = state.gamePaused;
+      dispatch('setGamePaused', !gamePaused);
     });
   }
 });

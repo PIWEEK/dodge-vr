@@ -43,6 +43,10 @@ registerAction('setOrientation', (state, payload) => {
   state.orientation = payload;
 });
 
+registerAction('setGamePaused', (state, payload) => {
+  state.gamePaused = payload;
+});
+
 registerAction('setSound', (state, payload) => {
   state.sound = payload;
 });
