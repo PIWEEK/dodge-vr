@@ -5,14 +5,14 @@ function randomIntFromInterval(min,max) {
 }
 
 const createEntity = (options) => {
-  const entity = document.createElement('a-box');
+  const entity = document.createElement('a-entity');
   // entity.setAttribute('entity-phase', true);
   entity.classList.add('entity-phase');
-  entity.setAttribute('depth', options.depth);
+  // entity.setAttribute('depth', options.depth);
   // entity.setAttribute('color', 'yellow')
-  entity.setAttribute('material', 'opacity: 0');
-  entity.setAttribute('width', '0.005'); // TODO invisible collision
-  entity.setAttribute('height', '0.005');
+  // entity.setAttribute('material', 'opacity: 0');
+  // entity.setAttribute('width', '0.005'); // TODO invisible collision
+  // entity.setAttribute('height', '0.005');
 
   return entity;
 }
@@ -58,6 +58,9 @@ export function startLevel(level, phases, options) {
       const animations = phase.options.animations || [];
       const height = phase.options.height || options.playArea.height;
       const opacity = phase.options.opacity !== undefined ? phase.options.opacity : options.opacity;
+      const element = phase.options.element || options.element || 'a-box';
+      const material = phase.options.material || options.material || 'src: #cubeBlue; repeat: 1 1';
+      const elementAttributes = phase.options.elementAttributes || options.elementAttributes || {};
 
       const levelOptions = {
         dur: dur,
@@ -68,7 +71,10 @@ export function startLevel(level, phases, options) {
         template: phase.template,
         maxDepth: maxDepth,
         animations: animations,
-        opacity: opacity
+        opacity: opacity,
+        element: element,
+        material: material,
+        elementAttributes: elementAttributes
       };
 
       const levelEntity = generateTemplateBlock(levelOptions);
@@ -87,7 +93,6 @@ export function startLevel(level, phases, options) {
       const animations = levels[currentLevel].animations;
 
       const exit = () => {
-        console.log('exit');
         if (currentLevel + 1 < phases.length) {
           currentLevel++;
 
@@ -164,10 +169,15 @@ export const generateTemplateBlock = (options) => {
 export const getObj = (type, options) => {
   let element;
 
-  if (type === 'box') {
-    element = document.createElement('a-box');
-    element.setAttribute('material', 'src: #cubeBlue; repeat: 1 1');
+  if (type === 'collision') {
+    element = document.createElement(options.element);
+    element.setAttribute('material', options.material);
     element.setAttribute('opacity', options.opacity);
+
+    for (let key of Object.keys(options.elementAttributes)) {
+      element.setAttribute(key, options.elementAttributes[key]);
+    }
+
     element.className = 'block';
   } else if (type === 'sphere') {
     element = document.createElement('a-sphere');
@@ -193,7 +203,7 @@ export const getObj = (type, options) => {
 export const generateTemplate = (options) => {
   const elements = [];
   const types = {
-    'x': 'box',
+    'x': 'collision',
     'p': 'sphere'
   };
 
