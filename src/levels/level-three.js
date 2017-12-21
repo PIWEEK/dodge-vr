@@ -5,6 +5,41 @@ import { startLevel, generateRandomLevel, generateRandomBlock, generateTemplateB
 const phases = [
   {
     template: `
+      xx--
+      xx--
+      xx--
+      xx--
+      xx--
+      xx--
+      xx--
+      xx--
+      xx--
+      xx--
+      xx--
+      xx--
+      xx--
+      xx--
+      xx--
+    `,
+    options: {
+      delay: 1000,
+      height: 10
+      // height NEW!!
+      // dur NEW!!
+      // creationPosition
+      // animations: [ NEW!!
+      //   {
+      //     attribute: 'rotation',
+      //     dur: 1000,
+      //     fill: 'forwards',
+      //     to: "0 360 0",
+      //     repeat: "indefinite"
+      //   }
+      // ]
+    }
+  },
+  {
+    template: `
       --xx
       --xx
       --xx
@@ -220,48 +255,15 @@ const phases = [
       -x-x
     `,
     options: {
-      delay: 1500
+      delay: 10000
     }
   },
   {
     template: `
-      xxxxx
-      x---x
-      x---x
-      x---x
-      x---x
-      xxxxx
-    `,
-    options: {
-      delay: 500,
-      depth: 17,
-      opacity: 1
-    }
-  },
-  {
-    template: `
-      x---x
-      x---x
-      x---x
-      xxxxx
-      xxxxx
-      xxxxx
-    `,
-    options: {
-      delay: 500,
-      depth: 15,
-      opacity: 1
-      
-    }
-  },
-  {
-    template: `
-      xx---
-      xx---
-      xx---
-      xxxxx
-      xxxxx
-      xxxxx
+      xxxx
+      x--x
+      x--x
+      xxxx
     `,
     options: {
       delay: 500,
@@ -270,69 +272,10 @@ const phases = [
   },
   {
     template: `
-      xxxxx
-      xx---
-      xx---
-      xx---
-      xx---
-      xxxxx
-    `,
-    options: {
-      delay: 700,
-      depth: 17
-    }
-  },
-  {
-    template: `
-      xxxxx
-      x---x
-      x---x
-      x---x
-      x---x
-      x---x
-      xxxxx
-    `,
-    options: {
-      delay: 700,
-      depth: 17
-    }
-  },
-  {
-    template: `
-      xxxxx
-      x--xx
-      x--xx
-      x--xx
-      x--xx
-      xxxxx
-    `,
-    options: {
-      delay: 500,
-      depth: 17
-    }
-  },
-  {
-    template: `
-      xxxxx
-      x---x
-      x---x
-      x---x
-      x---x
-      xxxxx
-    `,
-    options: {
-      delay: 500,
-      depth: 17
-    }
-  },
-  {
-    template: `
-      x---x
-      x---x
-      x---x
-      xxxxx
-      xxxxx
-      xxxxx
+      x--x
+      x--x
+      xxxx
+      xxxx
     `,
     options: {
       delay: 500,
@@ -341,29 +284,82 @@ const phases = [
   },
   {
     template: `
-      xxxxx
-      x---x
-      x---x
-      x---x
-      xxxxx
-      xxxxx
+      xx--
+      xx--
+      xxxx
+      xxxx
     `,
     options: {
-      delay: 100,
-      depth: 5
+      delay: 500,
+      depth: 17
     }
   },
   {
     template: `
-      xxxxx
-      xxxxx
-      x---x
-      x---x
-      x---x
-      x---x
-      x---x
-      x---x
-      xxxxx
+      xxxx
+      xx--
+      xx--
+      xxxx
+    `,
+    options: {
+      delay: 700,
+      depth: 17
+    }
+  },
+  {
+    template: `
+      xxxx
+      x--x
+      x--x
+      xxxx
+    `,
+    options: {
+      delay: 700,
+      depth: 17
+    }
+  },
+  {
+    template: `
+      xxxx
+      --xx
+      --xx
+      xxxx
+    `,
+    options: {
+      delay: 500,
+      depth: 17
+    }
+  },
+  {
+    template: `
+      xxxx
+      x--x
+      x--x
+      xxxx
+    `,
+    options: {
+      delay: 500,
+      depth: 17
+    }
+  },
+  {
+    template: `
+      x--x
+      x--x
+      xxxx
+      xxxx
+    `,
+    options: {
+      delay: 500,
+      depth: 15
+    }
+  },
+  {
+    template: `
+      xxxx
+      x--x
+      x--x
+      xxxx
     `,
     options: {
       delay: 100,
@@ -518,10 +514,6 @@ const phases = [
 AFRAME.registerComponent('level-one', {
   init: function() {
     dispatch('setLives', 300);
-    dispatch('setSound', {
-        src: '#song',
-        autoplay: true
-    });
 
     document.querySelector('#ground')
     .setAttribute('width', state.vrDisplay.stageParameters.sizeX);
@@ -533,7 +525,6 @@ AFRAME.registerComponent('level-one', {
       delay: 1000,
       creationPosition: -50,
       dur: 3000,
-      depth: 2,
       playArea: {
         width: state.vrDisplay.stageParameters.sizeX,
         height: 2
