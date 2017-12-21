@@ -17,8 +17,6 @@ import './levels/level-three';
 import './levels/level-four';
 import './levels/main-menu';
 
-import { loadScene } from './utils/sceneManipulation';
-
 import { createState, dispatch, getState } from './utils/state';
 createState();
 
@@ -32,14 +30,6 @@ navigator.getVRDisplays().then((vrdisplay) => {
   });
 
   dispatch('setIsVr', !!vrdisplay[0]);
-
-  // loadScene('/levels/main-menu.html');
-  // loadScene('/levels/level-one.html');
-  loadScene('/levels/level-two.html');
-  // loadScene('/levels/level-three.html');
-  // loadScene('/levels/level-four.html');
-  // loadScene('/levels/test.html');
-  // loadScene('/levels/game-over.html');
 });
 
 setTimeout(() => {

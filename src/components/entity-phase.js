@@ -1,5 +1,4 @@
 import { getState, state, dispatch } from '../utils/state';
-import { loadScene } from '../utils/sceneManipulation';
 
 AFRAME.registerComponent('entity-phase', {
   init: function() {

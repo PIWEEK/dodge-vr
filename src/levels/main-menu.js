@@ -1,4 +1,3 @@
-import { loadScene } from '../utils/sceneManipulation';
 import { dispatch } from '../utils/state';
 
 AFRAME.registerComponent('main-menu-level', {
@@ -43,7 +42,7 @@ AFRAME.registerComponent('main-menu-level', {
 
             level.addEventListener('click', (e) => {
               dispatch('setSelectionMode', null);
-              loadScene(`/levels/${e.currentTarget.dataset.level}.html`);
+              dispatch('setLevel', e.currentTarget.dataset.level);
             });
           }
 

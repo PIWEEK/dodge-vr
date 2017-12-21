@@ -15,7 +15,8 @@ const defaultState = {
   selectionMode: null,
   orientation: 0,
   gamePaused: false,
-  sound: null
+  sound: null,
+  level: 'main-menu'
 };
 
 export const createState = () => {

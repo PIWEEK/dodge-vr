@@ -50,3 +50,7 @@ registerAction('setGamePaused', (state, payload) => {
 registerAction('setSound', (state, payload) => {
   state.sound = payload;
 });
+
+registerAction('setLevel', (state, payload) => {
+  state.level = payload;
+});

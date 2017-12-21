@@ -1,4 +1,5 @@
 import { getState, state, dispatch } from '../utils/state';
+import { loadScene } from '../utils/sceneManipulation';
 
 AFRAME.registerComponent('player', {
   init: function() {
@@ -56,6 +57,13 @@ AFRAME.registerComponent('player', {
     .subscribe((orientation) => {
       document.querySelector('.scene-orientation').setAttribute('rotation', `0 ${orientation} 0`);
     });
+
+    getState()
+    .map((state) => state.level)
+    .distinctUntilChanged()
+    .subscribe((level) => {
+      loadScene(`/levels/${level}.html`);
+    });    
 
     this.orientationEvent();
     this.pauseEvent();

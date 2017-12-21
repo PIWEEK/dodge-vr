@@ -33,12 +33,12 @@ AFRAME.registerComponent('score-end', {
       });
 
       retry.addEventListener('click', (e) => {
-        loadScene('/levels/test.html');
+        loadScene(state.level);
         dispatch('setShowScore', false);
       });
 
       quit.addEventListener('click', (e) => {
-        loadScene('/levels/main-menu.html');
+        dispatch('setLevel', 'main-menu');
         dispatch('setShowScore', false);
       });
     }

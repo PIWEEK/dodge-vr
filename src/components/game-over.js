@@ -1,5 +1,4 @@
 import { getState, state, dispatch } from '../utils/state';
-import { loadScene } from '../utils/sceneManipulation';
 
 AFRAME.registerComponent('game-over', {
     init: function() {
@@ -14,8 +13,9 @@ AFRAME.registerComponent('game-over', {
               this.el.setAttribute('visible', true);
             }, 1000);
 
+            this.oldLevel = state.level;
             dispatch('setSelectionMode', '.game-over-action');
-            loadScene('/levels/game-over.html');
+            dispatch('setLevel', 'game-over');
           } else {
             this.el.setAttribute('visible', false);
           }
@@ -35,11 +35,11 @@ AFRAME.registerComponent('game-over', {
       });
 
       retry.addEventListener('click', (e) => {
-        loadScene('/levels/test.html');
+        dispatch('setLevel', this.oldLevel);
       });
 
       quit.addEventListener('click', (e) => {
-        loadScene('/levels/main-menu.html');
+        dispatch('setLevel', 'main-menu');
       });
     }
   });
