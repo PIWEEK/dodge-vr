@@ -24,7 +24,7 @@ const phases = [
     x-p--xxxx
     `,
     options: {
-      delay: 1,
+      delay: 0,
       depth: 10
     }
   },

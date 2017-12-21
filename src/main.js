@@ -35,8 +35,8 @@ navigator.getVRDisplays().then((vrdisplay) => {
 
   // loadScene('/levels/main-menu.html');
   //loadScene('/levels/level-one.html');
-  loadScene('/levels/level-two.html');
-  // loadScene('/levels/level-three.html');
+  // loadScene('/levels/level-two.html');
+  loadScene('/levels/level-three.html');
   // loadScene('/levels/level-four.html');
   // loadScene('/levels/test.html');
   // loadScene('/levels/game-over.html');
