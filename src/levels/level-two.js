@@ -664,6 +664,10 @@ const phases = [
 AFRAME.registerComponent('level-two', {
   init: function() {
     dispatch('setLives', 300);
+    dispatch('setSong', {
+      src: '#song',
+      autoplay: true
+    });
 
     document.querySelector('#ground')
     .setAttribute('width', state.vrDisplay.stageParameters.sizeX);

@@ -15,6 +15,7 @@ const defaultState = {
   selectionMode: null,
   orientation: 0,
   gamePaused: false,
+  song: null,
   sound: null,
   level: 'main-menu'
 };

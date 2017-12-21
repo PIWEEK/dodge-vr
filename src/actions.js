@@ -15,7 +15,6 @@ registerAction('decreaseLives', (state, livesLost) => {
   if (state.lives <= 0) {
     state.lives = 0;
   }
-
   state.gameOver = state.lives === 0;
 });
 
@@ -49,6 +48,10 @@ registerAction('setGamePaused', (state, payload) => {
 
 registerAction('setSound', (state, payload) => {
   state.sound = payload;
+});
+
+registerAction('setSong', (state, payload) => {
+  state.song = payload;
 });
 
 registerAction('setLevel', (state, payload) => {
