@@ -15,7 +15,7 @@ const phases = [
       delay: 445,
       depth: 10
     }
-  }
+  },
   {
     template: `
     x----xxxx
@@ -445,7 +445,7 @@ const phases = [
       depth: 2,
       opacity: 0.5      
     }
-  }, */
+  },
   {
     template: `
     --xxxxxx
