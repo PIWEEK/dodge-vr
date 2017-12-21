@@ -175,14 +175,14 @@ export const getObj = (type, options) => {
     element.setAttribute('scale', '0.2 0.2 0.2');
     element.className = 'bonus';
 
-    const light = document.createElement('a-light');
+    // const light = document.createElement('a-light');
 
-    light.setAttribute('type', 'ambient');
-    light.setAttribute('color', '#13c490');
-    light.setAttribute('intensity', '0.25');
-    light.setAttribute('distance', '0.05');
+    // light.setAttribute('type', 'ambient');
+    // light.setAttribute('color', '#13c490');
+    // light.setAttribute('intensity', '0.25');
+    // light.setAttribute('distance', '0.05');
 
-    element.appendChild(light);
+    // element.appendChild(light);
   }
 
   element.classList.add('gamecollision');
