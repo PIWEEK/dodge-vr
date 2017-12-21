@@ -42,3 +42,7 @@ registerAction('setSelectionMode', (state, payload) => {
 registerAction('setOrientation', (state, payload) => {
   state.orientation = payload;
 });
+
+registerAction('setSound', (state, payload) => {
+  state.sound = payload;
+});

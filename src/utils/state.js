@@ -13,7 +13,8 @@ const defaultState = {
   lives: 3,
   showScore: false,
   selectionMode: null,
-  orientation: 0
+  orientation: 0,
+  sound: null,
 };
 
 export const createState = () => {

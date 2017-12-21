@@ -7,6 +7,7 @@ import './components/score-lives';
 import './components/game-over';
 import './components/player';
 import './components/score-end';
+import './components/sound-manager';
 
 import './levels/test-level';
 import './levels/level-one';
@@ -29,6 +30,7 @@ navigator.getVRDisplays().then((vrdisplay) => {
   dispatch('setIsVr', !!vrdisplay[0]);
 
   loadScene('/levels/main-menu.html');
+  // loadScene('/levels/level-one.html');
   // loadScene('/levels/test.html');
   // loadScene('/levels/game-over.html');
 });
