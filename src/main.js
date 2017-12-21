@@ -9,6 +9,7 @@ import './components/player';
 import './components/score-end';
 
 import './levels/test-level';
+import './levels/level-one';
 import './levels/main-menu';
 
 import { loadScene } from './utils/sceneManipulation';

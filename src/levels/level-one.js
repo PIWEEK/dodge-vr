@@ -511,7 +511,7 @@ const phases = [
   },
 ]
 
-AFRAME.registerComponent('test-level', {
+AFRAME.registerComponent('level-one', {
   init: function() {
     dispatch('setLives', 300);
 

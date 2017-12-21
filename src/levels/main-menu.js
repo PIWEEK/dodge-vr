@@ -4,7 +4,7 @@ import { dispatch } from '../utils/state';
 AFRAME.registerComponent('main-menu-level', {
     init: function() {
         dispatch('setGameover', false);
-        
+
         setTimeout(() => {
           const controller = document.querySelector('.controller-left');
           dispatch('setSelectionMode', '.begin-action');
@@ -43,7 +43,7 @@ AFRAME.registerComponent('main-menu-level', {
 
             level.addEventListener('click', (e) => {
               dispatch('setSelectionMode', null);
-              loadScene('/levels/test.html');
+              loadScene(`/levels/${e.currentTarget.dataset.level}.html`);
             });
           }
 
