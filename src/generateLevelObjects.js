@@ -11,6 +11,8 @@ const createEntity = (options) => {
   entity.setAttribute('depth', options.depth);
   // entity.setAttribute('color', 'yellow')
   entity.setAttribute('material', 'opacity: 0');
+  entity.setAttribute('width', '0.005'); // TODO invisible collision
+  entity.setAttribute('height', '0.005');
 
   return entity;
 }
@@ -24,7 +26,7 @@ export function startLevel(level, phases, options) {
     /// options.speed = options.speed | 20;
     options.dur = options.dur || 3000;
     options.depth = options.depth || 1;
-    options.opacity = options.opacity || 0.5;
+    options.opacity = options.opacity || 1;
 
     const depths = phases
       .filter((o) => o.options && o.options.depth)
