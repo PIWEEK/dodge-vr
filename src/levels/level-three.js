@@ -11,7 +11,7 @@ const phases = [
       ----
       `,
     options: {
-      delay: 2000,
+      delay: 2200,
     }
   },
   {
@@ -22,11 +22,11 @@ const phases = [
       xx--
       `,
     options: {
-      delay: 600,
+      delay: 800,
       animations: [
         {
           attribute: 'rotation',
-          dur: 900,
+          dur: 600,
           ease: 'linear',
           fill: 'forwards',
           to: "0 0 90",
@@ -43,11 +43,11 @@ const phases = [
       xx--
       `,
     options: {
-      delay: 600,
+      delay: 800,
       animations: [
         {
           attribute: 'rotation',
-          dur: 900,
+          dur: 600,
           ease: 'linear',
           fill: 'forwards',
           to: "0 0 -90",
@@ -64,11 +64,11 @@ const phases = [
       xx--
       `,
     options: {
-      delay: 600,
+      delay: 800,
       animations: [
         {
           attribute: 'rotation',
-          dur: 900,
+          dur: 600,
           ease: 'linear',
           fill: 'forwards',
           to: "0 0 180",
@@ -91,7 +91,7 @@ const phases = [
       animations: [
         {
           attribute: 'rotation',
-          dur: 900,
+          dur: 600,
           ease: 'linear',
           fill: 'forwards',
           to: "0 0 90",
@@ -290,7 +290,7 @@ const phases = [
       xxxxxxxx
       `,
     options: {
-      delay: 600,
+      delay: 200,
       depth: 10,
     }
   },
@@ -371,7 +371,7 @@ const phases = [
       animations: [
         {
           attribute: 'rotation',
-          dur: 900,
+          dur: 600,
           ease: 'linear',
           fill: 'forwards',
           to: "0 0 90",
@@ -393,7 +393,7 @@ const phases = [
       animations: [
         {
           attribute: 'rotation',
-          dur: 900,
+          dur: 600,
           ease: 'linear',
           fill: 'forwards',
           to: "0 0 -90",
@@ -415,7 +415,7 @@ const phases = [
       animations: [
         {
           attribute: 'rotation',
-          dur: 900,
+          dur: 600,
           ease: 'linear',
           fill: 'forwards',
           to: "0 0 -90",
@@ -437,7 +437,7 @@ const phases = [
       animations: [
         {
           attribute: 'rotation',
-          dur: 900,
+          dur: 600,
           ease: 'linear',
           fill: 'forwards',
           to: "0 0 270",
@@ -730,7 +730,7 @@ AFRAME.registerComponent('level-three', {
     startLevel(this.level, phases, {
       delay: 1000,
       creationPosition: -100,
-      dur: 1500,
+      dur: 2500,
       depth: 10,
       opacity: 1,      
       playArea: {
