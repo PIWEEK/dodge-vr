@@ -8,23 +8,30 @@ AFRAME.registerComponent('main-menu-level', {
           const controller = document.querySelector('.controller-left');
           dispatch('setSelectionMode', '.begin-action');
 
-          const beginButton = document.querySelector('.begin-action');
-          const beginButtonText = beginButton.querySelector('a-entity');
+          const beginButtons = document.querySelectorAll('.begin-action');
 
-          beginButton.addEventListener('mouseenter', (e) => {
-              beginButtonText.setAttribute('material', 'color', 'red');
-          });
+          for (let beginButton of beginButtons) {
+            const beginButtonText = beginButton.querySelector('a-entity');
 
-          beginButton.addEventListener('mouseleave', (e) => {
-              beginButtonText.setAttribute('material', 'color', '#1fd7d5');
-          });
+            beginButton.addEventListener('mouseenter', (e) => {
+                beginButtonText.setAttribute('material', 'color', 'red');
+            });
 
-          beginButton.addEventListener('click', (e) => {
+            beginButton.addEventListener('mouseleave', (e) => {
+                beginButtonText.setAttribute('material', 'color', '#1fd7d5');
+            });
+          }
+
+          document.querySelector('.start-action').addEventListener('click', (e) => {
             document.querySelector('#menu1').setAttribute('visible', false);
 
             document.querySelector('#menu2').setAttribute('visible', true);
 
             dispatch('setSelectionMode', '.level-action');
+          });
+
+          document.querySelector('.credits-action').addEventListener('click', (e) => {
+            dispatch('setLevel', 'credits');
           });
 
           const levelsButton = document.querySelectorAll('.level-action');

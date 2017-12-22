@@ -37,6 +37,7 @@ AFRAME.registerComponent('player', {
         laser.setAttribute('raycaster', 'objects', selectionMode);
       } else {
         laser.setAttribute('visible', false);
+        laser.removeAttribute('raycaster');
       }
     });
 
@@ -63,7 +64,7 @@ AFRAME.registerComponent('player', {
     .distinctUntilChanged()
     .subscribe((level) => {
       loadScene(`/levels/${level}.html`);
-    });    
+    });
 
     this.orientationEvent();
     this.pauseEvent();

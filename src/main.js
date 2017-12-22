@@ -9,6 +9,7 @@ import './components/player';
 import './components/score-end';
 import './components/sound-manager';
 import './components/entity-phase';
+import './components/credits';
 
 import './levels/test-level';
 import './levels/level-one';

@@ -1,0 +1,23 @@
+<a-entity credits>
+  <a-light type="ambient" color="#fff"></a-light>
+  <a-sky color="#000"></a-sky>
+  <a-cylinder id="ground" src="#groundGameOverTexture" radius="2" height="0.1"></a-cylinder>
+
+  <a-entity id="credits" position="-1.5 -2 -2">
+
+    <a-text value="Creditos" position="0 2.5 0"></a-text>
+    <a-text value="Dirección: Juanfran" position="0 2 0"></a-text>
+    <a-text value="Producción: Juanfran" position="0 1.5 0"></a-text>
+    <a-text value="Jefe de desarrollo: Juanfran" position="0 1 0"></a-text>
+    <a-text value="Desarrollo: Juanfran y Dani" position="0 0.5 0"></a-text>
+    <a-text value="Dirección artistica: Ramiro" position="0 0 0"></a-text>
+    <a-text value="Gracias a la Piweek" position="0 -0.5 0"></a-text>
+    <a-text value="por el premio al mejor proyecto" position="0 -0.8 0"></a-text>
+
+
+    <a-animation attribute="position"
+      dur="60000"
+      easing="linear"
+      to="0 30 0"></a-animation>
+  </a-entity>
+</a-entity>
