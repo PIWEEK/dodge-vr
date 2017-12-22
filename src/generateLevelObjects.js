@@ -75,11 +75,11 @@ export function startLevel(level, phases, options) {
         opacity: opacity,
         element: element,
         material: material,
-        elementAttributes: elementAttributes
+        elementAttributes: elementAttributes,
+        delay: delay
       };
 
       const levelEntity = generateTemplateBlock(levelOptions);
-
       levels.push({
         phase: levelEntity,
         options: levelOptions,
