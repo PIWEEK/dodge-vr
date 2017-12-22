@@ -57,13 +57,16 @@ AFRAME.registerComponent('main-menu-level', {
 
         const egg1 = document.querySelector('.egg1');
         const egg2 = document.querySelector('.egg2');
+        const comic = document.querySelector('.comic');
         let state = false;
 
         setInterval(() => {
           if (state) {
             egg2.setAttribute('visible', false);
             egg1.setAttribute('visible', true);
+            comic.setAttribute('visible', false);
           } else {
+            comic.setAttribute('visible', true);
             egg1.setAttribute('visible', false);
             egg2.setAttribute('visible', true);
           }
