@@ -45,22 +45,28 @@ AFRAME.registerComponent('hit', {
         !hitEl.parentNode.classList.contains('entityhit') &&
         !hitEl.classList.contains('hit')) {
 
-          // decrease player's lives when a new collision is detected
-          hitEl.classList.add('hit');
-          hitEl.parentNode.classList.add('entityhit')
-          dispatch('decreaseLives', 1);
+        // decrease player's lives when a new collision is detected
+        hitEl.classList.add('hit');
+        hitEl.parentNode.classList.add('entityhit')
+        dispatch('decreaseLives', 1);
 
-          // and play a hit sound
-          dispatch('setSound', {
-            src: '#hit',
-            autoplay: true,
-            loop: false});
+        // and play a hit sound
+        dispatch('setSound', {
+          src: '#hit',
+          autoplay: true,
+          loop: false});
 
       } else if (hitEl.classList.contains('bonus') && !hitEl.classList.contains('hit')) {
-          // the collision is with a bonus block, so, increase the score accordingly
-          hitEl.setAttribute('visible', false);
-          hitEl.classList.add('hit');
-          dispatch('increaseScore', 100);
+        // the collision is with a bonus block, so, increase the score accordingly
+        hitEl.setAttribute('visible', false);
+        hitEl.classList.add('hit');
+        dispatch('increaseScore', 100);
+
+        // and play the bonus sound
+        dispatch('setSound', {
+        src: '#bonus',
+        autoplay: true,
+        loop: false});
       }
     }
   });
