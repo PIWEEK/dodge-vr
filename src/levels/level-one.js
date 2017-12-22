@@ -736,7 +736,9 @@ AFRAME.registerComponent('level-one', {
         height: 2
       },
     }).then(() => {
-      dispatch('setShowScore', true);
+      if (!state.gameOver) {
+        dispatch('setShowScore', true);
+      }
     })
   }
 });

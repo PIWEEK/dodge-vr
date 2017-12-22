@@ -742,7 +742,9 @@ AFRAME.registerComponent('level-three', {
         height: 2,
       },
     }).then(() => {
-      dispatch('setShowScore', true);
+      if (!state.gameOver) {
+        dispatch('setShowScore', true);
+      }
     })
   }
 });

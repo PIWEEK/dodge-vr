@@ -37,7 +37,6 @@ AFRAME.registerComponent('player', {
         laser.setAttribute('raycaster', 'objects', selectionMode);
       } else {
         laser.setAttribute('visible', false);
-        laser.removeAttribute('raycaster');
       }
     });
 
