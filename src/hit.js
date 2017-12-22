@@ -19,18 +19,11 @@ AFRAME.registerComponent('hit', {
 
       this.hitInProgress = !!hitEl;
 
-      if (this.hitInProgress) {
-        this.el.setAttribute('material', 'color: red')
-      } else {
+      if (!this.hitInProgress) {
         this.el.setAttribute('material', 'color: white')
-      }
 
-      if (this.el.getAttribute('id') === 'head') {
-        const blood = document.querySelector('.player-blood');
-
-        if (this.hitInProgress) {
-          blood.setAttribute('visible', true);
-        } else {
+        if (this.el.getAttribute('id') === 'head') {
+          const blood = document.querySelector('.player-blood');
           blood.setAttribute('visible', false);
         }
       }
@@ -39,6 +32,23 @@ AFRAME.registerComponent('hit', {
         // disable the sound component, in order to reuse it again after a new collision
         dispatch('setSound', null);
         return;
+      }
+
+      const parentClass = hitEl.parentNode.classList;
+
+      if (parentClass.contains('entity-phase')) {
+        if (!hitEl.parentNode.classList.contains('enable-hit')) return;
+      }
+
+
+      if (this.hitInProgress) {
+        this.el.setAttribute('material', 'color: red');
+
+        if (this.el.getAttribute('id') === 'head' && hitEl.classList.contains('block')) {
+          const blood = document.querySelector('.player-blood');
+
+          blood.setAttribute('visible', true);
+        }
       }
 
       if (hitEl.classList.contains('block') &&

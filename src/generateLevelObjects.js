@@ -98,6 +98,8 @@ export function startLevel(level, phases, options) {
         if (currentLevel + 1 < phases.length) {
           currentLevel++;
 
+          levelEntity.classList.add('enable-hit');
+
           setTimeout(generateLevel, options.delay);
         } else {
           setTimeout(resolve, options.dur);
