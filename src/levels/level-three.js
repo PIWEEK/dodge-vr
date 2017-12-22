@@ -722,7 +722,7 @@ const phases = [
 
 AFRAME.registerComponent('level-three', {
   init: function() {
-    dispatch('setLives', 300);
+    dispatch('setLives', 10);
 
     document.querySelector('#floor')
     .setAttribute('width', state.vrDisplay.stageParameters.sizeX);
