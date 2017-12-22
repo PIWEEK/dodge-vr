@@ -58,6 +58,7 @@ AFRAME.registerComponent('hit', {
 
       } else if (hitEl.classList.contains('bonus') && !hitEl.classList.contains('hit')) {
           // the collision is with a bonus block, so, increase the score accordingly
+          hitEl.setAttribute('visible', false);
           hitEl.classList.add('hit');
           dispatch('increaseScore', 100);
       }
