@@ -17,7 +17,8 @@ module.exports = {
       'aframe-extras',
       'aframe-environment-component',
       'aframe-text-geometry-component',
-      'rxjs'
+      'rxjs',
+      'aframe-stereo-component'
     ],
     main: './src/main.js'
   },

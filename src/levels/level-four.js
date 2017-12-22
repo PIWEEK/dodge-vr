@@ -445,7 +445,7 @@ AFRAME.registerComponent('level-four', {
     dispatch('setSound', {
       src: '#song_last',
       autoplay: true
-  });
+    });
 
     document.querySelector('#ground')
     .setAttribute('width', state.vrDisplay.stageParameters.sizeX);

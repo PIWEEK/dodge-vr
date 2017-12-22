@@ -27,6 +27,8 @@
             <audio id="hit" src="/assets/hit.wav"></audio>
             <audio id="miss" src="/assets/miss.wav"></audio>
             <audio id="win" src="/assets/win.wav"></audio>
+
+            <video id="video1" autoplay loop="true" src="http://10.8.1.139:3000/2.mp4"></video>
           </a-assets>
 
           <a-entity id="songPlayer" song-manager class="song"></a-entity>
@@ -62,7 +64,7 @@
                   data-aframe-default-camera
                   look-controls>
                     <a-cursor></a-cursor>
-                    
+
                     <a-image class="player-blood" visible="false" src="#blood" position="0 0 -0.45"></a-image>
 
                     <a-sphere
