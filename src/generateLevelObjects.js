@@ -1,4 +1,5 @@
 import { systemEmmiter } from './utils/system';
+import { dispatch } from './utils/state';
 
 function randomIntFromInterval(min,max) {
     return Math.floor(Math.random()*(max-min+1)+min);
@@ -88,6 +89,7 @@ export function startLevel(level, phases, options) {
 
 
     const generateLevel = () => {
+      dispatch('setPhase', currentLevel);
       const levelEntity = levels[currentLevel].phase;
       const options = levels[currentLevel].options;
       const animations = levels[currentLevel].animations;
@@ -107,7 +109,7 @@ export function startLevel(level, phases, options) {
       const distance = to - from;
       const speed = options.dur * options.depth / distance;
 
-      setTimeout(exit, speed)
+      setTimeout(exit, speed);
 
       requestAnimationFrame(() => {
         level.appendChild(levelEntity);
@@ -129,7 +131,7 @@ export function startLevel(level, phases, options) {
       // debugEnd.setAttribute('color', 'blue')
       // debugEnd.setAttribute('position', '0 0 20')
       // debugEnd.setAttribute('material', 'opacity: 0.2');
-      // level.appendChild(debugEnd); 
+      // level.appendChild(debugEnd);
     }
 
     generateLevel();

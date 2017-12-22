@@ -1,4 +1,4 @@
-import { dispatch, state } from '../utils/state';
+import { dispatch, state, getState } from '../utils/state';
 import { systemEmmiter } from '../utils/system';
 import { startLevel, generateRandomLevel, generateRandomBlock, generateTemplateBlock } from '../generateLevelObjects';
 
@@ -247,7 +247,7 @@ const phases = [
   },
   {
     template: `
-      ----  
+      ----
       xxxx
       ----
       xxxx
@@ -284,7 +284,7 @@ const phases = [
       delay: 25,
       depth: 40,
       opacity: 1,
-      
+
     }
   },
   {
@@ -300,7 +300,7 @@ const phases = [
       delay: 25,
       depth: 40,
       opacity: 1,
-      
+
     }
   },
   {
@@ -448,7 +448,7 @@ const phases = [
     `,
     options: {
       delay: 25,
-      deep: 2      
+      deep: 2
     }
   },
   {
@@ -460,7 +460,7 @@ const phases = [
     `,
     options: {
       delay: 25,
-      deep: 2      
+      deep: 2
     }
   },
   {
@@ -472,7 +472,7 @@ const phases = [
     `,
     options: {
       delay: 25,
-      deep: 2      
+      deep: 2
     }
   },
   {
@@ -484,7 +484,7 @@ const phases = [
     `,
     options: {
       delay: 25,
-      deep: 2      
+      deep: 2
     }
   },
   {
@@ -496,7 +496,7 @@ const phases = [
     `,
     options: {
       delay: 25,
-      deep: 2      
+      deep: 2
     }
   },
   {
@@ -508,7 +508,7 @@ const phases = [
     `,
     options: {
       delay: 25,
-      deep: 2      
+      deep: 2
     }
   },
   {
@@ -520,19 +520,7 @@ const phases = [
     `,
     options: {
       delay: 25,
-      deep: 2      
-    }
-  },
-  {
-    template: `
-      x--x
-      ----
-      ----
-      x--x
-    `,
-    options: {
-      delay: 25, 
-      deep: 2      
+      deep: 2
     }
   },
   {
@@ -544,7 +532,7 @@ const phases = [
     `,
     options: {
       delay: 25,
-      deep: 2      
+      deep: 2
     }
   },
   {
@@ -556,7 +544,7 @@ const phases = [
     `,
     options: {
       delay: 25,
-      deep: 2      
+      deep: 2
     }
   },
   {
@@ -568,7 +556,19 @@ const phases = [
     `,
     options: {
       delay: 25,
-      deep: 2      
+      deep: 2
+    }
+  },
+  {
+    template: `
+      x--x
+      ----
+      ----
+      x--x
+    `,
+    options: {
+      delay: 25,
+      deep: 2
     }
   },
   {
@@ -580,7 +580,7 @@ const phases = [
     `,
     options: {
       delay: 50,
-      deep: 2      
+      deep: 2
     }
   },{
     template: `
@@ -591,7 +591,7 @@ const phases = [
     `,
     options: {
       delay: 50,
-      deep: 2      
+      deep: 2
     }
   },
   {
@@ -603,7 +603,7 @@ const phases = [
     `,
     options: {
       delay: 50,
-      deep: 2      
+      deep: 2
     }
   },
   {
@@ -615,7 +615,7 @@ const phases = [
     `,
     options: {
       delay: 50,
-      deep: 2      
+      deep: 2
     }
   },
   {
@@ -627,7 +627,7 @@ const phases = [
     `,
     options: {
       delay: 50,
-      deep: 2      
+      deep: 2
     }
   },
   {
@@ -639,7 +639,7 @@ const phases = [
     `,
     options: {
       delay: 50,
-      deep: 2      
+      deep: 2
     }
   },
   {
@@ -651,7 +651,7 @@ const phases = [
     `,
     options: {
       delay: 50,
-      deep: 2      
+      deep: 2
     }
   },
   {
@@ -663,7 +663,7 @@ const phases = [
     `,
     options: {
       delay: 75,
-      deep: 2      
+      deep: 2
     }
   },
   {
@@ -675,7 +675,7 @@ const phases = [
     `,
     options: {
       delay: 75,
-      deep: 2      
+      deep: 2
     }
   },
   {
@@ -687,7 +687,7 @@ const phases = [
     `,
     options: {
       delay: 75,
-      deep: 2      
+      deep: 2
     }
   },
 ]
@@ -702,6 +702,15 @@ AFRAME.registerComponent('level-one', {
 
     document.querySelector('#ground')
     .setAttribute('width', state.vrDisplay.stageParameters.sizeX);
+
+
+    getState()
+      .map((state) => state.phase)
+      .distinctUntilChanged()
+      .subscribe((phase) => {
+        // when the phase appears
+        // console.log(phase);
+      });
 
     this.scene = document.querySelector('a-scene');
     this.level = this.scene.querySelector('.level');

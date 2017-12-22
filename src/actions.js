@@ -57,3 +57,7 @@ registerAction('setSong', (state, payload) => {
 registerAction('setLevel', (state, payload) => {
   state.level = payload;
 });
+
+registerAction('setPhase', (state, payload) => {
+  state.phase = payload;
+});

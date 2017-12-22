@@ -17,7 +17,8 @@ const defaultState = {
   gamePaused: false,
   song: null,
   sound: null,
-  level: 'level-two'
+  level: 'level-one',
+  phase: null
 };
 
 export const createState = () => {
