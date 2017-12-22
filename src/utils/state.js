@@ -17,7 +17,7 @@ const defaultState = {
   gamePaused: false,
   song: null,
   sound: null,
-  level: 'main-menu',
+  level: 'level-three',
   phase: null
 };
 

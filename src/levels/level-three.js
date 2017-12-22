@@ -22,11 +22,11 @@ const phases = [
       xx--
       `,
     options: {
-      delay: 800,
+      delay: 1000,
       animations: [
         {
           attribute: 'rotation',
-          dur: 600,
+          dur: 1800,
           ease: 'linear',
           fill: 'forwards',
           to: "0 0 90",
@@ -43,11 +43,11 @@ const phases = [
       xx--
       `,
     options: {
-      delay: 800,
+      delay: 1000,
       animations: [
         {
           attribute: 'rotation',
-          dur: 600,
+          dur: 1800,
           ease: 'linear',
           fill: 'forwards',
           to: "0 0 -90",
@@ -64,11 +64,11 @@ const phases = [
       xx--
       `,
     options: {
-      delay: 800,
+      delay: 1000,
       animations: [
         {
           attribute: 'rotation',
-          dur: 600,
+          dur: 1800,
           ease: 'linear',
           fill: 'forwards',
           to: "0 0 180",
@@ -86,12 +86,12 @@ const phases = [
       --xx
       `,
     options: {
-      delay: 300,
+      delay: 1000,
       depth: 10,
       animations: [
         {
           attribute: 'rotation',
-          dur: 600,
+          dur: 1800,
           ease: 'linear',
           fill: 'forwards',
           to: "0 0 90",
@@ -109,7 +109,7 @@ const phases = [
       xxxx
       `,
     options: {
-      delay: 300,
+      delay: 1000,
       depth: 20,
 
     }
@@ -123,7 +123,7 @@ const phases = [
       xxxx
       `,
     options: {
-      delay: 300,
+      delay: 500,
       depth: 10,
     }
   },
@@ -290,7 +290,7 @@ const phases = [
       xxxxxxxx
       `,
     options: {
-      delay: 200,
+      delay: 400,
       depth: 10,
     }
   },
@@ -303,7 +303,7 @@ const phases = [
       xxxxxxxx
       `,
     options: {
-      delay: 600,
+      delay: 1000,
       depth: 10,
     }
   },
@@ -316,7 +316,7 @@ const phases = [
       xx--xxxx
       `,
     options: {
-      delay: 600,
+      delay: 1000,
       depth: 10,
     }
   },
@@ -354,7 +354,7 @@ const phases = [
       xxxx
       `,
     options: {
-      delay: 800,
+      delay: 1000,
       depth: 15,
     }
   },
@@ -366,12 +366,12 @@ const phases = [
       xxxx
       `,
     options: {
-      delay: 800,
+      delay: 1000,
       depth: 15,
       animations: [
         {
           attribute: 'rotation',
-          dur: 600,
+          dur: 1200,
           ease: 'linear',
           fill: 'forwards',
           to: "0 0 90",
@@ -382,18 +382,40 @@ const phases = [
   },
   {
     template: `
-      x--x
-      x--x
       xxxx
       xxxx
+      x--x
+      x--x
       `,
     options: {
-      delay: 800,
+      delay: 1000,
       depth: 15,
       animations: [
         {
           attribute: 'rotation',
-          dur: 600,
+          dur: 1200,
+          ease: 'linear',
+          fill: 'forwards',
+          to: "0 0 90",
+          repeat: "0"
+        }
+      ]
+    }
+  },
+  {
+    template: `
+      xxxx
+      xx--
+      xx--
+      xxxx
+      `,
+    options: {
+      delay: 1000,
+      depth: 15,
+      animations: [
+        {
+          attribute: 'rotation',
+          dur: 1200,
           ease: 'linear',
           fill: 'forwards',
           to: "0 0 -90",
@@ -410,15 +432,15 @@ const phases = [
       xxxx
       `,
     options: {
-      delay: 800,
+      delay: 1000,
       depth: 15,
       animations: [
         {
           attribute: 'rotation',
-          dur: 600,
+          dur: 1200,
           ease: 'linear',
           fill: 'forwards',
-          to: "0 0 -90",
+          to: "0 0 90",
           repeat: "0"
         }
       ]
@@ -426,32 +448,11 @@ const phases = [
   },
   {
     template: `
-      xxxx
-      xx--
-      xx--
-      xxxx
-      `,
-    options: {
-      delay: 800,
-      depth: 15,
-      animations: [
-        {
-          attribute: 'rotation',
-          dur: 600,
-          ease: 'linear',
-          fill: 'forwards',
-          to: "0 0 270",
-          repeat: "0"
-        }
-      ]
-    }
-  },
-  {
-    template: `
-      xxxx
-      xxxx
-      xx--
-      xx--
+      xxxxx
+      xxxx-
+      xxx--
+      xx---
+      x----
       `,
     options: {
       delay: 240,
@@ -459,7 +460,7 @@ const phases = [
       animations: [
         {
           attribute: 'rotation',
-          dur: 3000,
+          dur: 12000,
           ease: 'linear',
           fill: 'forwards',
           to: "0 0 -360",
@@ -481,18 +482,19 @@ const phases = [
   },
   {
     template: `
-      xxxx
-      xxxx
-      x--x
-      x--x
-      `,
+    xxxxx
+    xxxxx
+    x---x
+    x---x
+    -----
+    `,
     options: {
-      delay: 800,
-      depth: 15,
+      delay: 1000,
+      depth: 90,
       animations: [
         {
           attribute: 'rotation',
-          dur: 3000,
+          dur: 12000,
           ease: 'linear',
           fill: 'forwards',
           to: "0 0 -360",
@@ -515,18 +517,19 @@ const phases = [
   },
   {
     template: `
-      xxxx
-      xxxx
-      --xx
-      --xx
+    xxxxx
+    -xxxx
+    --xxx
+    ---xx
+    ----x
       `,
     options: {
       delay: 1200,
-      depth: 15,
+      depth: 90,
       animations: [
         {
           attribute: 'rotation',
-          dur: 3000,
+          dur: 12000,
           ease: 'linear',
           fill: 'forwards',
           to: "0 0 -360",
@@ -557,7 +560,7 @@ const phases = [
       xx-xx
       `,
     options: {
-      delay: 300,
+      delay: 500,
       depth: 45,
     }
   },
@@ -569,7 +572,7 @@ const phases = [
       x---
       `,
     options: {
-      delay: 200,
+      delay: 400,
       depth: 20,
     }
   },
@@ -581,7 +584,7 @@ const phases = [
       ---x
       `,
     options: {
-      delay: 200,
+      delay: 400,
       depth: 20,
     }
   },
@@ -593,7 +596,7 @@ const phases = [
       --x-
       `,
     options: {
-      delay: 200,
+      delay: 400,
       depth: 20,
     }
   },
@@ -605,7 +608,7 @@ const phases = [
       ----
       `,
     options: {
-      delay: 200,
+      delay: 400,
       depth: 20,
     }
   },
@@ -617,7 +620,7 @@ const phases = [
       --x-
       `,
     options: {
-      delay: 200,
+      delay: 400,
       depth: 20,
     }
   },
@@ -629,7 +632,7 @@ const phases = [
       ----
       `,
     options: {
-      delay: 200,
+      delay: 400,
       depth: 20,
     }
   },
@@ -641,18 +644,18 @@ const phases = [
       ---x
       `,
     options: {
-      delay: 200,
+      delay: 400,
       depth: 20,
     }
   },
   {
     template: `
-      p----x-
-      --x--x-
-      -x---x-
-      -x--x--
-      -x-----
-      ------p
+      p-----x-
+      --x---x-
+      -x----x-
+      -x---x--
+      -x------
+      -------p
       `,
     options: {
       delay: 900,
@@ -730,9 +733,10 @@ AFRAME.registerComponent('level-three', {
     startLevel(this.level, phases, {
       delay: 1000,
       creationPosition: -100,
-      dur: 2500,
+      dur: 4000,
       depth: 10,
       opacity: 1,
+      material: 'src: #cubeRed',
       playArea: {
         width: state.vrDisplay.stageParameters.sizeX,
         height: 2,

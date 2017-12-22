@@ -678,8 +678,9 @@ AFRAME.registerComponent('level-two', {
     startLevel(this.level, phases, {
       delay: 1000,
       creationPosition: -100,
-      dur: 3000,
+      dur: 5000,
       opacity: 1,
+      material: 'src: #cubeGreen',      
       playArea: {
         width: state.vrDisplay.stageParameters.sizeX,
         height: 2
