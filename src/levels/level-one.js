@@ -236,7 +236,7 @@ const phases = [
   },
   {
     template: `
-      xxxx  
+      xxxx
       ----
       ----
       xxxx
@@ -705,7 +705,7 @@ const phases = [
 
 AFRAME.registerComponent('level-one', {
   init: function() {
-    dispatch('setLives', 300);
+    dispatch('setLives', 10);
     dispatch('setSound', {
         src: '#song',
         autoplay: true

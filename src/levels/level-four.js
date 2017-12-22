@@ -441,7 +441,7 @@ const phases = [
 
 AFRAME.registerComponent('level-four', {
   init: function() {
-    dispatch('setLives', 300);
+    dispatch('setLives', 10);
     dispatch('setSound', {
       src: '#song_last',
       autoplay: true

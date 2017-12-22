@@ -663,7 +663,7 @@ const phases = [
 
 AFRAME.registerComponent('level-two', {
   init: function() {
-    dispatch('setLives', 300);
+    dispatch('setLives', 10);
     dispatch('setSong', {
       src: '#song',
       autoplay: true
@@ -680,7 +680,7 @@ AFRAME.registerComponent('level-two', {
       creationPosition: -100,
       dur: 5000,
       opacity: 1,
-      material: 'src: #cubeGreen',      
+      material: 'src: #cubeGreen',
       playArea: {
         width: state.vrDisplay.stageParameters.sizeX,
         height: 2
