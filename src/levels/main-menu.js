@@ -47,5 +47,21 @@ AFRAME.registerComponent('main-menu-level', {
           }
 
         }, 1000); // TODO WHY?
+
+        const egg1 = document.querySelector('.egg1');
+        const egg2 = document.querySelector('.egg2');
+        let state = false;
+
+        setInterval(() => {
+          if (state) {
+            egg2.setAttribute('visible', false);
+            egg1.setAttribute('visible', true);
+          } else {
+            egg1.setAttribute('visible', false);
+            egg2.setAttribute('visible', true);
+          }
+
+          state = !state;
+        }, 1000);
     }
   });
