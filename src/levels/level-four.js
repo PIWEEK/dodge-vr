@@ -447,7 +447,7 @@ AFRAME.registerComponent('level-four', {
       autoplay: true
     });
 
-    document.querySelector('#ground')
+    document.querySelector('#floor')
     .setAttribute('width', state.vrDisplay.stageParameters.sizeX);
 
     this.scene = document.querySelector('a-scene');

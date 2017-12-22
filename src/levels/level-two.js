@@ -489,7 +489,7 @@ const phases = [
       depth: 2,
       opacity: 0.5
     }
-  }, 
+  },
   {
     template: `
     --xxxxxx
@@ -669,8 +669,8 @@ AFRAME.registerComponent('level-two', {
       autoplay: true
     });
 
-    document.querySelector('#ground')
-    .setAttribute('width', state.vrDisplay.stageParameters.sizeX);
+    document.querySelector('#floor')
+      .setAttribute('width', state.vrDisplay.stageParameters.sizeX);
 
     this.scene = document.querySelector('a-scene');
     this.level = this.scene.querySelector('.level');

@@ -111,7 +111,7 @@ const phases = [
     options: {
       delay: 300,
       depth: 20,
-      
+
     }
   },
   {
@@ -499,7 +499,7 @@ const phases = [
           repeat: "0"
         }
       ]
-      
+
     }
   },
   {
@@ -721,7 +721,7 @@ AFRAME.registerComponent('level-three', {
   init: function() {
     dispatch('setLives', 300);
 
-    document.querySelector('#ground')
+    document.querySelector('#floor')
     .setAttribute('width', state.vrDisplay.stageParameters.sizeX);
 
     this.scene = document.querySelector('a-scene');
@@ -732,7 +732,7 @@ AFRAME.registerComponent('level-three', {
       creationPosition: -100,
       dur: 2500,
       depth: 10,
-      opacity: 1,      
+      opacity: 1,
       playArea: {
         width: state.vrDisplay.stageParameters.sizeX,
         height: 2,

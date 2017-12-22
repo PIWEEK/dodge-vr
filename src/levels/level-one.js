@@ -700,7 +700,7 @@ AFRAME.registerComponent('level-one', {
         autoplay: true
     });
 
-    document.querySelector('#ground')
+    document.querySelector('#floor')
     .setAttribute('width', state.vrDisplay.stageParameters.sizeX);
 
 
